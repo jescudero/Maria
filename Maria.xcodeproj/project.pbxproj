@@ -1,0 +1,540 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4DCF205C19D9DD3500915124 /* Armario.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DCF204719D9DD3500915124 /* Armario.m */; };
+		4DCF205D19D9DD3500915124 /* CicloVida.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DCF204919D9DD3500915124 /* CicloVida.m */; };
+		4DCF205E19D9DD3500915124 /* Cultivo.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DCF204B19D9DD3500915124 /* Cultivo.m */; };
+		4DCF205F19D9DD3500915124 /* Evento.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DCF204D19D9DD3500915124 /* Evento.m */; };
+		4DCF206019D9DD3500915124 /* Fertilizante.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DCF204F19D9DD3500915124 /* Fertilizante.m */; };
+		4DCF206119D9DD3500915124 /* Luces.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DCF205119D9DD3500915124 /* Luces.m */; };
+		4DCF206219D9DD3500915124 /* Maria.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4DCF205219D9DD3500915124 /* Maria.xcdatamodeld */; };
+		4DCF206319D9DD3500915124 /* PeriodoLuz.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DCF205519D9DD3500915124 /* PeriodoLuz.m */; };
+		4DCF206419D9DD3500915124 /* Planta.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DCF205719D9DD3500915124 /* Planta.m */; };
+		4DCF206519D9DD3500915124 /* Riego.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DCF205919D9DD3500915124 /* Riego.m */; };
+		4DCF206619D9DD3500915124 /* Usuario.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DCF205B19D9DD3500915124 /* Usuario.m */; };
+		4DCF206F19D9DD8600915124 /* InitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DCF206919D9DD8600915124 /* InitialViewController.m */; };
+		4DCF207019D9DD8600915124 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DCF206B19D9DD8600915124 /* LoginViewController.m */; };
+		4DCF207119D9DD8600915124 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DCF206C19D9DD8600915124 /* Main.storyboard */; };
+		4DCF207219D9DD8600915124 /* NewUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DCF206E19D9DD8600915124 /* NewUserViewController.m */; };
+		4DCF207519D9DF2300915124 /* CultivosTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DCF207419D9DF2300915124 /* CultivosTableViewController.m */; };
+		4DEAAF3319D59D7D00E3FDDA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DEAAF3219D59D7D00E3FDDA /* main.m */; };
+		4DEAAF3619D59D7D00E3FDDA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DEAAF3519D59D7D00E3FDDA /* AppDelegate.m */; };
+		4DEAAF4119D59D7D00E3FDDA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DEAAF4019D59D7D00E3FDDA /* Images.xcassets */; };
+		4DEAAF4419D59D7D00E3FDDA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DEAAF4219D59D7D00E3FDDA /* LaunchScreen.xib */; };
+		4DEAAF5019D59D7D00E3FDDA /* MariaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DEAAF4F19D59D7D00E3FDDA /* MariaTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4DEAAF4A19D59D7D00E3FDDA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4DEAAF2519D59D7D00E3FDDA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4DEAAF2C19D59D7D00E3FDDA;
+			remoteInfo = Maria;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		4DCF204619D9DD3500915124 /* Armario.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Armario.h; sourceTree = "<group>"; };
+		4DCF204719D9DD3500915124 /* Armario.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Armario.m; sourceTree = "<group>"; };
+		4DCF204819D9DD3500915124 /* CicloVida.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CicloVida.h; sourceTree = "<group>"; };
+		4DCF204919D9DD3500915124 /* CicloVida.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CicloVida.m; sourceTree = "<group>"; };
+		4DCF204A19D9DD3500915124 /* Cultivo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cultivo.h; sourceTree = "<group>"; };
+		4DCF204B19D9DD3500915124 /* Cultivo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cultivo.m; sourceTree = "<group>"; };
+		4DCF204C19D9DD3500915124 /* Evento.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Evento.h; sourceTree = "<group>"; };
+		4DCF204D19D9DD3500915124 /* Evento.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Evento.m; sourceTree = "<group>"; };
+		4DCF204E19D9DD3500915124 /* Fertilizante.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Fertilizante.h; sourceTree = "<group>"; };
+		4DCF204F19D9DD3500915124 /* Fertilizante.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Fertilizante.m; sourceTree = "<group>"; };
+		4DCF205019D9DD3500915124 /* Luces.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Luces.h; sourceTree = "<group>"; };
+		4DCF205119D9DD3500915124 /* Luces.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Luces.m; sourceTree = "<group>"; };
+		4DCF205319D9DD3500915124 /* Maria.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Maria.xcdatamodel; sourceTree = "<group>"; };
+		4DCF205419D9DD3500915124 /* PeriodoLuz.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PeriodoLuz.h; sourceTree = "<group>"; };
+		4DCF205519D9DD3500915124 /* PeriodoLuz.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PeriodoLuz.m; sourceTree = "<group>"; };
+		4DCF205619D9DD3500915124 /* Planta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Planta.h; sourceTree = "<group>"; };
+		4DCF205719D9DD3500915124 /* Planta.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Planta.m; sourceTree = "<group>"; };
+		4DCF205819D9DD3500915124 /* Riego.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Riego.h; sourceTree = "<group>"; };
+		4DCF205919D9DD3500915124 /* Riego.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Riego.m; sourceTree = "<group>"; };
+		4DCF205A19D9DD3500915124 /* Usuario.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Usuario.h; sourceTree = "<group>"; };
+		4DCF205B19D9DD3500915124 /* Usuario.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Usuario.m; sourceTree = "<group>"; };
+		4DCF206819D9DD8600915124 /* InitialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitialViewController.h; sourceTree = "<group>"; };
+		4DCF206919D9DD8600915124 /* InitialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitialViewController.m; sourceTree = "<group>"; };
+		4DCF206A19D9DD8600915124 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		4DCF206B19D9DD8600915124 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		4DCF206C19D9DD8600915124 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		4DCF206D19D9DD8600915124 /* NewUserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewUserViewController.h; sourceTree = "<group>"; };
+		4DCF206E19D9DD8600915124 /* NewUserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewUserViewController.m; sourceTree = "<group>"; };
+		4DCF207319D9DF2300915124 /* CultivosTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CultivosTableViewController.h; sourceTree = "<group>"; };
+		4DCF207419D9DF2300915124 /* CultivosTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CultivosTableViewController.m; sourceTree = "<group>"; };
+		4DEAAF2D19D59D7D00E3FDDA /* Maria.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Maria.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4DEAAF3119D59D7D00E3FDDA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4DEAAF3219D59D7D00E3FDDA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4DEAAF3419D59D7D00E3FDDA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		4DEAAF3519D59D7D00E3FDDA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		4DEAAF4019D59D7D00E3FDDA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		4DEAAF4319D59D7D00E3FDDA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		4DEAAF4919D59D7D00E3FDDA /* MariaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MariaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4DEAAF4E19D59D7D00E3FDDA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4DEAAF4F19D59D7D00E3FDDA /* MariaTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MariaTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4DEAAF2A19D59D7D00E3FDDA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4DEAAF4619D59D7D00E3FDDA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4DCF202619D9AAC800915124 /* DataAccess */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = DataAccess;
+			sourceTree = "<group>";
+		};
+		4DCF204519D9DD3500915124 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4DCF205219D9DD3500915124 /* Maria.xcdatamodeld */,
+				4DCF204619D9DD3500915124 /* Armario.h */,
+				4DCF204719D9DD3500915124 /* Armario.m */,
+				4DCF204819D9DD3500915124 /* CicloVida.h */,
+				4DCF204919D9DD3500915124 /* CicloVida.m */,
+				4DCF204A19D9DD3500915124 /* Cultivo.h */,
+				4DCF204B19D9DD3500915124 /* Cultivo.m */,
+				4DCF204C19D9DD3500915124 /* Evento.h */,
+				4DCF204D19D9DD3500915124 /* Evento.m */,
+				4DCF204E19D9DD3500915124 /* Fertilizante.h */,
+				4DCF204F19D9DD3500915124 /* Fertilizante.m */,
+				4DCF205019D9DD3500915124 /* Luces.h */,
+				4DCF205119D9DD3500915124 /* Luces.m */,
+				4DCF205419D9DD3500915124 /* PeriodoLuz.h */,
+				4DCF205519D9DD3500915124 /* PeriodoLuz.m */,
+				4DCF205619D9DD3500915124 /* Planta.h */,
+				4DCF205719D9DD3500915124 /* Planta.m */,
+				4DCF205819D9DD3500915124 /* Riego.h */,
+				4DCF205919D9DD3500915124 /* Riego.m */,
+				4DCF205A19D9DD3500915124 /* Usuario.h */,
+				4DCF205B19D9DD3500915124 /* Usuario.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4DCF206719D9DD8600915124 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				4DCF206819D9DD8600915124 /* InitialViewController.h */,
+				4DCF206919D9DD8600915124 /* InitialViewController.m */,
+				4DCF206A19D9DD8600915124 /* LoginViewController.h */,
+				4DCF206B19D9DD8600915124 /* LoginViewController.m */,
+				4DCF206C19D9DD8600915124 /* Main.storyboard */,
+				4DCF206D19D9DD8600915124 /* NewUserViewController.h */,
+				4DCF206E19D9DD8600915124 /* NewUserViewController.m */,
+				4DCF207319D9DF2300915124 /* CultivosTableViewController.h */,
+				4DCF207419D9DF2300915124 /* CultivosTableViewController.m */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		4DEAAF2419D59D7C00E3FDDA = {
+			isa = PBXGroup;
+			children = (
+				4DEAAF2F19D59D7D00E3FDDA /* Maria */,
+				4DEAAF4C19D59D7D00E3FDDA /* MariaTests */,
+				4DEAAF2E19D59D7D00E3FDDA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4DEAAF2E19D59D7D00E3FDDA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4DEAAF2D19D59D7D00E3FDDA /* Maria.app */,
+				4DEAAF4919D59D7D00E3FDDA /* MariaTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4DEAAF2F19D59D7D00E3FDDA /* Maria */ = {
+			isa = PBXGroup;
+			children = (
+				4DCF206719D9DD8600915124 /* ViewControllers */,
+				4DCF204519D9DD3500915124 /* Model */,
+				4DCF202619D9AAC800915124 /* DataAccess */,
+				4DEAAF3419D59D7D00E3FDDA /* AppDelegate.h */,
+				4DEAAF3519D59D7D00E3FDDA /* AppDelegate.m */,
+				4DEAAF4019D59D7D00E3FDDA /* Images.xcassets */,
+				4DEAAF4219D59D7D00E3FDDA /* LaunchScreen.xib */,
+				4DEAAF3019D59D7D00E3FDDA /* Supporting Files */,
+			);
+			path = Maria;
+			sourceTree = "<group>";
+		};
+		4DEAAF3019D59D7D00E3FDDA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4DEAAF3119D59D7D00E3FDDA /* Info.plist */,
+				4DEAAF3219D59D7D00E3FDDA /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4DEAAF4C19D59D7D00E3FDDA /* MariaTests */ = {
+			isa = PBXGroup;
+			children = (
+				4DEAAF4F19D59D7D00E3FDDA /* MariaTests.m */,
+				4DEAAF4D19D59D7D00E3FDDA /* Supporting Files */,
+			);
+			path = MariaTests;
+			sourceTree = "<group>";
+		};
+		4DEAAF4D19D59D7D00E3FDDA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4DEAAF4E19D59D7D00E3FDDA /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4DEAAF2C19D59D7D00E3FDDA /* Maria */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4DEAAF5319D59D7D00E3FDDA /* Build configuration list for PBXNativeTarget "Maria" */;
+			buildPhases = (
+				4DEAAF2919D59D7D00E3FDDA /* Sources */,
+				4DEAAF2A19D59D7D00E3FDDA /* Frameworks */,
+				4DEAAF2B19D59D7D00E3FDDA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Maria;
+			productName = Maria;
+			productReference = 4DEAAF2D19D59D7D00E3FDDA /* Maria.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4DEAAF4819D59D7D00E3FDDA /* MariaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4DEAAF5619D59D7D00E3FDDA /* Build configuration list for PBXNativeTarget "MariaTests" */;
+			buildPhases = (
+				4DEAAF4519D59D7D00E3FDDA /* Sources */,
+				4DEAAF4619D59D7D00E3FDDA /* Frameworks */,
+				4DEAAF4719D59D7D00E3FDDA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4DEAAF4B19D59D7D00E3FDDA /* PBXTargetDependency */,
+			);
+			name = MariaTests;
+			productName = MariaTests;
+			productReference = 4DEAAF4919D59D7D00E3FDDA /* MariaTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4DEAAF2519D59D7D00E3FDDA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+				ORGANIZATIONNAME = "Juan Escudero";
+				TargetAttributes = {
+					4DEAAF2C19D59D7D00E3FDDA = {
+						CreatedOnToolsVersion = 6.0;
+					};
+					4DEAAF4819D59D7D00E3FDDA = {
+						CreatedOnToolsVersion = 6.0;
+						TestTargetID = 4DEAAF2C19D59D7D00E3FDDA;
+					};
+				};
+			};
+			buildConfigurationList = 4DEAAF2819D59D7D00E3FDDA /* Build configuration list for PBXProject "Maria" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4DEAAF2419D59D7C00E3FDDA;
+			productRefGroup = 4DEAAF2E19D59D7D00E3FDDA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4DEAAF2C19D59D7D00E3FDDA /* Maria */,
+				4DEAAF4819D59D7D00E3FDDA /* MariaTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4DEAAF2B19D59D7D00E3FDDA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4DCF207119D9DD8600915124 /* Main.storyboard in Resources */,
+				4DEAAF4419D59D7D00E3FDDA /* LaunchScreen.xib in Resources */,
+				4DEAAF4119D59D7D00E3FDDA /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4DEAAF4719D59D7D00E3FDDA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4DEAAF2919D59D7D00E3FDDA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4DCF206419D9DD3500915124 /* Planta.m in Sources */,
+				4DCF206019D9DD3500915124 /* Fertilizante.m in Sources */,
+				4DCF205E19D9DD3500915124 /* Cultivo.m in Sources */,
+				4DEAAF3619D59D7D00E3FDDA /* AppDelegate.m in Sources */,
+				4DCF206319D9DD3500915124 /* PeriodoLuz.m in Sources */,
+				4DCF206F19D9DD8600915124 /* InitialViewController.m in Sources */,
+				4DEAAF3319D59D7D00E3FDDA /* main.m in Sources */,
+				4DCF205C19D9DD3500915124 /* Armario.m in Sources */,
+				4DCF206219D9DD3500915124 /* Maria.xcdatamodeld in Sources */,
+				4DCF206119D9DD3500915124 /* Luces.m in Sources */,
+				4DCF207519D9DF2300915124 /* CultivosTableViewController.m in Sources */,
+				4DCF207219D9DD8600915124 /* NewUserViewController.m in Sources */,
+				4DCF206619D9DD3500915124 /* Usuario.m in Sources */,
+				4DCF206519D9DD3500915124 /* Riego.m in Sources */,
+				4DCF205F19D9DD3500915124 /* Evento.m in Sources */,
+				4DCF205D19D9DD3500915124 /* CicloVida.m in Sources */,
+				4DCF207019D9DD8600915124 /* LoginViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4DEAAF4519D59D7D00E3FDDA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4DEAAF5019D59D7D00E3FDDA /* MariaTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4DEAAF4B19D59D7D00E3FDDA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4DEAAF2C19D59D7D00E3FDDA /* Maria */;
+			targetProxy = 4DEAAF4A19D59D7D00E3FDDA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		4DEAAF4219D59D7D00E3FDDA /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4DEAAF4319D59D7D00E3FDDA /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4DEAAF5119D59D7D00E3FDDA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		4DEAAF5219D59D7D00E3FDDA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4DEAAF5419D59D7D00E3FDDA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Maria/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		4DEAAF5519D59D7D00E3FDDA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Maria/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		4DEAAF5719D59D7D00E3FDDA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = MariaTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Maria.app/Maria";
+			};
+			name = Debug;
+		};
+		4DEAAF5819D59D7D00E3FDDA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = MariaTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Maria.app/Maria";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4DEAAF2819D59D7D00E3FDDA /* Build configuration list for PBXProject "Maria" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4DEAAF5119D59D7D00E3FDDA /* Debug */,
+				4DEAAF5219D59D7D00E3FDDA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4DEAAF5319D59D7D00E3FDDA /* Build configuration list for PBXNativeTarget "Maria" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4DEAAF5419D59D7D00E3FDDA /* Debug */,
+				4DEAAF5519D59D7D00E3FDDA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4DEAAF5619D59D7D00E3FDDA /* Build configuration list for PBXNativeTarget "MariaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4DEAAF5719D59D7D00E3FDDA /* Debug */,
+				4DEAAF5819D59D7D00E3FDDA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		4DCF205219D9DD3500915124 /* Maria.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				4DCF205319D9DD3500915124 /* Maria.xcdatamodel */,
+			);
+			currentVersion = 4DCF205319D9DD3500915124 /* Maria.xcdatamodel */;
+			path = Maria.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 4DEAAF2519D59D7D00E3FDDA /* Project object */;
+}

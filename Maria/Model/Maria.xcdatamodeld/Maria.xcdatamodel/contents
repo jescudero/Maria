@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6244" systemVersion="13E28" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Armario" representedClassName="Armario" syncable="YES">
+        <attribute name="alto" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="ancho" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="largo" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="nombre" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="fotoPeriodo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PeriodoLuz" syncable="YES"/>
+        <relationship name="iluminacion" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Luces" syncable="YES"/>
+        <relationship name="plantas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Planta" syncable="YES"/>
+    </entity>
+    <entity name="CicloVida" representedClassName="CicloVida" syncable="YES">
+        <attribute name="nombre" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Cultivo" representedClassName="Cultivo" syncable="YES">
+        <attribute name="fechaFin" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="fechaInicio" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="nombre" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="notas" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tipo" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="armarios" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Armario" syncable="YES"/>
+    </entity>
+    <entity name="Evento" representedClassName="Evento" syncable="YES">
+        <attribute name="fecha" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="cambioFotoPeriodo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PeriodoLuz" syncable="YES"/>
+        <relationship name="cambioTipoIluminacion" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Luces" syncable="YES"/>
+        <relationship name="fertilizante" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Fertilizante" syncable="YES"/>
+        <relationship name="riego" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Riego" syncable="YES"/>
+    </entity>
+    <entity name="Fertilizante" representedClassName="Fertilizante" syncable="YES">
+        <attribute name="caracteristicas" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="marca" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="nombre" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tipo" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Luces" representedClassName="Luces" syncable="YES">
+        <attribute name="tipo" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="watts" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+    </entity>
+    <entity name="PeriodoLuz" representedClassName="PeriodoLuz" syncable="YES">
+        <attribute name="horasLuz" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="horasOscuridad" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+    </entity>
+    <entity name="Planta" representedClassName="Planta" syncable="YES">
+        <attribute name="altura" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="tipo" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="inicioCicloVida" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CicloVida" syncable="YES"/>
+    </entity>
+    <entity name="Riego" representedClassName="Riego" syncable="YES">
+        <attribute name="ec" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="fecha" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="nota" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="ph" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="temperatura" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+    </entity>
+    <entity name="Usuario" representedClassName="Usuario" syncable="YES">
+        <attribute name="apellido" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="idUsuario" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="nickName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="nombre" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Armario" positionX="9" positionY="117" width="128" height="148"/>
+        <element name="Cultivo" positionX="-45" positionY="45" width="128" height="133"/>
+        <element name="Riego" positionX="-9" positionY="81" width="128" height="118"/>
+        <element name="Planta" positionX="-27" positionY="63" width="128" height="88"/>
+        <element name="Usuario" positionX="-63" positionY="-18" width="128" height="133"/>
+        <element name="Luces" positionX="-27" positionY="90" width="128" height="73"/>
+        <element name="CicloVida" positionX="-18" positionY="99" width="128" height="58"/>
+        <element name="PeriodoLuz" positionX="-9" positionY="108" width="128" height="73"/>
+        <element name="Fertilizante" positionX="0" positionY="108" width="128" height="105"/>
+        <element name="Evento" positionX="9" positionY="126" width="128" height="118"/>
+    </elements>
+</model>
