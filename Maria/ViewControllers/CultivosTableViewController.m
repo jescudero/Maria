@@ -7,9 +7,12 @@
 //
 
 #import "CultivosTableViewController.h"
+#import <CoreData/CoreData.h>
+#import "Cultivo.h"
 
 @interface CultivosTableViewController ()
 
+@property (nonatomic, strong) NSArray *cultivosList;
 @end
 
 @implementation CultivosTableViewController
@@ -24,6 +27,40 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+
+    [self loadData];
+    
+    [self.tableView reloadData];
+    
+}
+
+
+-(void)loadData
+{
+    NSManagedObjectContext *context = [self managedObjectContext];
+    NSEntityDescription *entity = [NSEntityDescription  entityForName:@"Cultivo" inManagedObjectContext:context];
+    
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entity];
+    
+    NSError *error;
+    
+    self.cultivosList = [context executeFetchRequest:request error:&error];
+}
+
+- (NSManagedObjectContext *)managedObjectContext {
+    NSManagedObjectContext *context = nil;
+    id delegate = [[UIApplication sharedApplication] delegate];
+    if ([delegate performSelector:@selector(managedObjectContext)]) {
+        context = [delegate managedObjectContext];
+    }
+    return context;
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -32,26 +69,24 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return self.cultivosList.count;
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cultivoCell" forIndexPath:indexPath];
     
-    // Configure the cell...
+    cell.textLabel.text = ((Cultivo*)self.cultivosList[indexPath.row]).nombre;
     
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.
