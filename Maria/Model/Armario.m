@@ -22,4 +22,25 @@
 @dynamic iluminacion;
 @dynamic fotoPeriodo;
 
++ (NSString *)entityName
+{
+    return @"Armario";
+}
+
++ (instancetype)insertNewObjectIntoContext:(NSManagedObjectContext *)context
+{
+    return [NSEntityDescription insertNewObjectForEntityForName:[self entityName]
+                                         inManagedObjectContext:context];
+}
+
+-(void)save:(NSManagedObjectContext *)context
+{
+    NSError *error = nil;
+    // Save the object to persistent store
+    if (![context save:&error]) {
+        NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+    }
+
+}
+
 @end

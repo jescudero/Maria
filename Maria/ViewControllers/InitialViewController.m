@@ -7,6 +7,7 @@
 //
 
 #import "InitialViewController.h"
+#import "DataManager.h"
 
 @interface InitialViewController ()
 
@@ -16,6 +17,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    DataManager *manager = [[DataManager alloc]init];
+    [manager createApplicationObjects];
 }
 
 - (void)didReceiveMemoryWarning {

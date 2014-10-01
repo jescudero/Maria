@@ -15,4 +15,6 @@
 @property (nonatomic, retain) NSDecimalNumber * horasLuz;
 @property (nonatomic, retain) NSDecimalNumber * horasOscuridad;
 
++ (instancetype)insertNewObjectIntoContext:(NSManagedObjectContext *)context;
+
 @end

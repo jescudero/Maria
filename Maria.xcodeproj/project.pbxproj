@@ -26,6 +26,13 @@
 		4DD4EE8419DAE48600ED57F0 /* CultivoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD4EE8319DAE48600ED57F0 /* CultivoViewController.m */; };
 		4DD4EE8719DAFF6400ED57F0 /* ArmarioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD4EE8619DAFF6400ED57F0 /* ArmarioViewController.m */; };
 		4DD4EE8D19DB370500ED57F0 /* HorasLuzSelectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD4EE8C19DB370500ED57F0 /* HorasLuzSelectorViewController.m */; };
+		4DD4EE9019DC3E3B00ED57F0 /* TipoLuzSelectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD4EE8F19DC3E3B00ED57F0 /* TipoLuzSelectorViewController.m */; };
+		4DD4EE9319DC49FC00ED57F0 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD4EE9219DC49FC00ED57F0 /* DataManager.m */; };
+		4DD4EE9F19DC85E800ED57F0 /* NSManagedObject+Finders.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD4EE9619DC85E800ED57F0 /* NSManagedObject+Finders.m */; };
+		4DD4EEA019DC85E800ED57F0 /* NSManagedObject+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD4EE9819DC85E800ED57F0 /* NSManagedObject+Helper.m */; };
+		4DD4EEAA19DC884000ED57F0 /* UIView+FrameHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD4EEA919DC884000ED57F0 /* UIView+FrameHelper.m */; };
+		4DD4EEAD19DC890000ED57F0 /* CoreDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD4EEAC19DC890000ED57F0 /* CoreDataHelper.m */; };
+		4DD4EEB019DC897B00ED57F0 /* NSManagedObject+Requests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD4EEAF19DC897B00ED57F0 /* NSManagedObject+Requests.m */; };
 		4DEAAF3319D59D7D00E3FDDA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DEAAF3219D59D7D00E3FDDA /* main.m */; };
 		4DEAAF3619D59D7D00E3FDDA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DEAAF3519D59D7D00E3FDDA /* AppDelegate.m */; };
 		4DEAAF4119D59D7D00E3FDDA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DEAAF4019D59D7D00E3FDDA /* Images.xcassets */; };
@@ -80,6 +87,21 @@
 		4DD4EE8619DAFF6400ED57F0 /* ArmarioViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArmarioViewController.m; sourceTree = "<group>"; };
 		4DD4EE8B19DB370500ED57F0 /* HorasLuzSelectorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HorasLuzSelectorViewController.h; sourceTree = "<group>"; };
 		4DD4EE8C19DB370500ED57F0 /* HorasLuzSelectorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HorasLuzSelectorViewController.m; sourceTree = "<group>"; };
+		4DD4EE8E19DC3E3B00ED57F0 /* TipoLuzSelectorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TipoLuzSelectorViewController.h; sourceTree = "<group>"; };
+		4DD4EE8F19DC3E3B00ED57F0 /* TipoLuzSelectorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TipoLuzSelectorViewController.m; sourceTree = "<group>"; };
+		4DD4EE9119DC49FC00ED57F0 /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
+		4DD4EE9219DC49FC00ED57F0 /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
+		4DD4EE9519DC85E800ED57F0 /* NSManagedObject+Finders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+Finders.h"; sourceTree = "<group>"; };
+		4DD4EE9619DC85E800ED57F0 /* NSManagedObject+Finders.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+Finders.m"; sourceTree = "<group>"; };
+		4DD4EE9719DC85E800ED57F0 /* NSManagedObject+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+Helper.h"; sourceTree = "<group>"; };
+		4DD4EE9819DC85E800ED57F0 /* NSManagedObject+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+Helper.m"; sourceTree = "<group>"; };
+		4DD4EEA419DC879600ED57F0 /* UIKitHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIKitHelpers.h; sourceTree = "<group>"; };
+		4DD4EEA819DC884000ED57F0 /* UIView+FrameHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+FrameHelper.h"; sourceTree = "<group>"; };
+		4DD4EEA919DC884000ED57F0 /* UIView+FrameHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+FrameHelper.m"; sourceTree = "<group>"; };
+		4DD4EEAB19DC890000ED57F0 /* CoreDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataHelper.h; sourceTree = "<group>"; };
+		4DD4EEAC19DC890000ED57F0 /* CoreDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataHelper.m; sourceTree = "<group>"; };
+		4DD4EEAE19DC897B00ED57F0 /* NSManagedObject+Requests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+Requests.h"; sourceTree = "<group>"; };
+		4DD4EEAF19DC897B00ED57F0 /* NSManagedObject+Requests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+Requests.m"; sourceTree = "<group>"; };
 		4DEAAF2D19D59D7D00E3FDDA /* Maria.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Maria.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DEAAF3119D59D7D00E3FDDA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4DEAAF3219D59D7D00E3FDDA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -141,6 +163,8 @@
 				4DCF205919D9DD3500915124 /* Riego.m */,
 				4DCF205A19D9DD3500915124 /* Usuario.h */,
 				4DCF205B19D9DD3500915124 /* Usuario.m */,
+				4DD4EE9119DC49FC00ED57F0 /* DataManager.h */,
+				4DD4EE9219DC49FC00ED57F0 /* DataManager.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -163,8 +187,28 @@
 				4DD4EE8619DAFF6400ED57F0 /* ArmarioViewController.m */,
 				4DD4EE8B19DB370500ED57F0 /* HorasLuzSelectorViewController.h */,
 				4DD4EE8C19DB370500ED57F0 /* HorasLuzSelectorViewController.m */,
+				4DD4EE8E19DC3E3B00ED57F0 /* TipoLuzSelectorViewController.h */,
+				4DD4EE8F19DC3E3B00ED57F0 /* TipoLuzSelectorViewController.m */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		4DD4EE9419DC85E800ED57F0 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				4DD4EEA419DC879600ED57F0 /* UIKitHelpers.h */,
+				4DD4EEAB19DC890000ED57F0 /* CoreDataHelper.h */,
+				4DD4EEAC19DC890000ED57F0 /* CoreDataHelper.m */,
+				4DD4EEA819DC884000ED57F0 /* UIView+FrameHelper.h */,
+				4DD4EEA919DC884000ED57F0 /* UIView+FrameHelper.m */,
+				4DD4EE9519DC85E800ED57F0 /* NSManagedObject+Finders.h */,
+				4DD4EE9619DC85E800ED57F0 /* NSManagedObject+Finders.m */,
+				4DD4EE9719DC85E800ED57F0 /* NSManagedObject+Helper.h */,
+				4DD4EE9819DC85E800ED57F0 /* NSManagedObject+Helper.m */,
+				4DD4EEAE19DC897B00ED57F0 /* NSManagedObject+Requests.h */,
+				4DD4EEAF19DC897B00ED57F0 /* NSManagedObject+Requests.m */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		4DEAAF2419D59D7C00E3FDDA = {
@@ -188,6 +232,7 @@
 		4DEAAF2F19D59D7D00E3FDDA /* Maria */ = {
 			isa = PBXGroup;
 			children = (
+				4DD4EE9419DC85E800ED57F0 /* Helpers */,
 				4DCF206719D9DD8600915124 /* ViewControllers */,
 				4DCF204519D9DD3500915124 /* Model */,
 				4DCF202619D9AAC800915124 /* DataAccess */,
@@ -332,10 +377,14 @@
 				4DEAAF3619D59D7D00E3FDDA /* AppDelegate.m in Sources */,
 				4DCF206319D9DD3500915124 /* PeriodoLuz.m in Sources */,
 				4DCF206F19D9DD8600915124 /* InitialViewController.m in Sources */,
+				4DD4EEAD19DC890000ED57F0 /* CoreDataHelper.m in Sources */,
 				4DEAAF3319D59D7D00E3FDDA /* main.m in Sources */,
 				4DCF205C19D9DD3500915124 /* Armario.m in Sources */,
+				4DD4EE9019DC3E3B00ED57F0 /* TipoLuzSelectorViewController.m in Sources */,
+				4DD4EE9319DC49FC00ED57F0 /* DataManager.m in Sources */,
 				4DD4EE8719DAFF6400ED57F0 /* ArmarioViewController.m in Sources */,
 				4DCF206219D9DD3500915124 /* Maria.xcdatamodeld in Sources */,
+				4DD4EEB019DC897B00ED57F0 /* NSManagedObject+Requests.m in Sources */,
 				4DD4EE8D19DB370500ED57F0 /* HorasLuzSelectorViewController.m in Sources */,
 				4DCF206119D9DD3500915124 /* Luces.m in Sources */,
 				4DCF207519D9DF2300915124 /* CultivosTableViewController.m in Sources */,
@@ -343,7 +392,10 @@
 				4DCF207219D9DD8600915124 /* NewUserViewController.m in Sources */,
 				4DCF206619D9DD3500915124 /* Usuario.m in Sources */,
 				4DCF206519D9DD3500915124 /* Riego.m in Sources */,
+				4DD4EEA019DC85E800ED57F0 /* NSManagedObject+Helper.m in Sources */,
 				4DCF205F19D9DD3500915124 /* Evento.m in Sources */,
+				4DD4EEAA19DC884000ED57F0 /* UIView+FrameHelper.m in Sources */,
+				4DD4EE9F19DC85E800ED57F0 /* NSManagedObject+Finders.m in Sources */,
 				4DCF205D19D9DD3500915124 /* CicloVida.m in Sources */,
 				4DCF207019D9DD8600915124 /* LoginViewController.m in Sources */,
 			);

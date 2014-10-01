@@ -12,6 +12,6 @@
 
 @interface ArmarioViewController : UIViewController
 
-@property (nonatomic, strong) Cultivo *currentCulvio;
+@property (nonatomic, strong) Cultivo *currentCultivo;
 
 @end

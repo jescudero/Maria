@@ -74,8 +74,8 @@
     
 }
 - (IBAction)canceButtonTapped:(id)sender {
-    if ([self.delegate respondsToSelector:@selector(cancelSeleccion)])
-        [self.delegate cancelSeleccion];
+    if ([self.delegate respondsToSelector:@selector(cancelHorasSeleccion)])
+        [self.delegate cancelHorasSeleccion];
 }
 
 /*

@@ -10,7 +10,7 @@
 
 @protocol HorasSelectorDelegate <NSObject>
 
--(void)cancelSeleccion;
+-(void)cancelHorasSeleccion;
 -(void)selectionLuz:(NSInteger)luz oscuridad:(NSInteger)oscuridad;
 
 @end

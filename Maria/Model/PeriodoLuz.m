@@ -14,4 +14,16 @@
 @dynamic horasLuz;
 @dynamic horasOscuridad;
 
+
++ (NSString *)entityName
+{
+    return @"PeriodoLuz";
+}
+
++ (instancetype)insertNewObjectIntoContext:(NSManagedObjectContext *)context
+{
+    return [NSEntityDescription insertNewObjectForEntityForName:[self entityName]
+                                         inManagedObjectContext:context];
+}
+
 @end

@@ -9,6 +9,8 @@
 #import "CultivoViewController.h"
 #import <CoreData/CoreData.h>
 #import "Cultivo.h"
+#import "CoreDataHelper.h"
+#import "ArmarioViewController.h"
 
 @interface CultivoViewController ()<UITextViewDelegate>
 
@@ -75,12 +77,29 @@
 
 - (IBAction)grabarCultivoTapped:(id)sender {
     
+    [self saveCultivo];
+    
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    [self saveCultivo];
+    
+    if ([segue.identifier isEqualToString:@"agregarArmario"]) {
+        ((ArmarioViewController*)segue.destinationViewController).currentCultivo = self.currentCulvio;
+    }
+}
+
+
+-(void)saveCultivo
+{
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyy-MM-dd"];
     NSDate *dateFromString = [[NSDate alloc] init];
     
-    NSManagedObjectContext *context = [self managedObjectContext];
-
+    NSManagedObjectContext *context = [[CoreDataHelper sharedInstance]managedObjectContext];
+    
     // Create a new managed object
     self.currentCulvio = [NSEntityDescription insertNewObjectForEntityForName:@"Cultivo" inManagedObjectContext:context];
     self.currentCulvio.nombre = self.nombreText.text;
@@ -91,19 +110,8 @@
     if (![context save:&error]) {
         NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
     }
-    
-    [self.navigationController popViewControllerAnimated:YES];
-}
 
-- (NSManagedObjectContext *)managedObjectContext {
-    NSManagedObjectContext *context = nil;
-    id delegate = [[UIApplication sharedApplication] delegate];
-    if ([delegate performSelector:@selector(managedObjectContext)]) {
-        context = [delegate managedObjectContext];
-    }
-    return context;
 }
-
 
 - (BOOL)textViewShouldBeginEditing:(UITextView *)aTextView
 {
