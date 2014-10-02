@@ -31,7 +31,6 @@
 {
     [super viewDidAppear:animated];
     
-
     [self loadData];
     
     [self.tableView reloadData];
@@ -41,25 +40,9 @@
 
 -(void)loadData
 {
-    NSManagedObjectContext *context = [self managedObjectContext];
-    NSEntityDescription *entity = [NSEntityDescription  entityForName:@"Cultivo" inManagedObjectContext:context];
-    
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    [request setEntity:entity];
-    
-    NSError *error;
-    
-    self.cultivosList = [context executeFetchRequest:request error:&error];
+    self.cultivosList = [Cultivo all];
 }
 
-- (NSManagedObjectContext *)managedObjectContext {
-    NSManagedObjectContext *context = nil;
-    id delegate = [[UIApplication sharedApplication] delegate];
-    if ([delegate performSelector:@selector(managedObjectContext)]) {
-        context = [delegate managedObjectContext];
-    }
-    return context;
-}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -82,8 +65,10 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cultivoCell" forIndexPath:indexPath];
     
-    cell.textLabel.text = ((Cultivo*)self.cultivosList[indexPath.row]).nombre;
+    Cultivo *cultivo = self.cultivosList[indexPath.row];
     
+    cell.textLabel.text = [NSString stringWithFormat:@"%@ - %d", cultivo.nombre, cultivo.armarios.count];
+
     return cell;
 }
 

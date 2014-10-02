@@ -29,10 +29,4 @@
 - (void)addPlantas:(NSSet *)values;
 - (void)removePlantas:(NSSet *)values;
 
-
-+ (NSString *)entityName;
-+ (instancetype)insertNewObjectIntoContext:(NSManagedObjectContext *)context;
-
--(void)save:(NSManagedObjectContext *)context;
-
 @end

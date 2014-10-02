@@ -1,0 +1,21 @@
+//
+//  Maria-Prefix.pch
+//  Maria
+//
+//  Created by Juan Escudero on 10/2/14.
+//  Copyright (c) 2014 Juan Escudero. All rights reserved.
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_3_0
+#warning "This project uses features only available in iOS SDK 3.0 and later."
+#endif
+
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
+#import "Pods/ObjectiveRecord/Classes/ObjectiveRecord.h"
+#endif
+

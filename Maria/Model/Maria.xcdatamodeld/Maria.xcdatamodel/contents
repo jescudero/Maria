@@ -43,8 +43,9 @@
     </entity>
     <entity name="Planta" representedClassName="Planta" syncable="YES">
         <attribute name="altura" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="tipo" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="genetica" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="inicioCicloVida" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CicloVida" syncable="YES"/>
+        <relationship name="tipoPlanta" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TipoPlanta" syncable="YES"/>
     </entity>
     <entity name="Riego" representedClassName="Riego" syncable="YES">
         <attribute name="ec" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
@@ -52,6 +53,9 @@
         <attribute name="nota" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="ph" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
         <attribute name="temperatura" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+    </entity>
+    <entity name="TipoPlanta" representedClassName="TipoPlanta" syncable="YES">
+        <attribute name="tipoPlanta" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="Usuario" representedClassName="Usuario" syncable="YES">
         <attribute name="apellido" optional="YES" attributeType="String" syncable="YES"/>
@@ -69,8 +73,9 @@
         <element name="Fertilizante" positionX="0" positionY="108" width="128" height="105"/>
         <element name="Luces" positionX="-27" positionY="90" width="128" height="73"/>
         <element name="PeriodoLuz" positionX="-9" positionY="108" width="128" height="73"/>
-        <element name="Planta" positionX="-27" positionY="63" width="128" height="88"/>
+        <element name="Planta" positionX="-27" positionY="63" width="128" height="103"/>
         <element name="Riego" positionX="-9" positionY="81" width="128" height="118"/>
         <element name="Usuario" positionX="-63" positionY="-18" width="128" height="133"/>
+        <element name="TipoPlanta" positionX="-27" positionY="99" width="128" height="58"/>
     </elements>
 </model>

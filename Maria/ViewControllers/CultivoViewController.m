@@ -9,10 +9,10 @@
 #import "CultivoViewController.h"
 #import <CoreData/CoreData.h>
 #import "Cultivo.h"
-#import "CoreDataHelper.h"
 #import "ArmarioViewController.h"
 
-@interface CultivoViewController ()<UITextViewDelegate>
+
+@interface CultivoViewController ()<UITextViewDelegate, AgregarArmarioProtocol>
 
 @property (weak, nonatomic) IBOutlet UILabel *nombreLabel;
 @property (weak, nonatomic) IBOutlet UILabel *fechaLabel;
@@ -25,7 +25,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *addArmarioButton;
 @property (weak, nonatomic) IBOutlet UIButton *grabarCultivoArmario;
 
-@property (nonatomic, strong) Cultivo *currentCulvio;
+@property (nonatomic, strong) Cultivo *cultivo;
 
 @end
 
@@ -34,6 +34,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    self.title = @"Nuevo Cultivo";
+
+    
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setLocale:[NSLocale currentLocale]];
     [formatter setDateFormat:@"yyyy-MM-dd"];
@@ -71,10 +74,6 @@
 }
 */
 
-- (IBAction)addArmarioTapped:(id)sender {
-    
-}
-
 - (IBAction)grabarCultivoTapped:(id)sender {
     
     [self saveCultivo];
@@ -82,12 +81,19 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+
+- (IBAction)cancelarTapped:(id)sender {
+        
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     [self saveCultivo];
     
     if ([segue.identifier isEqualToString:@"agregarArmario"]) {
-        ((ArmarioViewController*)segue.destinationViewController).currentCultivo = self.currentCulvio;
+        ((ArmarioViewController*)segue.destinationViewController).delegate = self;
     }
 }
 
@@ -97,20 +103,32 @@
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyy-MM-dd"];
     NSDate *dateFromString = [[NSDate alloc] init];
+        
+    if (!self.cultivo)
+        self.cultivo = [Cultivo create];
     
-    NSManagedObjectContext *context = [[CoreDataHelper sharedInstance]managedObjectContext];
+    self.cultivo.nombre = self.nombreText.text;
+    self.cultivo.notas = self.notasText.text;
+    self.cultivo.fechaInicio = dateFromString;
     
-    // Create a new managed object
-    self.currentCulvio = [NSEntityDescription insertNewObjectForEntityForName:@"Cultivo" inManagedObjectContext:context];
-    self.currentCulvio.nombre = self.nombreText.text;
-    self.currentCulvio.notas = self.notasText.text;
-    self.currentCulvio.fechaInicio = dateFromString;
+    [self.cultivo save];
     
-    NSError *error = nil;
-    if (![context save:&error]) {
-        NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
-    }
+}
 
+-(void)cancelAgregarArmario{
+    
+    
+}
+
+-(void)armarioAgregado:(Armario*)armario{
+ 
+    if (!self.cultivo)
+        self.cultivo = [Cultivo create];
+    
+    [self.cultivo addArmariosObject:armario];
+    
+    self.cantidadLabel.text = [NSString stringWithFormat:@"%d", self.cultivo.armarios.count];
+    
 }
 
 - (BOOL)textViewShouldBeginEditing:(UITextView *)aTextView

@@ -10,6 +10,7 @@
 #import <CoreData/CoreData.h>
 #import "Usuario.h"
 
+
 @interface LoginViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *emailText;
 @property (weak, nonatomic) IBOutlet UITextField *passwordText;
@@ -48,38 +49,14 @@
 }
 */
 
-- (NSManagedObjectContext *)managedObjectContext {
-    NSManagedObjectContext *context = nil;
-    id delegate = [[UIApplication sharedApplication] delegate];
-    if ([delegate performSelector:@selector(managedObjectContext)]) {
-        context = [delegate managedObjectContext];
-    }
-    return context;
-}
-
 - (IBAction)login:(id)sender {
     
-    // Fetch the devices from persistent data store
-    NSManagedObjectContext *context = [self managedObjectContext];
-    NSEntityDescription *entity = [NSEntityDescription  entityForName:@"Usuario" inManagedObjectContext:context];
-
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    [request setEntity:entity];
-
-    
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:
-                              @"(email = %@) AND (password = %@)", self.emailText.text, self.passwordText.text];
-    [request setPredicate:predicate];
-    NSError *error;
-
-    NSArray *array = [context executeFetchRequest:request error:&error];
-
  
-    if (array.count > 0)
+    Usuario *usuario = [Usuario find:@"(email = %@) AND (password = %@)", self.emailText.text, self.passwordText.text];
+    
+    if (usuario)
     {
-        Usuario *usuario = array[0];
         [usuario saveDataToDefault];
-        
     }
     else
     {

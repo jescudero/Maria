@@ -8,14 +8,14 @@
 
 #import "ArmarioViewController.h"
 #import "HorasLuzSelectorViewController.h"
-#import "TipoLuzSelectorViewController.h"
+#import "SelectorViewController.h"
 #import "Luces.h"
 #import "Armario.h"
 #import "PeriodoLuz.h"
-#import "CoreDataHelper.h"
 #import "Cultivo.h"
+#import "PlantaViewController.h"
 
-@interface ArmarioViewController ()<HorasSelectorDelegate, TipoLuzSelectorDelegate>
+@interface ArmarioViewController ()<HorasSelectorDelegate, SelectorProtocol, PlantaViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *nombreLabel;
 @property (weak, nonatomic) IBOutlet UILabel *anchoLabel;
@@ -40,7 +40,7 @@
 
 @property (nonatomic, strong) HorasLuzSelectorViewController *horasLuzVC;
 
-@property (nonatomic, strong) TipoLuzSelectorViewController *tipoLuzVC;
+@property (nonatomic, strong) SelectorViewController *tipoLuzVC;
 
 @property (nonatomic, strong) UIView *overlayView;
 
@@ -56,9 +56,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.anchoText.text = @"1.0";
-    self.largoText.text = @"1.0";
-    self.altoText.text = @"1.0";
+    self.anchoText.text = [NSString stringWithFormat:@"%0.0f", self.anchoStepper.value];
+    self.largoText.text = [NSString stringWithFormat:@"%0.0f", self.largoStepper.value];
+    self.altoText.text = [NSString stringWithFormat:@"%0.0f", self.altoStepper.value];
     self.iluminacionTextLabel.text = @"-";
     self.fotoPeriodoTextLabel.text = @"-";
 }
@@ -94,6 +94,10 @@
     self.tipoLuzVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil]instantiateViewControllerWithIdentifier:@"TipoLuzVC"];
     self.tipoLuzVC.view.frame = CGRectMake(self.view.frame.size.width/2 - 220/2, 100, 220, 260);
     self.tipoLuzVC.delegate = self;
+    self.tipoLuzVC.titleVC.text = @"Tipo de Luz";
+    self.tipoLuzVC.property_first = @"tipo";
+    self.tipoLuzVC.property_second = @"watts";
+    self.tipoLuzVC.datasource = [Luces all];
     
     [self addChildViewController:self.tipoLuzVC];
     [self.view addSubview:self.tipoLuzVC.view];
@@ -110,36 +114,35 @@
 
 -(void)selectionLuz:(NSInteger)luz oscuridad:(NSInteger)oscuridad{
 
-    NSManagedObjectContext *context = [[CoreDataHelper sharedInstance]managedObjectContext];
     
     NSNumber * luzNum = [NSNumber numberWithInteger:luz];
     NSNumber * oscuridadNum = [NSNumber numberWithInteger:oscuridad];
 
-    self.periodo = [PeriodoLuz insertNewObjectIntoContext:context];
+    self.periodo = [PeriodoLuz create];
     self.periodo.horasLuz = [NSDecimalNumber decimalNumberWithDecimal:[luzNum decimalValue]];
     self.periodo.horasOscuridad = [NSDecimalNumber decimalNumberWithDecimal:[oscuridadNum decimalValue]];
     
     [self.overlayView removeFromSuperview];
     
-    self.fotoPeriodoTextLabel.text = [NSString stringWithFormat:@"%ld horas de luz / %ld horas de oscuridad", luz, oscuridad];
+    self.fotoPeriodoTextLabel.text = [NSString stringWithFormat:@"%d horas de luz / %d horas de oscuridad", luz, oscuridad];
     
     [self.horasLuzVC removeFromParentViewController];
     [self.horasLuzVC.view removeFromSuperview];
 }
 
--(void)seleccionTipoIluminacion:(Luces*)luz{
+-(void)selectElement:(id)element{
 
-    self.luz = luz;
+    self.luz = (Luces*)element;
     
     [self.overlayView removeFromSuperview];
     
-    self.iluminacionTextLabel.text = [NSString stringWithFormat:@"%@ - %@", luz.tipo, luz.watts];
+    self.iluminacionTextLabel.text = [NSString stringWithFormat:@"%@ - %@", self.luz.tipo, self.luz.watts];
     
     [self.tipoLuzVC removeFromParentViewController];
     [self.tipoLuzVC.view removeFromSuperview];
 }
 
--(void)cancelLuzSeleccion
+-(void)cancelSeleccion
 {
     [self.overlayView removeFromSuperview];
     
@@ -149,35 +152,56 @@
 
 - (IBAction)grabarArmarioTapped:(id)sender {
     
-    NSManagedObjectContext *context = [[CoreDataHelper sharedInstance]managedObjectContext];
-    
-    Armario *armario = [Armario insertNewObjectIntoContext:context];
+    Armario *armario = [Armario create];
     armario.ancho = [NSDecimalNumber decimalNumberWithString:self.anchoText.text];
     armario.alto = [NSDecimalNumber decimalNumberWithString:self.altoText.text];
     armario.largo = [NSDecimalNumber decimalNumberWithString:self.largoText.text];
     armario.iluminacion = self.luz;
     armario.fotoPeriodo = self.periodo;
     
-    [self.currentCultivo addArmariosObject:armario];
+    [self.delegate armarioAgregado:armario];
     
-    [armario save:context];
+    [self.navigationController popViewControllerAnimated:YES];
     
 }
+
+- (IBAction)cancelarTapped:(id)sender{
+    
+    [self.delegate cancelAgregarArmario];
+    
+    [self.navigationController popViewControllerAnimated:YES];
+
+}
+
 - (IBAction)anchoStepper:(UIStepper*)sender {
     
-    self.anchoText.text = [NSString stringWithFormat:@"%f", sender.value];
+    self.anchoText.text = [NSString stringWithFormat:@"%0.0f", sender.value];
 }
 
 - (IBAction)largoStepper:(UIStepper*)sender {
     
-    self.largoText.text = [NSString stringWithFormat:@"%f", sender.value];
-
+    self.largoText.text = [NSString stringWithFormat:@"%0.0f", sender.value];
 }
 
 
 - (IBAction)altoStepper:(UIStepper*)sender {
     
-    self.altoText.text = [NSString stringWithFormat:@"%f", sender.value];
+    self.altoText.text = [NSString stringWithFormat:@"%0.0f", sender.value];
+
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{    
+    if ([segue.identifier isEqualToString:@"agregarPlantas"]) {
+        ((PlantaViewController*)segue.destinationViewController).delegate = self;
+    }
+}
+
+-(void)plantaAgregada:(Planta*)planta{
+
+}
+
+-(void)cancelAgregarPlanta{
 
 }
 

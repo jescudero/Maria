@@ -13,9 +13,4 @@
 
 -(void)createApplicationObjects;
 
-//tipos de luz
--(NSArray *)getTiposDeLuz;
-
--(void)almacenarArmario:(Armario*)armario;
-
 @end

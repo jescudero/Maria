@@ -1,19 +1,21 @@
 //
 //  Planta.m
-//  Maria
+//  Pods
 //
-//  Created by Juan Escudero on 9/29/14.
-//  Copyright (c) 2014 Juan Escudero. All rights reserved.
+//  Created by Juan Escudero on 10/2/14.
+//
 //
 
 #import "Planta.h"
 #import "CicloVida.h"
+#import "TipoPlanta.h"
 
 
 @implementation Planta
 
 @dynamic altura;
-@dynamic tipo;
+@dynamic genetica;
 @dynamic inicioCicloVida;
+@dynamic tipoPlanta;
 
 @end

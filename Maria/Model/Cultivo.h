@@ -28,6 +28,4 @@
 - (void)addArmarios:(NSSet *)values;
 - (void)removeArmarios:(NSSet *)values;
 
--(void)saveCultivo;
-
 @end

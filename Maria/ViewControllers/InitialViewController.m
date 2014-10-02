@@ -20,6 +20,9 @@
     
     DataManager *manager = [[DataManager alloc]init];
     [manager createApplicationObjects];
+    
+    self.title = @"Cultivos";
+
 }
 
 - (void)didReceiveMemoryWarning {

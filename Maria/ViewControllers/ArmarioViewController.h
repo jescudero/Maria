@@ -8,10 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
-@class Cultivo;
+@class Armario;
+
+@protocol AgregarArmarioProtocol <NSObject>
+
+-(void)cancelAgregarArmario;
+
+-(void)armarioAgregado:(Armario*)armario;
+
+@end
 
 @interface ArmarioViewController : UIViewController
 
-@property (nonatomic, strong) Cultivo *currentCultivo;
+@property (nonatomic, strong) id<AgregarArmarioProtocol> delegate;
 
 @end
