@@ -14,6 +14,7 @@
 #import "PeriodoLuz.h"
 #import "Cultivo.h"
 #import "PlantaViewController.h"
+#import "PlantasTableViewController.h"
 
 @interface ArmarioViewController ()<HorasSelectorDelegate, SelectorProtocol, PlantaViewControllerDelegate>
 
@@ -42,10 +43,13 @@
 
 @property (nonatomic, strong) SelectorViewController *tipoLuzVC;
 
+@property (nonatomic, strong) PlantasTableViewController *plantasListVC;
+
 @property (nonatomic, strong) UIView *overlayView;
 
 @property (nonatomic, strong) Luces *luz;
 @property (nonatomic, strong) PeriodoLuz *periodo;
+@property (nonatomic, strong) NSMutableArray *plantas;
 
 
 @end
@@ -61,6 +65,7 @@
     self.altoText.text = [NSString stringWithFormat:@"%0.0f", self.altoStepper.value];
     self.iluminacionTextLabel.text = @"-";
     self.fotoPeriodoTextLabel.text = @"-";
+    self.plantas = [NSMutableArray array];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -195,9 +200,18 @@
     if ([segue.identifier isEqualToString:@"agregarPlantas"]) {
         ((PlantaViewController*)segue.destinationViewController).delegate = self;
     }
+    
+    if ([segue.identifier isEqualToString:@"plantasList"]) {
+        self.plantasListVC = ((PlantasTableViewController*)segue.destinationViewController);
+    }
+
 }
 
 -(void)plantaAgregada:(Planta*)planta{
+    
+    [self.plantas addObject:planta];
+    self.plantasListVC.plantasList = self.plantas;
+    [self.plantasListVC.tableView reloadData];
 
 }
 

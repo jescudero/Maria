@@ -10,9 +10,9 @@
 #import <CoreData/CoreData.h>
 #import "Cultivo.h"
 #import "ArmarioViewController.h"
+#import "FechaSelectorViewController.h"
 
-
-@interface CultivoViewController ()<UITextViewDelegate, AgregarArmarioProtocol>
+@interface CultivoViewController ()<UITextViewDelegate, AgregarArmarioProtocol, FechaSelectorProtocol>
 
 @property (weak, nonatomic) IBOutlet UILabel *nombreLabel;
 @property (weak, nonatomic) IBOutlet UILabel *fechaLabel;
@@ -24,6 +24,10 @@
 @property (weak, nonatomic) IBOutlet UITextView *notasText;
 @property (weak, nonatomic) IBOutlet UIButton *addArmarioButton;
 @property (weak, nonatomic) IBOutlet UIButton *grabarCultivoArmario;
+@property (weak, nonatomic) IBOutlet UIButton *calendarButton;
+
+
+@property (nonatomic, strong) FechaSelectorViewController *fechaVC;
 
 @property (nonatomic, strong) Cultivo *cultivo;
 
@@ -39,7 +43,7 @@
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setLocale:[NSLocale currentLocale]];
-    [formatter setDateFormat:@"yyyy-MM-dd"];
+    [formatter setDateFormat:@"dd -MM-yyyy"];
     NSString *stringFromDate = [formatter stringFromDate:[NSDate date]];
     
     self.fechaText.text =stringFromDate;
@@ -57,6 +61,7 @@
                                              selector:@selector(keyboardWillHide)
                                                  name:UIKeyboardWillHideNotification
                                                object:nil];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -74,6 +79,29 @@
 }
 */
 
+
+-(void)cancelFecha{
+
+    [self.fechaVC removeFromParentViewController];
+    [self.fechaVC.view removeFromSuperview];
+
+}
+
+-(void)selectFecha:(NSDate*)fecha{
+
+    [self.fechaVC removeFromParentViewController];
+    [self.fechaVC.view removeFromSuperview];
+
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setLocale:[NSLocale currentLocale]];
+    [formatter setDateFormat:@"dd -MM-yyyy"];
+    NSString *stringFromDate = [formatter stringFromDate:fecha];
+    
+    self.fechaText.text =stringFromDate;
+    
+}
+
 - (IBAction)grabarCultivoTapped:(id)sender {
     
     [self saveCultivo];
@@ -90,8 +118,6 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    [self saveCultivo];
-    
     if ([segue.identifier isEqualToString:@"agregarArmario"]) {
         ((ArmarioViewController*)segue.destinationViewController).delegate = self;
     }
@@ -131,10 +157,24 @@
     
 }
 
+
+-(void)showPicker
+{
+    self.fechaVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil]instantiateViewControllerWithIdentifier:@"fechaPicker"];
+    self.fechaVC.delegate = self;
+    
+    [self addChildViewController:self.fechaVC];
+    [self.view addSubview:self.fechaVC.view];
+    
+    self.fechaVC.view.frameX = 0;
+    self.fechaVC.view.frameHeight = 260;
+    self.fechaVC.view.frameY = self.view.frameHeight -  self.fechaVC.view.frameHeight;
+}
+
 - (BOOL)textViewShouldBeginEditing:(UITextView *)aTextView
 {
     aTextView.text = @"";
-    
+
     return YES;
 }
 
@@ -158,4 +198,11 @@
         self.view.frame = CGRectMake(0, 0, 320, self.view.frame.size.height);
     }];
 }
+
+- (IBAction)calendarTapped:(id)sender {
+    
+    [self showPicker];
+    
+}
+
 @end

@@ -566,6 +566,15 @@
                                             <action selector="cancelarTapped:" destination="arq-jn-6Ni" eventType="touchUpInside" id="tr9-ha-TXf"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ofQ-ji-dXk">
+                                        <rect key="frame" x="130" y="132" width="62" height="30"/>
+                                        <state key="normal" title="Calendar">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="calendarTapped:" destination="arq-jn-6Ni" eventType="touchUpInside" id="GoU-D1-r8k"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="iod-gc-aX7" firstAttribute="leading" secondItem="E9l-vj-3Jd" secondAttribute="leadingMargin" constant="20" id="2gq-bJ-V3p"/>
@@ -610,11 +619,13 @@
                                     <constraint firstItem="SYL-D2-roc" firstAttribute="top" secondItem="Gau-g3-fpI" secondAttribute="bottom" constant="20" id="r1h-1P-Rc3"/>
                                     <constraint firstItem="xnL-Ty-NzN" firstAttribute="leading" secondItem="E9l-vj-3Jd" secondAttribute="leading" constant="20" id="rSB-cg-qNQ"/>
                                     <constraint firstItem="SYL-D2-roc" firstAttribute="top" secondItem="qUx-6T-W8G" secondAttribute="bottom" constant="20" id="sBP-36-9dA"/>
+                                    <constraint firstItem="ofQ-ji-dXk" firstAttribute="leading" secondItem="wUK-3f-BcB" secondAttribute="trailing" constant="10" id="t2Q-X5-yZZ"/>
                                     <constraint firstItem="xnL-Ty-NzN" firstAttribute="centerY" secondItem="6HE-B7-f39" secondAttribute="centerY" id="uKp-Lu-t4R"/>
                                     <constraint firstAttribute="trailingMargin" secondItem="SYL-D2-roc" secondAttribute="trailing" constant="20" id="vAk-Jy-GaS"/>
                                     <constraint firstItem="eit-iH-a4l" firstAttribute="leading" secondItem="E9l-vj-3Jd" secondAttribute="leading" constant="20" id="vNr-Z1-Ilm"/>
                                     <constraint firstAttribute="trailingMargin" secondItem="bva-ra-OhC" secondAttribute="trailing" constant="20" id="w6z-Sv-cQz"/>
                                     <constraint firstItem="bkB-DO-YmH" firstAttribute="top" secondItem="bva-ra-OhC" secondAttribute="bottom" constant="10" id="wjj-ZE-uaO"/>
+                                    <constraint firstItem="wUK-3f-BcB" firstAttribute="centerY" secondItem="ofQ-ji-dXk" secondAttribute="centerY" id="wyw-eW-Drj"/>
                                     <constraint firstItem="63D-Tc-w0c" firstAttribute="top" secondItem="bkB-DO-YmH" secondAttribute="bottom" constant="20" id="xYn-IN-pd8"/>
                                     <constraint firstItem="iod-gc-aX7" firstAttribute="top" secondItem="SYL-D2-roc" secondAttribute="bottom" constant="10" id="y0U-FK-cgD"/>
                                     <constraint firstItem="63D-Tc-w0c" firstAttribute="top" secondItem="bkB-DO-YmH" secondAttribute="bottom" constant="20" id="zTO-W4-jk2"/>
@@ -665,6 +676,7 @@
                     <connections>
                         <outlet property="addArmarioButton" destination="Gau-g3-fpI" id="QnT-nj-Rcm"/>
                         <outlet property="armariosLabel" destination="eit-iH-a4l" id="Vue-FR-tW8"/>
+                        <outlet property="calendarButton" destination="ofQ-ji-dXk" id="kQu-zv-B7Q"/>
                         <outlet property="cantidadLabel" destination="qUx-6T-W8G" id="Opw-bY-zoM"/>
                         <outlet property="fechaLabel" destination="63D-Tc-w0c" id="Lww-b3-PQb"/>
                         <outlet property="fechaText" destination="wUK-3f-BcB" id="Vah-cR-FOv"/>
@@ -829,14 +841,14 @@
                                             </mask>
                                         </variation>
                                         <connections>
-                                            <segue destination="LDU-on-Rw7" kind="embed" id="9fV-o9-uxo"/>
+                                            <segue destination="LDU-on-Rw7" kind="embed" identifier="plantasList" id="9fV-o9-uxo"/>
                                         </connections>
                                     </containerView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FxS-N5-enh">
                                         <rect key="frame" x="97" y="549" width="102" height="30"/>
                                         <state key="normal" title="Agregar Planta"/>
                                         <connections>
-                                            <segue destination="msi-ij-NHp" kind="show" id="6ID-NV-LEm"/>
+                                            <segue destination="msi-ij-NHp" kind="show" identifier="agregarPlantas" id="6ID-NV-LEm"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="442-g8-xR8">
@@ -956,6 +968,77 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rie-H9-Qqw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1944" y="-92"/>
+        </scene>
+        <!--Fecha Selector View Controller-->
+        <scene sceneID="WVx-Q3-1sM">
+            <objects>
+                <viewController storyboardIdentifier="fechaPicker" id="6xP-Re-wZP" customClass="FechaSelectorViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Zym-0b-mfS"/>
+                        <viewControllerLayoutGuide type="bottom" id="w7V-94-dSc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="MXT-Dg-foO">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="250"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ozv-T3-37n">
+                                <rect key="frame" x="16" y="20" width="30" height="30"/>
+                                <state key="normal" title="NO">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelTapped:" destination="6xP-Re-wZP" eventType="touchUpInside" id="TT4-Up-SQh"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="scK-Up-cbB">
+                                <rect key="frame" x="554" y="20" width="30" height="30"/>
+                                <state key="normal" title="SI">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="seleccionTapped:" destination="6xP-Re-wZP" eventType="touchUpInside" id="a2f-DB-EHR"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seleccione Fecha" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xjX-vl-sL6">
+                                <rect key="frame" x="232" y="20" width="136" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <datePicker contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="z05-ha-Ifm">
+                                <rect key="frame" x="16" y="60" width="568" height="180"/>
+                                <date key="date" timeIntervalSinceReferenceDate="434041781.25967997">
+                                    <!--2014-10-03 15:09:41 +0000-->
+                                </date>
+                            </datePicker>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="z05-ha-Ifm" firstAttribute="leading" secondItem="MXT-Dg-foO" secondAttribute="leadingMargin" id="2SS-Xd-GuY"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="scK-Up-cbB" secondAttribute="trailing" id="34M-7N-UQs"/>
+                            <constraint firstItem="xjX-vl-sL6" firstAttribute="top" secondItem="Zym-0b-mfS" secondAttribute="bottom" id="6cl-T8-JGd"/>
+                            <constraint firstItem="w7V-94-dSc" firstAttribute="top" secondItem="z05-ha-Ifm" secondAttribute="bottom" id="StE-tb-KKt"/>
+                            <constraint firstItem="ozv-T3-37n" firstAttribute="top" secondItem="Zym-0b-mfS" secondAttribute="bottom" id="THx-VT-nlO"/>
+                            <constraint firstAttribute="centerX" secondItem="xjX-vl-sL6" secondAttribute="centerX" id="dml-Tb-lYh"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="z05-ha-Ifm" secondAttribute="trailing" id="eg4-x2-5pn"/>
+                            <constraint firstItem="z05-ha-Ifm" firstAttribute="top" secondItem="scK-Up-cbB" secondAttribute="bottom" id="i2b-aQ-t9m"/>
+                            <constraint firstItem="ozv-T3-37n" firstAttribute="leading" secondItem="MXT-Dg-foO" secondAttribute="leadingMargin" id="kdd-oT-p0Q"/>
+                            <constraint firstItem="scK-Up-cbB" firstAttribute="top" secondItem="Zym-0b-mfS" secondAttribute="bottom" id="snW-Wa-pFx"/>
+                            <constraint firstItem="scK-Up-cbB" firstAttribute="top" secondItem="Zym-0b-mfS" secondAttribute="bottom" id="wFH-kC-apS"/>
+                        </constraints>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="600" height="250"/>
+                    <connections>
+                        <outlet property="cancelButton" destination="ozv-T3-37n" id="1Yp-ZJ-sIC"/>
+                        <outlet property="datePicker" destination="z05-ha-Ifm" id="aUZ-b1-hI6"/>
+                        <outlet property="selectButton" destination="scK-Up-cbB" id="ULX-do-Nbx"/>
+                        <outlet property="titleVC" destination="xjX-vl-sL6" id="TOD-yM-yEF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lCl-zy-m7B" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2045" y="1169"/>
         </scene>
         <!--Horas Luz Selector View Controller-->
         <scene sceneID="sig-cL-8qI">
@@ -1148,16 +1231,16 @@
             </objects>
             <point key="canvasLocation" x="2138" y="618"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Plantas Table View Controller-->
         <scene sceneID="2Wk-Jl-fw9">
             <objects>
-                <tableViewController id="LDU-on-Rw7" sceneMemberID="viewController">
+                <tableViewController id="LDU-on-Rw7" customClass="PlantasTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Fa8-e0-UaB">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="150"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="4oU-Jv-jbj">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="plantasCell" id="4oU-Jv-jbj">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4oU-Jv-jbj" id="zEY-ZK-hCy">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -1192,7 +1275,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1so-ju-e7J">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="altura planta" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1so-ju-e7J">
                                 <rect key="frame" x="36" y="210" width="100" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="akH-2D-ewD"/>
@@ -1266,7 +1349,7 @@
                                     <action selector="cancelarTapped:" destination="msi-ij-NHp" eventType="touchUpInside" id="0sV-Yc-4mZ"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sAN-r0-H3C">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ingrese genetica o NN" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sAN-r0-H3C">
                                 <rect key="frame" x="36" y="291" width="200" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="Q6f-KN-qMV"/>

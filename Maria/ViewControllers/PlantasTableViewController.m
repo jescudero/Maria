@@ -1,21 +1,20 @@
 //
-//  CultivosTableViewController.m
+//  PlantasTableViewController.m
 //  Maria
 //
-//  Created by Juan Escudero on 9/29/14.
+//  Created by Juan Escudero on 10/3/14.
 //  Copyright (c) 2014 Juan Escudero. All rights reserved.
 //
 
-#import "CultivosTableViewController.h"
-#import <CoreData/CoreData.h>
-#import "Cultivo.h"
+#import "PlantasTableViewController.h"
+#import "Planta.h"
+#import "TipoPlanta.h"
 
-@interface CultivosTableViewController ()
+@interface PlantasTableViewController ()
 
-@property (nonatomic, strong) NSArray *cultivosList;
 @end
 
-@implementation CultivosTableViewController
+@implementation PlantasTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -26,24 +25,6 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
-
--(void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-    
-
-    [self loadData];
-    
-    [self.tableView reloadData];
-    
-}
-
-
--(void)loadData
-{
-    self.cultivosList = [Cultivo all];
-}
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -59,17 +40,17 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return self.cultivosList.count;
+    return self.plantasList.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cultivoCell" forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"plantasCell" forIndexPath:indexPath];
     
-    Cultivo *cultivo = self.cultivosList[indexPath.row];
+    Planta *planta = self.plantasList[indexPath.row];
     
-    cell.textLabel.text = [NSString stringWithFormat:@"%@ - %d", cultivo.nombre, cultivo.armarios.count];
-
+    cell.textLabel.text = [NSString stringWithFormat:@"%@, %@", planta.tipoPlanta.tipoPlanta, planta.genetica];
+    
     return cell;
 }
 
@@ -82,20 +63,17 @@
 }
 */
 
+/*
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
-        
-        Cultivo *cultivo = self.cultivosList[indexPath.row];
-        [cultivo delete];
-        [cultivo save];
-        
-        self.cultivosList = [Cultivo all];
-        
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }  
+    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
+        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+    }   
 }
+*/
 
 /*
 // Override to support rearranging the table view.

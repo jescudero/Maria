@@ -17,5 +17,6 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 #import "Pods/ObjectiveRecord/Classes/ObjectiveRecord.h"
+#import "UIView+FrameHelper.h"
 #endif
 

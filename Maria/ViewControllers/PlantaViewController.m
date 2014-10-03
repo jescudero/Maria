@@ -61,19 +61,56 @@
 - (IBAction)grabarTapped:(id)sender {
 
     Planta *planta = [Planta create];
-    planta.altura = [NSDecimalNumber decimalNumberWithString:self.alturaText.text];
-    planta.genetica = self.geneticaText.text;
+    
+    if ([self.alturaText.text isEqualToString:@""])
+        planta.altura = [NSDecimalNumber decimalNumberWithString:@"0"];
+    else
+        planta.altura = [NSDecimalNumber decimalNumberWithString:self.alturaText.text];
+    
+    if ([self.geneticaText.text isEqualToString:@""])
+        planta.genetica = @"NN";
+    else
+        planta.genetica = self.geneticaText.text;
+    
     planta.tipoPlanta = self.tipoPlanta;
     planta.inicioCicloVida = self.ciclo;
 
     [self.delegate plantaAgregada:planta];
 
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+-(BOOL)validatePlanta{
+
+    BOOL result = TRUE;
+    
+    if (!self.tipoPlanta)
+    {
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Maria" message:@"Seleccione un tipo de planta" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        [alert show];
+        
+        result = FALSE;
+        return result;
+    }
+    
+    if (!self.ciclo)
+    {
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Maria" message:@"Seleccione un ciclo de vida" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        [alert show];
+        
+        result = FALSE;
+        return result;
+    }
+    
+    return result;
+    
 }
 
 - (IBAction)cancelarTapped:(id)sender {
 
     [self.delegate cancelAgregarPlanta];
 }
+
 - (IBAction)tipoDePlantaTapped:(id)sender {
 
     self.overlayView = [[UIView alloc]initWithFrame:self.view.frame];
