@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-RNFrostedSidebar.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -22,17 +27,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>11213028C21F4B129C0A6E4D</key>
+		<key>347A8DA4FE9343B580EA71AE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>90CFCD9410C94ABAABE32876</key>
+		<key>7CE3E8B66DBD4F74A8E2B045</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CAB3C34ABA37424B881B04EE</key>
+		<key>B39F86F543354D0EA62043B8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E19C2D99CFD8405C90A1A20F</key>
 		<dict>
 			<key>primary</key>
 			<true/>

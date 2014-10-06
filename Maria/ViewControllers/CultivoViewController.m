@@ -11,13 +11,13 @@
 #import "Cultivo.h"
 #import "ArmarioViewController.h"
 #import "FechaSelectorViewController.h"
+#import "Armario.h"
 
 @interface CultivoViewController ()<UITextViewDelegate, AgregarArmarioProtocol, FechaSelectorProtocol>
 
 @property (weak, nonatomic) IBOutlet UILabel *nombreLabel;
 @property (weak, nonatomic) IBOutlet UILabel *fechaLabel;
 @property (weak, nonatomic) IBOutlet UILabel *armariosLabel;
-@property (weak, nonatomic) IBOutlet UILabel *cantidadLabel;
 @property (weak, nonatomic) IBOutlet UILabel *notasLabel;
 @property (weak, nonatomic) IBOutlet UITextField *nombreText;
 @property (weak, nonatomic) IBOutlet UITextField *fechaText;
@@ -25,6 +25,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *addArmarioButton;
 @property (weak, nonatomic) IBOutlet UIButton *grabarCultivoArmario;
 @property (weak, nonatomic) IBOutlet UIButton *calendarButton;
+@property (weak, nonatomic) IBOutlet UITableView *armariosTable;
 
 
 @property (nonatomic, strong) FechaSelectorViewController *fechaVC;
@@ -166,7 +167,9 @@
     
     [self.cultivo addArmariosObject:armario];
     
-    self.cantidadLabel.text = [NSString stringWithFormat:@"%d", self.cultivo.armarios.count];
+    //self.cantidadLabel.text = [NSString stringWithFormat:@"%d", self.cultivo.armarios.count];
+    
+    [self.armariosTable reloadData];
     
 }
 
@@ -217,5 +220,29 @@
     [self showPicker];
     
 }
+
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    // Return the number of sections.
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    // Return the number of rows in the section.
+    return self.cultivo.armarios.count;
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"armarioCell" forIndexPath:indexPath];
+    
+    Armario *armario = self.cultivo.armarios.allObjects[indexPath.row];
+    
+    cell.textLabel.text = [NSString stringWithFormat:@"%@ - Plantas:%d", armario.nombre, armario.plantas.count];
+    
+    return cell;
+}
+
+
 
 @end

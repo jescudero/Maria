@@ -12,7 +12,9 @@
 @interface Usuario : NSManagedObject
 
 + (Usuario *)currentUser;
-+ (BOOL)loggedIn;
++ (void)login;
++ (void)logout;
++ (BOOL)isLoggedIn;
 
 @property (nonatomic, strong) NSString *idUsuario;
 @property (nonatomic, strong) NSString *nombre;
@@ -21,7 +23,7 @@
 @property (nonatomic, strong) NSString *nickName;
 @property (nonatomic, strong) NSString *password;
 
--(void)isLoggedIn:(BOOL)loggedIn;
--(void)saveDataToDefault;
+
+- (void)saveDataToDefault;
 
 @end

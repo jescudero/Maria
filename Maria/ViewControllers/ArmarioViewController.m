@@ -158,6 +158,7 @@
 - (IBAction)grabarArmarioTapped:(id)sender {
     
     Armario *armario = [Armario create];
+    armario.nombre = self.nombreText.text;
     armario.ancho = [NSDecimalNumber decimalNumberWithString:self.anchoText.text];
     armario.alto = [NSDecimalNumber decimalNumberWithString:self.altoText.text];
     armario.largo = [NSDecimalNumber decimalNumberWithString:self.largoText.text];
