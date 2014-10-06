@@ -59,6 +59,11 @@
 }
 
 
++ (BOOL)isLoggedIn{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    return [defaults boolForKey:@"loggedin"];
+}
+
 + (Usuario *)currentUser{
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -69,16 +74,19 @@
     
 }
 
-+ (BOOL)loggedIn{
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    return [defaults boolForKey:@"loggedin"];
-}
-
--(void)isLoggedIn:(BOOL)loggedIn{
++(void)login{
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setBool:loggedIn forKey:@"loggedin"];
+    [defaults setBool:YES forKey:@"loggedin"];
     [defaults synchronize];
 }
+
++ (void)logout{
+
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setBool:NO forKey:@"loggedin"];
+    [defaults synchronize];
+}
+
 
 @end

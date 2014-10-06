@@ -28,7 +28,7 @@
 {
     [super viewWillAppear:animated];
     
-    if (![Usuario loggedIn])
+    if ([Usuario isLoggedIn])
         [self performSegueWithIdentifier:@"login" sender:self];
     
 }
@@ -56,7 +56,10 @@
     
     if (usuario)
     {
+        [Usuario login];
         [usuario saveDataToDefault];
+        
+        [self performSegueWithIdentifier:@"login" sender:self];
     }
     else
     {
