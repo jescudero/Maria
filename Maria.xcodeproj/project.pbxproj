@@ -330,6 +330,7 @@
 				TargetAttributes = {
 					4DEAAF2C19D59D7D00E3FDDA = {
 						CreatedOnToolsVersion = 6.0;
+						DevelopmentTeam = NR79552RE6;
 					};
 					4DEAAF4819D59D7D00E3FDDA = {
 						CreatedOnToolsVersion = 6.0;
@@ -559,6 +560,7 @@
 			baseConfigurationReference = D95EBD516FB14C24B3FA0B8F /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				HEADER_SEARCH_PATHS = (
 					"\"${PODS_ROOT}/Headers\"",
@@ -576,6 +578,7 @@
 			baseConfigurationReference = D95EBD516FB14C24B3FA0B8F /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				HEADER_SEARCH_PATHS = (
 					"\"${PODS_ROOT}/Headers\"",
