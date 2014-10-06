@@ -29,7 +29,6 @@
 
 @property (nonatomic, strong) FechaSelectorViewController *fechaVC;
 
-@property (nonatomic, strong) Cultivo *cultivo;
 
 @end
 
@@ -39,19 +38,31 @@
     [super viewDidLoad];
 
     self.title = @"Nuevo Cultivo";
-
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setLocale:[NSLocale currentLocale]];
     [formatter setDateFormat:@"dd -MM-yyyy"];
     NSString *stringFromDate = [formatter stringFromDate:[NSDate date]];
     
-    self.fechaText.text =stringFromDate;
+    if (self.cultivo)
+    {
+        stringFromDate = [formatter stringFromDate:self.cultivo.fechaInicio];
+        self.fechaText.text = stringFromDate;
+        self.nombreText.text = self.cultivo.nombre;
+        self.notasText.text = self.cultivo.notas;
+        self.ca
+        
+    }
+    else
+    {
+        self.fechaText.text =stringFromDate;
+        
+        self.notasText.text = NSLocalizedString(@"Agregue sus notas al cultivo", nil);
+        self.notasText.textColor = [UIColor lightGrayColor];
+        self.notasText.delegate = self;
+    }
     
-    self.notasText.text = NSLocalizedString(@"Agregue sus notas al cultivo", nil);
-    self.notasText.textColor = [UIColor lightGrayColor];
-    self.notasText.delegate = self;
-
+    /*
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWillShow)
                                                  name:UIKeyboardWillShowNotification
@@ -61,6 +72,8 @@
                                              selector:@selector(keyboardWillHide)
                                                  name:UIKeyboardWillHideNotification
                                                object:nil];
+     
+     */
     
 }
 
@@ -188,7 +201,7 @@
 -(void)keyboardWillShow {
     // Animate the current view out of the way
     [UIView animateWithDuration:0.3f animations:^ {
-        self.view.frame = CGRectMake(0, -120, 320, self.view.frame.size.height);
+        self.view.frame = CGRectMake(0, -80, 320, self.view.frame.size.height);
     }];
 }
 

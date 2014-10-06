@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class Cultivo;
+
 @interface CultivoViewController : UIViewController
+
+@property (nonatomic, strong) Cultivo *cultivo;
 
 @end

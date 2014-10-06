@@ -8,11 +8,15 @@
 
 #import "CultivosTableViewController.h"
 #import <CoreData/CoreData.h>
+#import "CultivoViewController.h"
 #import "Cultivo.h"
 
 @interface CultivosTableViewController ()
 
 @property (nonatomic, strong) NSArray *cultivosList;
+
+@property (nonatomic, strong) Cultivo *cultivo;
+
 @end
 
 @implementation CultivosTableViewController
@@ -97,6 +101,7 @@
     }  
 }
 
+
 /*
 // Override to support rearranging the table view.
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
@@ -111,14 +116,23 @@
 }
 */
 
-/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    
+    if ([segue.identifier isEqualToString:@"cultivoDetail"])
+    {
+        NSIndexPath *selectedRowIndex = [self.tableView indexPathForSelectedRow];
+        self.cultivo = self.cultivosList[selectedRowIndex.row];
+        ((CultivoViewController*)segue.destinationViewController).cultivo = self.cultivo;
+
+    }
+        
+    
+    
 }
-*/
 
 @end
