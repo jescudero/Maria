@@ -22,8 +22,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *anchoLabel;
 @property (weak, nonatomic) IBOutlet UILabel *largoLabel;
 @property (weak, nonatomic) IBOutlet UILabel *altoLabel;
+@property (weak, nonatomic) IBOutlet UILabel *horasLuz;
+@property (weak, nonatomic) IBOutlet UILabel *horasOscuridad;
 @property (weak, nonatomic) IBOutlet UILabel *fotoPeriodoLabel;
-@property (weak, nonatomic) IBOutlet UILabel *fotoPeriodoTextLabel;
 @property (weak, nonatomic) IBOutlet UILabel *iluminacionLabel;
 @property (weak, nonatomic) IBOutlet UILabel *iluminacionTextLabel;
 @property (weak, nonatomic) IBOutlet UILabel *plantasLabel;
@@ -64,7 +65,8 @@
     self.largoText.text = [NSString stringWithFormat:@"%0.0f", self.largoStepper.value];
     self.altoText.text = [NSString stringWithFormat:@"%0.0f", self.altoStepper.value];
     self.iluminacionTextLabel.text = @"-";
-    self.fotoPeriodoTextLabel.text = @"-";
+    self.horasLuz.text = @"horas luz: -";
+    self.horasOscuridad.text = @"horas oscuridad: -";
     self.plantas = [NSMutableArray array];
 }
 
@@ -129,8 +131,9 @@
     
     [self.overlayView removeFromSuperview];
     
-    self.fotoPeriodoTextLabel.text = [NSString stringWithFormat:@"%d horas de luz / %d horas de oscuridad", luz, oscuridad];
-    
+    self.horasLuz.text = [NSString stringWithFormat:@"%d horas de luz", luz];
+    self.horasOscuridad.text = [NSString stringWithFormat:@"%d horas de oscuridad", oscuridad];
+
     [self.horasLuzVC removeFromParentViewController];
     [self.horasLuzVC.view removeFromSuperview];
 }

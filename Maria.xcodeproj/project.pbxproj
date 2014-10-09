@@ -148,6 +148,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		4DBD3C3519E7334D00786F9C /* Usuarios */ = {
+			isa = PBXGroup;
+			children = (
+				4DCF206A19D9DD8600915124 /* LoginViewController.h */,
+				4DCF206B19D9DD8600915124 /* LoginViewController.m */,
+				4DCF206D19D9DD8600915124 /* NewUserViewController.h */,
+				4DCF206E19D9DD8600915124 /* NewUserViewController.m */,
+			);
+			name = Usuarios;
+			sourceTree = "<group>";
+		};
 		4DCF204519D9DD3500915124 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -183,13 +194,10 @@
 		4DCF206719D9DD8600915124 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				4DBD3C3519E7334D00786F9C /* Usuarios */,
 				4DCF206819D9DD8600915124 /* InitialViewController.h */,
 				4DCF206919D9DD8600915124 /* InitialViewController.m */,
-				4DCF206A19D9DD8600915124 /* LoginViewController.h */,
-				4DCF206B19D9DD8600915124 /* LoginViewController.m */,
 				4DCF206C19D9DD8600915124 /* Main.storyboard */,
-				4DCF206D19D9DD8600915124 /* NewUserViewController.h */,
-				4DCF206E19D9DD8600915124 /* NewUserViewController.m */,
 				4DCF207319D9DF2300915124 /* CultivosTableViewController.h */,
 				4DCF207419D9DF2300915124 /* CultivosTableViewController.m */,
 				4DD4EE8219DAE48600ED57F0 /* CultivoViewController.h */,
@@ -574,6 +582,7 @@
 					"\"${PODS_ROOT}/Headers/ObjectiveSugar\"",
 				);
 				INFOPLIST_FILE = Maria/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -592,6 +601,7 @@
 					"\"${PODS_ROOT}/Headers/ObjectiveSugar\"",
 				);
 				INFOPLIST_FILE = Maria/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
