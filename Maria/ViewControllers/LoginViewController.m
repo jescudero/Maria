@@ -28,6 +28,18 @@
 {
     [super viewWillAppear:animated];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillShow)
+                                                 name:UIKeyboardWillShowNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillHide)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
+    
+    
+    
     if ([Usuario isLoggedIn])
         [self performSegueWithIdentifier:@"login" sender:self];
     
@@ -67,5 +79,27 @@
         [alert show];
         
     }
+}
+
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    
+    [textField resignFirstResponder];
+    
+    return true;
+}
+
+-(void)keyboardWillShow {
+    // Animate the current view out of the way
+    [UIView animateWithDuration:0.3f animations:^ {
+        self.view.frame = CGRectMake(0, -120, 320, self.view.frame.size.height);
+    }];
+}
+
+-(void)keyboardWillHide {
+    // Animate the current view back to its original position
+    [UIView animateWithDuration:0.3f animations:^ {
+        self.view.frame = CGRectMake(0, 0, 320, self.view.frame.size.height);
+    }];
 }
 @end
