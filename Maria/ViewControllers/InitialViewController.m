@@ -10,9 +10,12 @@
 #import "DataManager.h"
 #import "RNFrostedSidebar.h"
 #import "Usuario.h"
+#import "CultivoViewController.h"
+#import "CultivosTableViewController.h"
 
-@interface InitialViewController ()<RNFrostedSidebarDelegate, UIAlertViewDelegate>
+@interface InitialViewController ()<RNFrostedSidebarDelegate, UIAlertViewDelegate, CultivoViewControllerProtocol>
 
+@property (nonatomic, strong) CultivosTableViewController *cultivoTableVC;
 @property (nonatomic, strong) RNFrostedSidebar *sideBar;
 @end
 
@@ -50,15 +53,27 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    
+    if ([segue.identifier isEqualToString:@"cultivo"])
+    {
+        ((CultivoViewController*)segue.destinationViewController).delegate = self;
+    }
+    
+    if ([segue.identifier isEqualToString:@"cultivoList"])
+    {
+        self.cultivoTableVC = segue.destinationViewController;
+    }
 }
-*/
+
+
+-(void)cultivoGrabado:(Cultivo*)cultivo
+{
+    [self.cultivoTableVC.tableView reloadData];
+}
 
 -(void)showSideBar
 {

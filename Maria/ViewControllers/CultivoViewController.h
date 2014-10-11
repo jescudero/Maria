@@ -10,8 +10,16 @@
 
 @class Cultivo;
 
+@protocol CultivoViewControllerProtocol <NSObject>
+
+-(void)cultivoGrabado:(Cultivo*)cultivo;
+
+@end
+
 @interface CultivoViewController : UIViewController
 
 @property (nonatomic, strong) Cultivo *cultivo;
+
+@property (nonatomic, strong) id<CultivoViewControllerProtocol> delegate;
 
 @end
