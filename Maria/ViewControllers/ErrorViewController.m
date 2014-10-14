@@ -10,13 +10,26 @@
 
 @interface ErrorViewController ()
 
+@property (weak, nonatomic) IBOutlet UILabel *errorLabel;
+
 @end
 
 @implementation ErrorViewController
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+
+    self.view.frameHeight = 120;
+    self.view.frameY = -self.view.frameHeight;
+    self.view.frameWidth = 320;
+    
+    UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(dismissError:)];
+    gesture.numberOfTapsRequired = 1;
+    self.view.userInteractionEnabled = YES;
+    [self.view addGestureRecognizer:gesture];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -24,14 +37,29 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(void)dismissError:(UITapGestureRecognizer*)gesture
+{
+    
+    if ([self.delegate respondsToSelector:@selector(dismissError:)])
+        [self.delegate dismissErrorView:self.view];
+    
+    [UIView animateWithDuration:0.5 animations:^{
+        self.view.frameY = -self.view.frameHeight;
+    }];
 }
-*/
+
+-(void)showInView:(UIView*)view{
+    
+    [view addSubview:self.view];
+    
+    self.view.backgroundColor = self.backColor;
+    self.errorLabel.text = self.text;
+
+    [UIView animateWithDuration:0.5 animations:^{
+        self.view.frameY = 0;
+    }];
+    
+}
+
 
 @end

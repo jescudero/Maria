@@ -39,6 +39,8 @@
 		4DEAAF4119D59D7D00E3FDDA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DEAAF4019D59D7D00E3FDDA /* Images.xcassets */; };
 		4DEAAF4419D59D7D00E3FDDA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DEAAF4219D59D7D00E3FDDA /* LaunchScreen.xib */; };
 		4DEAAF5019D59D7D00E3FDDA /* MariaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DEAAF4F19D59D7D00E3FDDA /* MariaTests.m */; };
+		896E2DA019E9AF390093F6B1 /* Help.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 896E2D9F19E9AF390093F6B1 /* Help.storyboard */; };
+		896E2DA319E9AF6A0093F6B1 /* ErrorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 896E2DA219E9AF6A0093F6B1 /* ErrorViewController.m */; };
 		B73EF1E84BD046BD8D232594 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DC0FF23E20C4CEF87781FE5 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -118,6 +120,9 @@
 		4DEAAF4919D59D7D00E3FDDA /* MariaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MariaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DEAAF4E19D59D7D00E3FDDA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4DEAAF4F19D59D7D00E3FDDA /* MariaTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MariaTests.m; sourceTree = "<group>"; };
+		896E2D9F19E9AF390093F6B1 /* Help.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Help.storyboard; sourceTree = "<group>"; };
+		896E2DA119E9AF6A0093F6B1 /* ErrorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ErrorViewController.h; sourceTree = "<group>"; };
+		896E2DA219E9AF6A0093F6B1 /* ErrorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ErrorViewController.m; sourceTree = "<group>"; };
 		D95EBD516FB14C24B3FA0B8F /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -155,6 +160,8 @@
 				4DCF206B19D9DD8600915124 /* LoginViewController.m */,
 				4DCF206D19D9DD8600915124 /* NewUserViewController.h */,
 				4DCF206E19D9DD8600915124 /* NewUserViewController.m */,
+				896E2DA119E9AF6A0093F6B1 /* ErrorViewController.h */,
+				896E2DA219E9AF6A0093F6B1 /* ErrorViewController.m */,
 			);
 			name = Usuarios;
 			sourceTree = "<group>";
@@ -198,6 +205,7 @@
 				4DCF206819D9DD8600915124 /* InitialViewController.h */,
 				4DCF206919D9DD8600915124 /* InitialViewController.m */,
 				4DCF206C19D9DD8600915124 /* Main.storyboard */,
+				896E2D9F19E9AF390093F6B1 /* Help.storyboard */,
 				4DCF207319D9DF2300915124 /* CultivosTableViewController.h */,
 				4DCF207419D9DF2300915124 /* CultivosTableViewController.m */,
 				4DD4EE8219DAE48600ED57F0 /* CultivoViewController.h */,
@@ -378,6 +386,7 @@
 				4DCF207119D9DD8600915124 /* Main.storyboard in Resources */,
 				4DEAAF4419D59D7D00E3FDDA /* LaunchScreen.xib in Resources */,
 				4DEAAF4119D59D7D00E3FDDA /* Images.xcassets in Resources */,
+				896E2DA019E9AF390093F6B1 /* Help.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,6 +441,7 @@
 				4DCF205E19D9DD3500915124 /* Cultivo.m in Sources */,
 				4D717E4919DDE01B00DB9DDD /* TipoPlanta.m in Sources */,
 				4D717E4F19DDE09400DB9DDD /* Planta.m in Sources */,
+				896E2DA319E9AF6A0093F6B1 /* ErrorViewController.m in Sources */,
 				4DEAAF3619D59D7D00E3FDDA /* AppDelegate.m in Sources */,
 				4D717E5819DEF65800DB9DDD /* FechaSelectorViewController.m in Sources */,
 				4D717E5519DED22400DB9DDD /* PlantasTableViewController.m in Sources */,

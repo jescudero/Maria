@@ -7,9 +7,12 @@
 //
 
 #import "NewUserViewController.h"
-#import <CoreData/CoreData.h>
+#import <QuartzCore/QuartzCore.h>
+#import "ErrorViewController.h"
+#import "Usuario.h"
 
 @interface NewUserViewController ()
+
 @property (weak, nonatomic) IBOutlet UILabel *nombreLabel;
 @property (weak, nonatomic) IBOutlet UILabel *apellidoLabel;
 @property (weak, nonatomic) IBOutlet UILabel *nickLabel;
@@ -23,6 +26,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *passText;
 @property (weak, nonatomic) IBOutlet UITextField *retypePassText;
 
+@property (nonatomic, strong) ErrorViewController *errorView;
+
 @end
 
 @implementation NewUserViewController
@@ -30,6 +35,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillShow)
+                                                 name:UIKeyboardWillShowNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillHide)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
+    
+    
+    self.errorView = [[UIStoryboard storyboardWithName:@"Help" bundle:nil]instantiateViewControllerWithIdentifier:@"ErrorVC"];
+    [self addChildViewController:self.errorView];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -48,34 +68,75 @@
 */
 
 
-- (NSManagedObjectContext *)managedObjectContext {
-    NSManagedObjectContext *context = nil;
-    id delegate = [[UIApplication sharedApplication] delegate];
-    if ([delegate performSelector:@selector(managedObjectContext)]) {
-        context = [delegate managedObjectContext];
-    }
-    return context;
-}
 
 
 - (IBAction)save:(id)sender {
-    NSManagedObjectContext *context = [self managedObjectContext];
     
-    // Create a new managed object
-    NSManagedObject *usuario = [NSEntityDescription insertNewObjectForEntityForName:@"Usuario" inManagedObjectContext:context];
-    [usuario setValue:self.nombreText.text forKey:@"nombre"];
-    [usuario setValue:self.apellidoText.text forKey:@"apellido"];
-    [usuario setValue:self.nickText.text forKey:@"nickName"];
-    [usuario setValue:self.emailText.text forKey:@"email"];
-    [usuario setValue:self.passText.text forKey:@"password"];
-    
-    NSError *error = nil;
-    // Save the object to persistent store
-    if (![context save:&error]) {
-        NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+    Usuario *usuario = [Usuario create];
+    usuario.nombre = self.nombreText.text;
+    usuario.apellido = self.apellidoText.text;
+    usuario.nickName = self.nickText.text;
+    usuario.email = self.emailText.text;
+    usuario.password = self.passText.text;
+
+    if ([self validarUsuario:usuario])
+    {
+        [usuario save];
+        [self.navigationController popViewControllerAnimated:YES];
+
     }
     
-    [self.navigationController popViewControllerAnimated:YES];
+}
+
+-(BOOL)validarUsuario:(Usuario*)usuario
+{
+    BOOL result = [self validarText:self.nombreText] || [self validarText:self.apellidoText]|| [self validarText:self.nickText];
+    
+    if (!result)
+    {
+        
+        self.errorView.text = @"Hubo un error, por favor valide los fields";
+        self.errorView.backColor = [UIColor orangeColor];
+        [self.errorView showInView:self.view];
+    }
+    
+    return result;
+    
+}
+
+
+-(BOOL)validarText:(UITextField*)field
+{
+    if ([field.text isEqualToString:@""])
+    {
+        field.layer.borderColor=[[UIColor redColor]CGColor];
+        field.layer.borderWidth= 1.0f;
+        return false;
+    }
+    
+    return true;
+        
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    
+    [textField resignFirstResponder];
+    
+    return true;
+}
+
+-(void)keyboardWillShow {
+    // Animate the current view out of the way
+    [UIView animateWithDuration:0.3f animations:^ {
+        self.view.frame = CGRectMake(0, -120, 320, self.view.frame.size.height);
+    }];
+}
+
+-(void)keyboardWillHide {
+    // Animate the current view back to its original position
+    [UIView animateWithDuration:0.3f animations:^ {
+        self.view.frame = CGRectMake(0, 0, 320, self.view.frame.size.height);
+    }];
 }
 
 @end
