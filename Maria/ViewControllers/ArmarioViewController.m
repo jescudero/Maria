@@ -83,7 +83,7 @@
     [self.view addSubview:self.overlayView];
     
     self.horasLuzVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil]instantiateViewControllerWithIdentifier:@"HorasLuzVC"];
-    self.horasLuzVC.view.frame = CGRectMake(self.view.frame.size.width/2 - 220/2, 100, 220, 260);
+    self.horasLuzVC.view.frame = CGRectMake(self.view.frame.size.width/2 - 250/2, 100, 250, 260);
     self.horasLuzVC.delegate = self;
     
     [self addChildViewController:self.horasLuzVC];

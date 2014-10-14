@@ -7,7 +7,7 @@
 //
 
 #import "NewUserViewController.h"
-#import <CoreData/CoreData.h>
+#import "Usuario.h"
 
 @interface NewUserViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *nombreLabel;
@@ -48,32 +48,16 @@
 */
 
 
-- (NSManagedObjectContext *)managedObjectContext {
-    NSManagedObjectContext *context = nil;
-    id delegate = [[UIApplication sharedApplication] delegate];
-    if ([delegate performSelector:@selector(managedObjectContext)]) {
-        context = [delegate managedObjectContext];
-    }
-    return context;
-}
-
-
 - (IBAction)save:(id)sender {
-    NSManagedObjectContext *context = [self managedObjectContext];
-    
-    // Create a new managed object
-    NSManagedObject *usuario = [NSEntityDescription insertNewObjectForEntityForName:@"Usuario" inManagedObjectContext:context];
-    [usuario setValue:self.nombreText.text forKey:@"nombre"];
-    [usuario setValue:self.apellidoText.text forKey:@"apellido"];
-    [usuario setValue:self.nickText.text forKey:@"nickName"];
-    [usuario setValue:self.emailText.text forKey:@"email"];
-    [usuario setValue:self.passText.text forKey:@"password"];
-    
-    NSError *error = nil;
-    // Save the object to persistent store
-    if (![context save:&error]) {
-        NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
-    }
+  
+    Usuario *usuario = [Usuario create];
+    usuario.nombre = self.nombreText.text;
+    usuario.apellido = self.apellidoText.text;
+    usuario.nickName = self.nickText.text;
+    usuario.email = self.emailText.text;
+    usuario.password = self.passText.text;
+
+    [usuario save];
     
     [self.navigationController popViewControllerAnimated:YES];
 }

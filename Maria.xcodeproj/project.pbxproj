@@ -66,7 +66,7 @@
 		4D717E5719DEF65800DB9DDD /* FechaSelectorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FechaSelectorViewController.m; sourceTree = "<group>"; };
 		4D7A56E519E30C0D00C39845 /* InitialNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitialNavigationController.h; sourceTree = "<group>"; };
 		4D7A56E619E30C0D00C39845 /* InitialNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitialNavigationController.m; sourceTree = "<group>"; };
-		4DB6191719DD8D07000EFBD1 /* Maria-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Maria-Prefix.pch"; sourceTree = "<group>"; };
+		4DB6191719DD8D07000EFBD1 /* Maria-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Maria-Prefix.pch"; sourceTree = SOURCE_ROOT; };
 		4DCF204619D9DD3500915124 /* Armario.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Armario.h; sourceTree = "<group>"; };
 		4DCF204719D9DD3500915124 /* Armario.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Armario.m; sourceTree = "<group>"; };
 		4DCF204819D9DD3500915124 /* CicloVida.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CicloVida.h; sourceTree = "<group>"; };
@@ -233,7 +233,6 @@
 		4DEAAF2419D59D7C00E3FDDA = {
 			isa = PBXGroup;
 			children = (
-				4DB6191719DD8D07000EFBD1 /* Maria-Prefix.pch */,
 				4DEAAF2F19D59D7D00E3FDDA /* Maria */,
 				4DEAAF4C19D59D7D00E3FDDA /* MariaTests */,
 				4DEAAF2E19D59D7D00E3FDDA /* Products */,
@@ -259,6 +258,7 @@
 				4DCF204519D9DD3500915124 /* Model */,
 				4DEAAF3419D59D7D00E3FDDA /* AppDelegate.h */,
 				4DEAAF3519D59D7D00E3FDDA /* AppDelegate.m */,
+				4DB6191719DD8D07000EFBD1 /* Maria-Prefix.pch */,
 				4DEAAF4019D59D7D00E3FDDA /* Images.xcassets */,
 				4DEAAF4219D59D7D00E3FDDA /* LaunchScreen.xib */,
 				4DEAAF3019D59D7D00E3FDDA /* Supporting Files */,

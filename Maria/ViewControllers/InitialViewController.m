@@ -7,13 +7,18 @@
 //
 
 #import "InitialViewController.h"
+#import "CultivosTableViewController.h"
+#import "CultivoViewController.h"
 #import "DataManager.h"
 #import "RNFrostedSidebar.h"
 #import "Usuario.h"
 
-@interface InitialViewController ()<RNFrostedSidebarDelegate, UIAlertViewDelegate>
+@interface InitialViewController ()<RNFrostedSidebarDelegate, UIAlertViewDelegate, CultivoGrabadoDelegate>
 
 @property (nonatomic, strong) RNFrostedSidebar *sideBar;
+@property (nonatomic, strong) CultivoViewController *cultivoVC;
+@property (nonatomic, strong) CultivosTableViewController *cultivoTable;
+
 @end
 
 @implementation InitialViewController
@@ -34,14 +39,17 @@
     
     NSArray *images = @[
                         [UIImage imageNamed:@"cultivo"],
-                        [UIImage imageNamed:@"log"],
+                        [UIImage imageNamed:@"log.jpg"],
                         [UIImage imageNamed:@"camera"],
-                        [UIImage imageNamed:@"logout"]
+                        [UIImage imageNamed:@"logout.jpg"]
                         ];
     
     self.sideBar = [[RNFrostedSidebar alloc] initWithImages:images];
     self.sideBar.delegate = self;
     [self.sideBar show];
+    
+    
+    [self.cultivoTable loadData];
 
 }
 
@@ -50,15 +58,32 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    
+    if ([segue.identifier isEqualToString:@"cultivoVC"])
+    {
+        self.cultivoVC = segue.destinationViewController;
+        self.cultivoVC.delegate = self;
+    }
+    
+    if ([segue.identifier isEqualToString:@"cultivosTable"])
+    {
+        self.cultivoTable = segue.destinationViewController;
+    }
 }
-*/
+
+
+-(void)cultivoGrabado:(Cultivo*)cultivo
+{
+    [self.cultivoTable loadData];
+}
+
 
 -(void)showSideBar
 {

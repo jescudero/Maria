@@ -51,7 +51,6 @@
         self.fechaText.text = stringFromDate;
         self.nombreText.text = self.cultivo.nombre;
         self.notasText.text = self.cultivo.notas;
-        self.c
         
     }
     else
@@ -121,6 +120,8 @@
     [self saveCultivo];
     
     [self.navigationController popViewControllerAnimated:YES];
+    
+    [self.delegate cultivoGrabado:self.cultivo];
 }
 
 
@@ -166,8 +167,6 @@
         self.cultivo = [Cultivo create];
     
     [self.cultivo addArmariosObject:armario];
-    
-    //self.cantidadLabel.text = [NSString stringWithFormat:@"%d", self.cultivo.armarios.count];
     
     [self.armariosTable reloadData];
     
