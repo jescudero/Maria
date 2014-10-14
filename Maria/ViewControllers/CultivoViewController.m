@@ -51,7 +51,7 @@
         self.fechaText.text = stringFromDate;
         self.nombreText.text = self.cultivo.nombre;
         self.notasText.text = self.cultivo.notas;
-        self.ca
+        self.c
         
     }
     else
