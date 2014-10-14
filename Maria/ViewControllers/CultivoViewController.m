@@ -104,7 +104,6 @@
 
     [self.fechaVC removeFromParentViewController];
     [self.fechaVC.view removeFromSuperview];
-
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setLocale:[NSLocale currentLocale]];
@@ -118,6 +117,8 @@
 - (IBAction)grabarCultivoTapped:(id)sender {
     
     [self saveCultivo];
+    
+    [self.delegate cultivoGrabado:self.cultivo];
     
     [self.navigationController popViewControllerAnimated:YES];
     

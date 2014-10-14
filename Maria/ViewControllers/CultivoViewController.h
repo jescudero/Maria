@@ -10,7 +10,11 @@
 
 @class Cultivo;
 
+<<<<<<< HEAD
 @protocol CultivoGrabadoDelegate <NSObject>
+=======
+@protocol CultivoViewControllerProtocol <NSObject>
+>>>>>>> 4288a64056a4ec807c9e58c9f5bbfbd2f4bd7517
 
 -(void)cultivoGrabado:(Cultivo*)cultivo;
 
@@ -20,5 +24,7 @@
 
 @property (nonatomic, strong) Cultivo *cultivo;
 @property (nonatomic, strong) id<CultivoGrabadoDelegate> delegate;
+
+@property (nonatomic, strong) id<CultivoViewControllerProtocol> delegate;
 
 @end

@@ -167,6 +167,7 @@
     armario.largo = [NSDecimalNumber decimalNumberWithString:self.largoText.text];
     armario.iluminacion = self.luz;
     armario.fotoPeriodo = self.periodo;
+    [armario addPlantas:[NSSet setWithArray:self.plantas]];
     
     [self.delegate armarioAgregado:armario];
     

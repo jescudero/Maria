@@ -60,24 +60,30 @@
 */
 - (IBAction)grabarTapped:(id)sender {
 
-    Planta *planta = [Planta create];
     
-    if ([self.alturaText.text isEqualToString:@""])
-        planta.altura = [NSDecimalNumber decimalNumberWithString:@"0"];
-    else
-        planta.altura = [NSDecimalNumber decimalNumberWithString:self.alturaText.text];
+    if ([self validatePlanta])
+    {
+        
+        Planta *planta = [Planta create];
+        
+        if ([self.alturaText.text isEqualToString:@""])
+            planta.altura = [NSDecimalNumber decimalNumberWithString:@"0"];
+        else
+            planta.altura = [NSDecimalNumber decimalNumberWithString:self.alturaText.text];
+        
+        if ([self.geneticaText.text isEqualToString:@""])
+            planta.genetica = @"NN";
+        else
+            planta.genetica = self.geneticaText.text;
+        
+        planta.tipoPlanta = self.tipoPlanta;
+        planta.inicioCicloVida = self.ciclo;
+        
+        [self.delegate plantaAgregada:planta];
+        
+        [self.navigationController popViewControllerAnimated:YES];
+    }
     
-    if ([self.geneticaText.text isEqualToString:@""])
-        planta.genetica = @"NN";
-    else
-        planta.genetica = self.geneticaText.text;
-    
-    planta.tipoPlanta = self.tipoPlanta;
-    planta.inicioCicloVida = self.ciclo;
-
-    [self.delegate plantaAgregada:planta];
-
-    [self.navigationController popViewControllerAnimated:YES];
 }
 
 -(BOOL)validatePlanta{
