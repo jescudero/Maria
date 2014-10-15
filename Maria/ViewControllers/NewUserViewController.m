@@ -36,6 +36,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    self.title = @"Nuevo Usuario";
+    
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWillShow)
                                                  name:UIKeyboardWillShowNotification
@@ -99,7 +101,7 @@
         self.errorView.backColor = [UIColor orangeColor];
         [self.errorView showInView:self.view];
     }
-    
+
     return result;
     
 }

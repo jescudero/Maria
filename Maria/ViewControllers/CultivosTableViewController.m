@@ -34,18 +34,14 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    
-
-    [self loadData];
-    
-    [self.tableView reloadData];
-    
 }
 
 
 -(void)loadData
 {
     self.cultivosList = [Cultivo all];
+    
+    [self.tableView reloadData];
 }
 
 

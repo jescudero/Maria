@@ -16,7 +16,27 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+
+    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:56/255.0 green:58 /255.0 blue:78/255.0 alpha:1.0]];
+
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+
+    
+    
+    [[UINavigationBar appearance] setTitleTextAttributes: @{
+                                                            NSForegroundColorAttributeName: [UIColor whiteColor]}];
+    
+    [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil]
+     setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}
+     forState:UIControlStateNormal];
+    
+    [[UITextView appearance] setTintColor:[UIColor blackColor]];
+    
+    [[UIBarButtonItem appearance]
+     setBackButtonTitlePositionAdjustment:UIOffsetMake(-1000, -1000)
+     forBarMetrics:UIBarMetricsDefault];
+    
+
     return YES;
 }
 

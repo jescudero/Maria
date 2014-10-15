@@ -68,7 +68,7 @@
 		4D717E5719DEF65800DB9DDD /* FechaSelectorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FechaSelectorViewController.m; sourceTree = "<group>"; };
 		4D7A56E519E30C0D00C39845 /* InitialNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitialNavigationController.h; sourceTree = "<group>"; };
 		4D7A56E619E30C0D00C39845 /* InitialNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitialNavigationController.m; sourceTree = "<group>"; };
-		4DB6191719DD8D07000EFBD1 /* Maria-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Maria-Prefix.pch"; sourceTree = "<group>"; };
+		4DB6191719DD8D07000EFBD1 /* Maria-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Maria-Prefix.pch"; sourceTree = SOURCE_ROOT; };
 		4DCF204619D9DD3500915124 /* Armario.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Armario.h; sourceTree = "<group>"; };
 		4DCF204719D9DD3500915124 /* Armario.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Armario.m; sourceTree = "<group>"; };
 		4DCF204819D9DD3500915124 /* CicloVida.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CicloVida.h; sourceTree = "<group>"; };
@@ -160,8 +160,6 @@
 				4DCF206B19D9DD8600915124 /* LoginViewController.m */,
 				4DCF206D19D9DD8600915124 /* NewUserViewController.h */,
 				4DCF206E19D9DD8600915124 /* NewUserViewController.m */,
-				896E2DA119E9AF6A0093F6B1 /* ErrorViewController.h */,
-				896E2DA219E9AF6A0093F6B1 /* ErrorViewController.m */,
 			);
 			name = Usuarios;
 			sourceTree = "<group>";
@@ -201,11 +199,11 @@
 		4DCF206719D9DD8600915124 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				89CF21CB19EDE12F0081D67D /* Help */,
 				4DBD3C3519E7334D00786F9C /* Usuarios */,
 				4DCF206819D9DD8600915124 /* InitialViewController.h */,
 				4DCF206919D9DD8600915124 /* InitialViewController.m */,
 				4DCF206C19D9DD8600915124 /* Main.storyboard */,
-				896E2D9F19E9AF390093F6B1 /* Help.storyboard */,
 				4DCF207319D9DF2300915124 /* CultivosTableViewController.h */,
 				4DCF207419D9DF2300915124 /* CultivosTableViewController.m */,
 				4DD4EE8219DAE48600ED57F0 /* CultivoViewController.h */,
@@ -241,7 +239,6 @@
 		4DEAAF2419D59D7C00E3FDDA = {
 			isa = PBXGroup;
 			children = (
-				4DB6191719DD8D07000EFBD1 /* Maria-Prefix.pch */,
 				4DEAAF2F19D59D7D00E3FDDA /* Maria */,
 				4DEAAF4C19D59D7D00E3FDDA /* MariaTests */,
 				4DEAAF2E19D59D7D00E3FDDA /* Products */,
@@ -267,6 +264,7 @@
 				4DCF204519D9DD3500915124 /* Model */,
 				4DEAAF3419D59D7D00E3FDDA /* AppDelegate.h */,
 				4DEAAF3519D59D7D00E3FDDA /* AppDelegate.m */,
+				4DB6191719DD8D07000EFBD1 /* Maria-Prefix.pch */,
 				4DEAAF4019D59D7D00E3FDDA /* Images.xcassets */,
 				4DEAAF4219D59D7D00E3FDDA /* LaunchScreen.xib */,
 				4DEAAF3019D59D7D00E3FDDA /* Supporting Files */,
@@ -298,6 +296,16 @@
 				4DEAAF4E19D59D7D00E3FDDA /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		89CF21CB19EDE12F0081D67D /* Help */ = {
+			isa = PBXGroup;
+			children = (
+				896E2D9F19E9AF390093F6B1 /* Help.storyboard */,
+				896E2DA119E9AF6A0093F6B1 /* ErrorViewController.h */,
+				896E2DA219E9AF6A0093F6B1 /* ErrorViewController.m */,
+			);
+			name = Help;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

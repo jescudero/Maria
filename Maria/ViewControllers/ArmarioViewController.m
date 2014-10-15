@@ -61,6 +61,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    self.title = @"Armario";
+    
     self.anchoText.text = [NSString stringWithFormat:@"%0.0f", self.anchoStepper.value];
     self.largoText.text = [NSString stringWithFormat:@"%0.0f", self.largoStepper.value];
     self.altoText.text = [NSString stringWithFormat:@"%0.0f", self.altoStepper.value];
@@ -83,7 +85,7 @@
     [self.view addSubview:self.overlayView];
     
     self.horasLuzVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil]instantiateViewControllerWithIdentifier:@"HorasLuzVC"];
-    self.horasLuzVC.view.frame = CGRectMake(self.view.frame.size.width/2 - 220/2, 100, 220, 260);
+    self.horasLuzVC.view.frame = CGRectMake(self.view.frame.size.width/2 - 250/2, 100, 250, 260);
     self.horasLuzVC.delegate = self;
     
     [self addChildViewController:self.horasLuzVC];
@@ -99,7 +101,7 @@
     [self.view addSubview:self.overlayView];
     
     self.tipoLuzVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil]instantiateViewControllerWithIdentifier:@"TipoLuzVC"];
-    self.tipoLuzVC.view.frame = CGRectMake(self.view.frame.size.width/2 - 220/2, 100, 220, 260);
+    self.tipoLuzVC.view.frame = CGRectMake(self.view.frameWidth/2 - 300/2, 100, 300, 300);
     self.tipoLuzVC.delegate = self;
     self.tipoLuzVC.titleVC.text = @"Tipo de Luz";
     self.tipoLuzVC.property_first = @"tipo";

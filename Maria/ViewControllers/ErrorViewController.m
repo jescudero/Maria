@@ -20,7 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-
+    
     self.view.frameHeight = 120;
     self.view.frameY = -self.view.frameHeight;
     self.view.frameWidth = 320;
@@ -29,6 +29,8 @@
     gesture.numberOfTapsRequired = 1;
     self.view.userInteractionEnabled = YES;
     [self.view addGestureRecognizer:gesture];
+    
+    
     
 }
 
@@ -52,6 +54,8 @@
     
     [view addSubview:self.view];
     
+    self.view.frameWidth = view.frameWidth;
+    
     self.view.backgroundColor = self.backColor;
     self.errorLabel.text = self.text;
 
@@ -59,6 +63,11 @@
         self.view.frameY = 0;
     }];
     
+    [NSTimer scheduledTimerWithTimeInterval:2.0
+                                     target:self
+                                   selector:@selector(dismissError:)
+                                   userInfo:nil
+                                    repeats:NO];
 }
 
 
