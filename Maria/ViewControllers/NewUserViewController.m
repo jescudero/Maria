@@ -92,11 +92,10 @@
 
 -(BOOL)validarUsuario:(Usuario*)usuario
 {
-    BOOL result = [self validarText:self.nombreText] || [self validarText:self.apellidoText]|| [self validarText:self.nickText];
+    BOOL result = [self validarText:self.nombreText] || [self validarText:self.apellidoText] || [self validarText:self.nickText] || [self validarText:self.emailText] || [self validarText:self.passText] || [self validarText:self.retypePassText];
     
     if (!result)
     {
-        
         self.errorView.text = @"Hubo un error, por favor valide los fields";
         self.errorView.backColor = [UIColor orangeColor];
         [self.errorView showInView:self.view];
