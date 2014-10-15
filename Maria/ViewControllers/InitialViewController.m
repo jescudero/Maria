@@ -46,8 +46,8 @@
     
     self.sideBar = [[RNFrostedSidebar alloc] initWithImages:images];
     self.sideBar.delegate = self;
+    self.sideBar.width = 120;
     [self.sideBar show];
-    
     
     [self.cultivoTable loadData];
 

@@ -9,6 +9,7 @@
 #import "CultivosTableViewController.h"
 #import <CoreData/CoreData.h>
 #import "CultivoViewController.h"
+#import "CultivoTableViewCell.h"
 #import "Cultivo.h"
 
 @interface CultivosTableViewController ()
@@ -64,12 +65,12 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cultivoCell" forIndexPath:indexPath];
+    CultivoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cultivoCell" forIndexPath:indexPath];
     
     Cultivo *cultivo = self.cultivosList[indexPath.row];
     
-    cell.textLabel.text = [NSString stringWithFormat:@"%@ - %d", cultivo.nombre, cultivo.armarios.count];
-
+    [cell configureCell:cultivo];
+    
     return cell;
 }
 

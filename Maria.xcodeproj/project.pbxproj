@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D0AE64619EEC5210002EAC5 /* Planta.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D0AE64519EEC5210002EAC5 /* Planta.m */; };
+		4D0AE64919EECAA70002EAC5 /* CultivoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D0AE64819EECAA70002EAC5 /* CultivoTableViewCell.m */; };
 		4D717E4919DDE01B00DB9DDD /* TipoPlanta.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D717E4819DDE01B00DB9DDD /* TipoPlanta.m */; };
-		4D717E4F19DDE09400DB9DDD /* Planta.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D717E4E19DDE09400DB9DDD /* Planta.m */; };
 		4D717E5219DDE21B00DB9DDD /* PlantaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D717E5119DDE21B00DB9DDD /* PlantaViewController.m */; };
 		4D717E5519DED22400DB9DDD /* PlantasTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D717E5419DED22400DB9DDD /* PlantasTableViewController.m */; };
 		4D717E5819DEF65800DB9DDD /* FechaSelectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D717E5719DEF65800DB9DDD /* FechaSelectorViewController.m */; };
@@ -56,10 +57,12 @@
 
 /* Begin PBXFileReference section */
 		3DC0FF23E20C4CEF87781FE5 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D0AE64419EEC5210002EAC5 /* Planta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Planta.h; sourceTree = "<group>"; };
+		4D0AE64519EEC5210002EAC5 /* Planta.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Planta.m; sourceTree = "<group>"; };
+		4D0AE64719EECAA70002EAC5 /* CultivoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CultivoTableViewCell.h; sourceTree = "<group>"; };
+		4D0AE64819EECAA70002EAC5 /* CultivoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CultivoTableViewCell.m; sourceTree = "<group>"; };
 		4D717E4719DDE01B00DB9DDD /* TipoPlanta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TipoPlanta.h; sourceTree = "<group>"; };
 		4D717E4819DDE01B00DB9DDD /* TipoPlanta.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TipoPlanta.m; sourceTree = "<group>"; };
-		4D717E4D19DDE09400DB9DDD /* Planta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Planta.h; sourceTree = "<group>"; };
-		4D717E4E19DDE09400DB9DDD /* Planta.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Planta.m; sourceTree = "<group>"; };
 		4D717E5019DDE21B00DB9DDD /* PlantaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlantaViewController.h; sourceTree = "<group>"; };
 		4D717E5119DDE21B00DB9DDD /* PlantaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlantaViewController.m; sourceTree = "<group>"; };
 		4D717E5319DED22400DB9DDD /* PlantasTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlantasTableViewController.h; sourceTree = "<group>"; };
@@ -168,6 +171,8 @@
 			isa = PBXGroup;
 			children = (
 				4DCF205219D9DD3500915124 /* Maria.xcdatamodeld */,
+				4D0AE64419EEC5210002EAC5 /* Planta.h */,
+				4D0AE64519EEC5210002EAC5 /* Planta.m */,
 				4D717E4719DDE01B00DB9DDD /* TipoPlanta.h */,
 				4D717E4819DDE01B00DB9DDD /* TipoPlanta.m */,
 				4DCF204619D9DD3500915124 /* Armario.h */,
@@ -190,8 +195,6 @@
 				4DCF205B19D9DD3500915124 /* Usuario.m */,
 				4DD4EE9119DC49FC00ED57F0 /* DataManager.h */,
 				4DD4EE9219DC49FC00ED57F0 /* DataManager.m */,
-				4D717E4D19DDE09400DB9DDD /* Planta.h */,
-				4D717E4E19DDE09400DB9DDD /* Planta.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -222,6 +225,8 @@
 				4D717E5719DEF65800DB9DDD /* FechaSelectorViewController.m */,
 				4D7A56E519E30C0D00C39845 /* InitialNavigationController.h */,
 				4D7A56E619E30C0D00C39845 /* InitialNavigationController.m */,
+				4D0AE64719EECAA70002EAC5 /* CultivoTableViewCell.h */,
+				4D0AE64819EECAA70002EAC5 /* CultivoTableViewCell.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -448,7 +453,6 @@
 				4DCF206019D9DD3500915124 /* Fertilizante.m in Sources */,
 				4DCF205E19D9DD3500915124 /* Cultivo.m in Sources */,
 				4D717E4919DDE01B00DB9DDD /* TipoPlanta.m in Sources */,
-				4D717E4F19DDE09400DB9DDD /* Planta.m in Sources */,
 				896E2DA319E9AF6A0093F6B1 /* ErrorViewController.m in Sources */,
 				4DEAAF3619D59D7D00E3FDDA /* AppDelegate.m in Sources */,
 				4D717E5819DEF65800DB9DDD /* FechaSelectorViewController.m in Sources */,
@@ -460,6 +464,7 @@
 				4DD4EE9019DC3E3B00ED57F0 /* SelectorViewController.m in Sources */,
 				4DD4EE9319DC49FC00ED57F0 /* DataManager.m in Sources */,
 				4DD4EE8719DAFF6400ED57F0 /* ArmarioViewController.m in Sources */,
+				4D0AE64619EEC5210002EAC5 /* Planta.m in Sources */,
 				4DCF206219D9DD3500915124 /* Maria.xcdatamodeld in Sources */,
 				4DD4EE8D19DB370500ED57F0 /* HorasLuzSelectorViewController.m in Sources */,
 				4D717E5219DDE21B00DB9DDD /* PlantaViewController.m in Sources */,
@@ -467,6 +472,7 @@
 				4D7A56E719E30C0D00C39845 /* InitialNavigationController.m in Sources */,
 				4DCF207519D9DF2300915124 /* CultivosTableViewController.m in Sources */,
 				4DD4EE8419DAE48600ED57F0 /* CultivoViewController.m in Sources */,
+				4D0AE64919EECAA70002EAC5 /* CultivoTableViewCell.m in Sources */,
 				4DCF207219D9DD8600915124 /* NewUserViewController.m in Sources */,
 				4DCF206619D9DD3500915124 /* Usuario.m in Sources */,
 				4DCF206519D9DD3500915124 /* Riego.m in Sources */,

@@ -16,7 +16,7 @@
 #import "PlantaViewController.h"
 #import "PlantasTableViewController.h"
 
-@interface ArmarioViewController ()<HorasSelectorDelegate, SelectorProtocol, PlantaViewControllerDelegate>
+@interface ArmarioViewController ()<HorasSelectorDelegate, SelectorProtocol, PlantaViewControllerDelegate, UITextViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *nombreLabel;
 @property (weak, nonatomic) IBOutlet UILabel *anchoLabel;
@@ -211,7 +211,13 @@
     if ([segue.identifier isEqualToString:@"plantasList"]) {
         self.plantasListVC = ((PlantasTableViewController*)segue.destinationViewController);
     }
+}
 
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    
+    [textField resignFirstResponder];
+    
+    return true;
 }
 
 -(void)plantaAgregada:(Planta*)planta{

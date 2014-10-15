@@ -12,6 +12,7 @@
 #import "ArmarioViewController.h"
 #import "FechaSelectorViewController.h"
 #import "Armario.h"
+#import <QuartzCore/QuartzCore.h> 
 
 @interface CultivoViewController ()<UITextViewDelegate, AgregarArmarioProtocol, FechaSelectorProtocol>
 
@@ -27,6 +28,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *calendarButton;
 @property (weak, nonatomic) IBOutlet UITableView *armariosTable;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableWidth;
+
+@property (nonatomic) CGFloat yPosition;
 
 @property (nonatomic, strong) FechaSelectorViewController *fechaVC;
 
@@ -39,6 +43,11 @@
     [super viewDidLoad];
 
     self.title = @"Nuevo Cultivo";
+    
+    self.tableWidth.constant = self.view.frameWidth-20;
+    
+    [[self.notasText layer] setBorderColor:[[UIColor grayColor] CGColor]];
+    [[self.notasText layer] setBorderWidth:1];
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setLocale:[NSLocale currentLocale]];
@@ -62,7 +71,6 @@
         self.notasText.delegate = self;
     }
     
-    /*
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWillShow)
                                                  name:UIKeyboardWillShowNotification
@@ -72,9 +80,12 @@
                                              selector:@selector(keyboardWillHide)
                                                  name:UIKeyboardWillHideNotification
                                                object:nil];
-     
-     */
     
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(dismissKeyboard)];
+    
+    [self.view addGestureRecognizer:tap];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -191,7 +202,13 @@
 {
     aTextView.text = @"";
 
+    self.yPosition = 180;
+    
     return YES;
+}
+
+-(void)dismissKeyboard {
+    [self.notasText resignFirstResponder];
 }
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{
@@ -204,7 +221,7 @@
 -(void)keyboardWillShow {
     // Animate the current view out of the way
     [UIView animateWithDuration:0.3f animations:^ {
-        self.view.frame = CGRectMake(0, -80, 320, self.view.frame.size.height);
+        self.view.frame = CGRectMake(0, -self.yPosition, 320, self.view.frame.size.height);
     }];
 }
 
@@ -239,6 +256,8 @@
     Armario *armario = self.cultivo.armarios.allObjects[indexPath.row];
     
     cell.textLabel.text = [NSString stringWithFormat:@"%@ - Plantas:%d", armario.nombre, armario.plantas.count];
+    
+    cell.textLabel.font = [UIFont fontWithName:@"Helvetica-Light" size:15];
     
     return cell;
 }

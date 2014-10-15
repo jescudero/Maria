@@ -24,7 +24,14 @@
     [super viewDidLoad];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
     [self.tableView reloadData];
+
 }
 
 - (void)didReceiveMemoryWarning {

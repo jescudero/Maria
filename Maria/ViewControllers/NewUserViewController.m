@@ -11,7 +11,7 @@
 #import "ErrorViewController.h"
 #import "Usuario.h"
 
-@interface NewUserViewController ()
+@interface NewUserViewController ()<UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *nombreLabel;
 @property (weak, nonatomic) IBOutlet UILabel *apellidoLabel;
@@ -27,6 +27,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *retypePassText;
 
 @property (nonatomic, strong) ErrorViewController *errorView;
+
+@property (nonatomic) CGFloat yPosition;
 
 @end
 
@@ -118,6 +120,14 @@
         
 }
 
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+{
+    if (textField.frameY > 300)
+    self.yPosition = 200;
+    
+    return true;
+}
+
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{
     
     [textField resignFirstResponder];
@@ -128,7 +138,7 @@
 -(void)keyboardWillShow {
     // Animate the current view out of the way
     [UIView animateWithDuration:0.3f animations:^ {
-        self.view.frame = CGRectMake(0, -50, 320, self.view.frame.size.height);
+        self.view.frame = CGRectMake(0, -self.yPosition, 320, self.view.frame.size.height);
     }];
 }
 

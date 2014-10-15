@@ -14,7 +14,7 @@
 #import "CicloVida.h"
 #import "Planta.h"
 
-@interface PlantaViewController ()<SelectorProtocol, UIImagePickerControllerDelegate>
+@interface PlantaViewController ()<SelectorProtocol, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *tipoPlantaLabel;
 @property (weak, nonatomic) IBOutlet UILabel *tipoSelectedLabel;
@@ -42,6 +42,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.title = @"Nueva Planta";
     // Do any additional setup after loading the view.
 }
 
@@ -79,6 +81,7 @@
         
         planta.tipoPlanta = self.tipoPlanta;
         planta.inicioCicloVida = self.ciclo;
+        planta.foto = UIImagePNGRepresentation(self.photo.image);
         
         [self.delegate plantaAgregada:planta];
         
@@ -189,7 +192,9 @@
     picker.delegate = self;
     picker.allowsEditing = YES;
     picker.sourceType = UIImagePickerControllerSourceTypeCamera;
-    
+    picker.cameraCaptureMode = UIImagePickerControllerCameraCaptureModePhoto;
+    picker.showsCameraControls = YES;
+
     [self presentViewController:picker animated:YES completion:NULL];
 }
 
@@ -207,6 +212,13 @@
     
     [picker dismissViewControllerAnimated:YES completion:NULL];
     
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    
+    [textField resignFirstResponder];
+    
+    return true;
 }
 
 @end
