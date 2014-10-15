@@ -14,7 +14,7 @@
 #import "CicloVida.h"
 #import "Planta.h"
 
-@interface PlantaViewController ()<SelectorProtocol>
+@interface PlantaViewController ()<SelectorProtocol, UIImagePickerControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *tipoPlantaLabel;
 @property (weak, nonatomic) IBOutlet UILabel *tipoSelectedLabel;
@@ -34,6 +34,7 @@
 @property (nonatomic, strong) TipoPlanta *tipoPlanta;
 @property (nonatomic, strong) CicloVida *ciclo;
 
+@property (weak, nonatomic) IBOutlet UIImageView *photo;
 
 @end
 
@@ -125,7 +126,7 @@
     [self.view addSubview:self.overlayView];
     
     self.selector = [[UIStoryboard storyboardWithName:@"Main" bundle:nil]instantiateViewControllerWithIdentifier:@"TipoLuzVC"];
-    self.selector.view.frame = CGRectMake(self.view.frame.size.width/2 - 220/2, 100, 220, 260);
+    self.selector.view.frame = CGRectMake(self.view.frame.size.width/2 - 300/2, 100, 300, 260);
     self.selector.delegate = self;
     self.selector.titleVC.text = @"Tipo de Luz";
     self.selector.property_first = @"tipoPlanta";
@@ -144,7 +145,7 @@
     [self.view addSubview:self.overlayView];
     
     self.selector = [[UIStoryboard storyboardWithName:@"Main" bundle:nil]instantiateViewControllerWithIdentifier:@"TipoLuzVC"];
-    self.selector.view.frame = CGRectMake(self.view.frame.size.width/2 - 220/2, 100, 220, 260);
+    self.selector.view.frame = CGRectMake(self.view.frame.size.width/2 - 300/2, 100, 300, 260);
     self.selector.delegate = self;
     self.selector.titleVC.text = @"Ciclo de Vida";
     self.selector.property_first = @"nombre";
@@ -182,6 +183,30 @@
     [self.selector.view removeFromSuperview];
 }
 
+- (IBAction)fotoTapped:(id)sender {
+    
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.delegate = self;
+    picker.allowsEditing = YES;
+    picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    
+    [self presentViewController:picker animated:YES completion:NULL];
+}
 
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    
+    UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
+    self.photo.image = chosenImage;
+    
+    [picker dismissViewControllerAnimated:YES completion:NULL];
+    
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    
+    [picker dismissViewControllerAnimated:YES completion:NULL];
+    
+}
 
 @end

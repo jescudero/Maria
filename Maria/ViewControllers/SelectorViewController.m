@@ -55,6 +55,16 @@
     else
         cell.textLabel.text = [NSString stringWithFormat:@"%@", [element valueForKey:self.property_first]];
     
+    
+    if ((indexPath.row % 2) == 0)
+    {
+        cell.backgroundColor = [UIColor colorWithRed:242/255.0 green:242/255.0 blue:244/255.0 alpha:1.0];
+    }
+    else
+    {
+        cell.backgroundColor = [UIColor whiteColor];
+    }
+    
     return cell;
 }
 
