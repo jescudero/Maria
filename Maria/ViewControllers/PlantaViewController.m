@@ -13,6 +13,7 @@
 #import "TipoPlanta.h"
 #import "CicloVida.h"
 #import "Planta.h"
+#import "ErrorViewController.h"
 
 @interface PlantaViewController ()<SelectorProtocol, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate>
 
@@ -29,12 +30,15 @@
 @property (weak, nonatomic) IBOutlet UITextField *geneticaText;
 
 @property (nonatomic, strong) SelectorViewController *selector;
+@property (nonatomic, strong) ErrorViewController *errorView;
+
 @property (nonatomic, strong) UIView *overlayView;
+@property (weak, nonatomic) IBOutlet UIImageView *photo;
+
 
 @property (nonatomic, strong) TipoPlanta *tipoPlanta;
 @property (nonatomic, strong) CicloVida *ciclo;
 
-@property (weak, nonatomic) IBOutlet UIImageView *photo;
 
 @end
 
@@ -64,7 +68,7 @@
 - (IBAction)grabarTapped:(id)sender {
 
     
-    if ([self validatePlanta])
+    if ([self validaPlantayCiclo])
     {
         
         Planta *planta = [Planta create];
@@ -90,31 +94,22 @@
     
 }
 
--(BOOL)validatePlanta{
-
-    BOOL result = TRUE;
+-(BOOL)validaPlantayCiclo
+{
+    BOOL result = YES;
     
-    if (!self.tipoPlanta)
+    if (!(self.tipoPlanta && self.ciclo))
     {
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Maria" message:@"Seleccione un tipo de planta" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-        [alert show];
+        self.errorView.text = @"El Tipo de Planta y Ciclo de vida son obligatorios.";
+        self.errorView.backColor = [UIColor redColor];
+        [self.errorView showInView:self.view];
         
-        result = FALSE;
-        return result;
-    }
-    
-    if (!self.ciclo)
-    {
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Maria" message:@"Seleccione un ciclo de vida" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-        [alert show];
-        
-        result = FALSE;
-        return result;
+        result = NO;
     }
     
     return result;
-    
 }
+
 
 - (IBAction)cancelarTapped:(id)sender {
 

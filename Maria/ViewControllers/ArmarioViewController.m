@@ -15,6 +15,7 @@
 #import "Cultivo.h"
 #import "PlantaViewController.h"
 #import "PlantasTableViewController.h"
+#import "ErrorViewController.h"
 
 @interface ArmarioViewController ()<HorasSelectorDelegate, SelectorProtocol, PlantaViewControllerDelegate, UITextViewDelegate>
 
@@ -41,13 +42,11 @@
 @property (weak, nonatomic) IBOutlet UIStepper *altoStepper;
 
 @property (nonatomic, strong) HorasLuzSelectorViewController *horasLuzVC;
-
 @property (nonatomic, strong) SelectorViewController *tipoLuzVC;
-
 @property (nonatomic, strong) PlantasTableViewController *plantasListVC;
+@property (nonatomic, strong) ErrorViewController *errorView;
 
 @property (nonatomic, strong) UIView *overlayView;
-
 @property (nonatomic, strong) Luces *luz;
 @property (nonatomic, strong) PeriodoLuz *periodo;
 @property (nonatomic, strong) NSMutableArray *plantas;
@@ -61,7 +60,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.title = @"Armario";
+    self.title = @"Nuevo Armario";
     
     self.anchoText.text = [NSString stringWithFormat:@"%0.0f", self.anchoStepper.value];
     self.largoText.text = [NSString stringWithFormat:@"%0.0f", self.largoStepper.value];
@@ -70,6 +69,11 @@
     self.horasLuz.text = @"horas luz: -";
     self.horasOscuridad.text = @"horas oscuridad: -";
     self.plantas = [NSMutableArray array];
+    
+    
+    self.errorView = [[UIStoryboard storyboardWithName:@"Help" bundle:nil]instantiateViewControllerWithIdentifier:@"ErrorVC"];
+    [self addChildViewController:self.errorView];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -162,19 +166,82 @@
 
 - (IBAction)grabarArmarioTapped:(id)sender {
     
-    Armario *armario = [Armario create];
-    armario.nombre = self.nombreText.text;
-    armario.ancho = [NSDecimalNumber decimalNumberWithString:self.anchoText.text];
-    armario.alto = [NSDecimalNumber decimalNumberWithString:self.altoText.text];
-    armario.largo = [NSDecimalNumber decimalNumberWithString:self.largoText.text];
-    armario.iluminacion = self.luz;
-    armario.fotoPeriodo = self.periodo;
-    [armario addPlantas:[NSSet setWithArray:self.plantas]];
+    [self grabaArmario];
     
-    [self.delegate armarioAgregado:armario];
+}
+
+-(void)grabaArmario
+{
     
-    [self.navigationController popViewControllerAnimated:YES];
+    if ([self validaCamposArmario])
+    {
+        if ([self validaIluminacion ])
+        {
+            Armario *armario = [Armario create];
+            armario.nombre = self.nombreText.text;
+            armario.ancho = [NSDecimalNumber decimalNumberWithString:self.anchoText.text];
+            armario.alto = [NSDecimalNumber decimalNumberWithString:self.altoText.text];
+            armario.largo = [NSDecimalNumber decimalNumberWithString:self.largoText.text];
+            armario.iluminacion = self.luz;
+            armario.fotoPeriodo = self.periodo;
+            [armario addPlantas:[NSSet setWithArray:self.plantas]];
+            
+            [self.delegate armarioAgregado:armario];
+            
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+        
+    }
+
+}
+
+-(BOOL)validaCamposArmario
+{
+    BOOL result = YES;
     
+    if (![self validarText:self.nombreText])
+    {
+        self.errorView.text = @"Hay campos que son obligatorios.";
+        self.errorView.backColor = [UIColor redColor];
+        [self.errorView showInView:self.view];
+        
+        result = NO;
+    }
+    
+    return result;
+}
+
+
+-(BOOL)validaIluminacion
+{
+    BOOL result = YES;
+    
+    if (!self.luz && !self.periodo)
+    {
+        self.errorView.text = @"Seleccione Foto-Periodo y Tipo de Iluminacion.";
+        self.errorView.backColor = [UIColor redColor];
+        [self.errorView showInView:self.view];
+        
+        result = NO;
+    }
+    
+    return result;
+}
+
+-(BOOL)validaArmario:(Armario*)armario
+{
+    BOOL result = YES;
+    
+    if (!armario.plantas.count == 0)
+    {
+        self.errorView.text = @"Debe agrear al menos una planta.";
+        self.errorView.backColor = [UIColor redColor];
+        [self.errorView showInView:self.view];
+        
+        result = NO;
+    }
+    
+    return result;
 }
 
 - (IBAction)cancelarTapped:(id)sender{

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="dNm-GQ-M4I">
     <dependencies>
-        <deployment defaultVersion="1808" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -717,9 +716,9 @@
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5ls-uu-1hR">
-                                        <rect key="frame" x="20" y="125" width="100" height="30"/>
+                                        <rect key="frame" x="20" y="125" width="80" height="30"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="100" id="uY2-4n-EEM"/>
+                                            <constraint firstAttribute="width" constant="80" id="uY2-4n-EEM"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -734,9 +733,9 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2ri-La-DBY">
-                                        <rect key="frame" x="20" y="190" width="100" height="30"/>
+                                        <rect key="frame" x="20" y="190" width="80" height="30"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="100" id="vtz-4P-oUG"/>
+                                            <constraint firstAttribute="width" constant="80" id="vtz-4P-oUG"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -751,9 +750,9 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c6r-jJ-zoD">
-                                        <rect key="frame" x="20" y="255" width="100" height="30"/>
+                                        <rect key="frame" x="20" y="255" width="80" height="30"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="100" id="ryX-8u-VtI"/>
+                                            <constraint firstAttribute="width" constant="80" id="ryX-8u-VtI"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -780,21 +779,21 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="100" maximumValue="300" stepValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="h1f-se-2C7">
-                                        <rect key="frame" x="140" y="191" width="94" height="29"/>
+                                        <rect key="frame" x="120" y="191" width="94" height="29"/>
                                         <color key="tintColor" red="0.38823529410000002" green="0.46274509800000002" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <action selector="largoStepper:" destination="2ZV-Nf-gG1" eventType="valueChanged" id="wOY-5c-P49"/>
                                         </connections>
                                     </stepper>
                                     <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="100" maximumValue="300" stepValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="RI2-P2-5KW">
-                                        <rect key="frame" x="140" y="125" width="94" height="29"/>
+                                        <rect key="frame" x="120" y="125" width="94" height="29"/>
                                         <color key="tintColor" red="0.38823529410000002" green="0.46274509800000002" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <action selector="anchoStepper:" destination="2ZV-Nf-gG1" eventType="valueChanged" id="cVz-0v-EWr"/>
                                         </connections>
                                     </stepper>
                                     <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="100" maximumValue="300" stepValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="awk-nz-WiC">
-                                        <rect key="frame" x="140" y="256" width="94" height="29"/>
+                                        <rect key="frame" x="120" y="256" width="94" height="29"/>
                                         <color key="tintColor" red="0.38823529410000002" green="0.46274509800000002" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <action selector="altoStepper:" destination="2ZV-Nf-gG1" eventType="valueChanged" id="fOy-gE-w0Q"/>
@@ -1464,29 +1463,16 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YDI-bu-RiB">
-                                <rect key="frame" x="36" y="68" width="5" height="18"/>
+                                <rect key="frame" x="36" y="68" width="100" height="18"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="ztV-gM-jVe"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="15"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h0y-YU-Ndb">
-                                <rect key="frame" x="61" y="62" width="150" height="30"/>
-                                <color key="backgroundColor" red="0.3411764706" green="0.3411764706" blue="0.41568627450000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="J0l-Is-tRu"/>
-                                    <constraint firstAttribute="height" constant="30" id="pBG-KE-EYG"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="15"/>
-                                <state key="normal" title="Tipo Planta">
-                                    <color key="titleColor" red="0.31144502740000002" green="0.92672217150000002" blue="0.8003535584" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="tipoDePlantaTapped:" destination="msi-ij-NHp" eventType="touchUpInside" id="Kzb-eq-zRS"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JYt-V6-PCT">
-                                <rect key="frame" x="61" y="128" width="150" height="30"/>
+                                <rect key="frame" x="156" y="128" width="150" height="30"/>
                                 <color key="backgroundColor" red="0.3411764706" green="0.3411764706" blue="0.41568627450000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="eYl-iU-fg0"/>
@@ -1502,7 +1488,10 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="765-z2-MK8">
-                                <rect key="frame" x="36" y="134" width="5" height="18"/>
+                                <rect key="frame" x="36" y="134" width="100" height="18"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="zfD-jg-nZ2"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="15"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -1584,6 +1573,22 @@
                                     <constraint firstAttribute="width" constant="50" id="bNu-1x-S86"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h0y-YU-Ndb">
+                                <rect key="frame" x="156" y="62" width="150" height="30"/>
+                                <color key="backgroundColor" red="0.3411764706" green="0.3411764706" blue="0.41568627450000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="J0l-Is-tRu"/>
+                                    <constraint firstAttribute="height" constant="30" id="pBG-KE-EYG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="15"/>
+                                <state key="normal" title="Tipo Planta">
+                                    <color key="titleColor" red="0.31144502740000002" green="0.92672217150000002" blue="0.8003535584" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="tipoDePlantaTapped:" destination="msi-ij-NHp" eventType="touchUpInside" id="Kzb-eq-zRS"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -1594,6 +1599,7 @@
                             <constraint firstItem="wh5-cI-ztw" firstAttribute="top" secondItem="nwd-I9-vWb" secondAttribute="bottom" id="39j-7c-W2a"/>
                             <constraint firstItem="F8H-5m-Ty0" firstAttribute="leading" secondItem="ZUD-Jg-epk" secondAttribute="leadingMargin" constant="20" id="48u-br-aVC"/>
                             <constraint firstItem="HBv-fL-a2u" firstAttribute="leading" secondItem="ZUD-Jg-epk" secondAttribute="leading" id="8fD-3n-Cq4"/>
+                            <constraint firstItem="h0y-YU-Ndb" firstAttribute="leading" secondItem="ZUD-Jg-epk" secondAttribute="leading" constant="20" id="95R-Tz-Urj"/>
                             <constraint firstItem="sP6-R8-n7h" firstAttribute="leading" secondItem="1so-ju-e7J" secondAttribute="leading" id="E3J-8F-F26"/>
                             <constraint firstItem="YDI-bu-RiB" firstAttribute="centerY" secondItem="h0y-YU-Ndb" secondAttribute="centerY" id="GqS-I2-GWS"/>
                             <constraint firstItem="Lrp-7T-9Ao" firstAttribute="leading" secondItem="765-z2-MK8" secondAttribute="leading" id="HDp-ci-Xpi"/>
@@ -1614,6 +1620,7 @@
                             <constraint firstItem="Lrp-7T-9Ao" firstAttribute="leading" secondItem="YDI-bu-RiB" secondAttribute="leading" id="fQF-Vl-6Kv"/>
                             <constraint firstItem="HBv-fL-a2u" firstAttribute="leading" secondItem="ZUD-Jg-epk" secondAttribute="leadingMargin" constant="20" id="fbK-Cd-gpM"/>
                             <constraint firstItem="JYt-V6-PCT" firstAttribute="leading" secondItem="765-z2-MK8" secondAttribute="trailing" constant="20" id="h4s-IV-xsM"/>
+                            <constraint firstItem="h0y-YU-Ndb" firstAttribute="leading" secondItem="YDI-bu-RiB" secondAttribute="trailing" constant="20" id="iAB-fg-foi"/>
                             <constraint firstItem="F8H-5m-Ty0" firstAttribute="top" secondItem="xCy-rL-G7Q" secondAttribute="bottom" constant="20" id="mvy-li-BsI"/>
                             <constraint firstItem="HBv-fL-a2u" firstAttribute="top" secondItem="nwd-I9-vWb" secondAttribute="bottom" id="q97-nx-Uun"/>
                             <constraint firstItem="jSB-nw-OiE" firstAttribute="top" secondItem="765-z2-MK8" secondAttribute="bottom" constant="20" id="r2V-0b-wiO"/>
@@ -1626,7 +1633,9 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="ULA-UG-eqd"/>
                                 <exclude reference="1EG-Qn-HaH"/>
+                                <exclude reference="95R-Tz-Urj"/>
                                 <exclude reference="UFR-Ud-Gm7"/>
                                 <exclude reference="b94-Xn-mAz"/>
                                 <exclude reference="fbK-Cd-gpM"/>

@@ -21,15 +21,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.view.frameHeight = 120;
+    self.view.frameHeight = 70;
     self.view.frameY = -self.view.frameHeight;
-    self.view.frameWidth = 320;
-    
-    UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(dismissError:)];
-    gesture.numberOfTapsRequired = 1;
-    self.view.userInteractionEnabled = YES;
-    [self.view addGestureRecognizer:gesture];
-    
     
 }
 
@@ -52,6 +45,11 @@
 -(void)showInView:(UIView*)view{
     
     [view addSubview:self.view];
+    UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(dismissError:)];
+    gesture.numberOfTapsRequired = 1;
+    self.view.userInteractionEnabled = YES;
+    [self.view addGestureRecognizer:gesture];
+
     
     self.view.frameWidth = view.frameWidth;
     
@@ -59,10 +57,10 @@
     self.errorLabel.text = self.text;
 
     [UIView animateWithDuration:0.5 animations:^{
-        self.view.frameY = 0;
+        self.view.frameY = 60;
     }];
     
-    [NSTimer scheduledTimerWithTimeInterval:2.0
+    [NSTimer scheduledTimerWithTimeInterval:3.0
                                      target:self
                                    selector:@selector(dismissError:)
                                    userInfo:nil
