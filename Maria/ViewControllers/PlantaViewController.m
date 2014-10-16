@@ -49,6 +49,9 @@
     
     self.title = @"Nueva Planta";
     // Do any additional setup after loading the view.
+    
+    self.errorView = [[UIStoryboard storyboardWithName:@"Help" bundle:nil]instantiateViewControllerWithIdentifier:@"ErrorVC"];
+    [self addChildViewController:self.errorView];
 }
 
 - (void)didReceiveMemoryWarning {

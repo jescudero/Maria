@@ -9,13 +9,16 @@
 #import "ArmarioViewController.h"
 #import "HorasLuzSelectorViewController.h"
 #import "SelectorViewController.h"
+#import "PlantaViewController.h"
+#import "PlantasTableViewController.h"
+#import "ErrorViewController.h"
+
 #import "Luces.h"
 #import "Armario.h"
 #import "PeriodoLuz.h"
 #import "Cultivo.h"
-#import "PlantaViewController.h"
-#import "PlantasTableViewController.h"
-#import "ErrorViewController.h"
+#import "Planta.h"
+#import "TipoPlanta.h"
 
 @interface ArmarioViewController ()<HorasSelectorDelegate, SelectorProtocol, PlantaViewControllerDelegate, UITextViewDelegate>
 
@@ -40,6 +43,7 @@
 @property (weak, nonatomic) IBOutlet UIStepper *anchoStepper;
 @property (weak, nonatomic) IBOutlet UIStepper *largoStepper;
 @property (weak, nonatomic) IBOutlet UIStepper *altoStepper;
+@property (weak, nonatomic) IBOutlet UITableView *plantasTable;
 
 @property (nonatomic, strong) HorasLuzSelectorViewController *horasLuzVC;
 @property (nonatomic, strong) SelectorViewController *tipoLuzVC;
@@ -51,7 +55,6 @@
 @property (nonatomic, strong) PeriodoLuz *periodo;
 @property (nonatomic, strong) NSMutableArray *plantas;
 
-
 @end
 
 @implementation ArmarioViewController
@@ -62,9 +65,9 @@
     
     self.title = @"Nuevo Armario";
     
-    self.anchoText.text = [NSString stringWithFormat:@"%0.0f", self.anchoStepper.value];
-    self.largoText.text = [NSString stringWithFormat:@"%0.0f", self.largoStepper.value];
-    self.altoText.text = [NSString stringWithFormat:@"%0.0f", self.altoStepper.value];
+    self.anchoText.text = [NSString stringWithFormat:@"%0.0f cm", self.anchoStepper.value];
+    self.largoText.text = [NSString stringWithFormat:@"%0.0f cm", self.largoStepper.value];
+    self.altoText.text = [NSString stringWithFormat:@"%0.0f cm", self.altoStepper.value];
     self.iluminacionTextLabel.text = @"-";
     self.horasLuz.text = @"horas luz: -";
     self.horasOscuridad.text = @"horas oscuridad: -";
@@ -254,18 +257,18 @@
 
 - (IBAction)anchoStepper:(UIStepper*)sender {
     
-    self.anchoText.text = [NSString stringWithFormat:@"%0.0f", sender.value];
+    self.anchoText.text = [NSString stringWithFormat:@"%0.0f cm", sender.value];
 }
 
 - (IBAction)largoStepper:(UIStepper*)sender {
     
-    self.largoText.text = [NSString stringWithFormat:@"%0.0f", sender.value];
+    self.largoText.text = [NSString stringWithFormat:@"%0.0f cm", sender.value];
 }
 
 
 - (IBAction)altoStepper:(UIStepper*)sender {
     
-    self.altoText.text = [NSString stringWithFormat:@"%0.0f", sender.value];
+    self.altoText.text = [NSString stringWithFormat:@"%0.0f cm", sender.value];
 
 }
 
@@ -275,9 +278,6 @@
         ((PlantaViewController*)segue.destinationViewController).delegate = self;
     }
     
-    if ([segue.identifier isEqualToString:@"plantasList"]) {
-        self.plantasListVC = ((PlantasTableViewController*)segue.destinationViewController);
-    }
 }
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{
@@ -291,12 +291,39 @@
     
     [self.plantas addObject:planta];
     self.plantasListVC.plantasList = self.plantas;
-    [self.plantasListVC.tableView reloadData];
+    [self.plantasTable reloadData];
 
 }
 
 -(void)cancelAgregarPlanta{
 
 }
+
+
+#pragma mark - Table view data source
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    // Return the number of sections.
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    // Return the number of rows in the section.
+    return self.plantas.count;
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"plantasCell" forIndexPath:indexPath];
+    
+    Planta *planta = self.plantas[indexPath.row];
+    
+    cell.textLabel.text = [NSString stringWithFormat:@"%@, %@", planta.tipoPlanta.tipoPlanta, planta.genetica];
+    
+    cell.textLabel.font = [UIFont fontWithName:@"Helvetica-Light" size:15];
+
+    return cell;
+}
+
 
 @end

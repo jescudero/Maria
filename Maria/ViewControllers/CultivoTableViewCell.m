@@ -27,7 +27,12 @@
 -(void)configureCell:(Cultivo*)cultivo{
 
     Planta *planta = [((Armario*)[cultivo.armarios allObjects][0]).plantas allObjects][0];
-    self.foto.image = [UIImage imageWithData:planta.foto];
+    
+    if (planta.foto)
+        self.foto.image = [UIImage imageWithData:planta.foto];
+    else
+        self.foto.image = [UIImage imageNamed:@"purple"];
+    
     
     self.foto.layer.cornerRadius =  self.foto.frame.size.height /2;
     self.foto.layer.masksToBounds = YES;
