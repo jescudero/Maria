@@ -81,23 +81,27 @@
     usuario.email = self.emailText.text;
     usuario.password = self.passText.text;
 
-    if ([self validarUsuario:usuario])
+    
+    
+    if ([self validarCamposUsuario])
     {
-        [usuario save];
-        [self.navigationController popViewControllerAnimated:YES];
-
+        if ([self validarPassword])
+        {
+            [usuario save];
+            [self.navigationController popViewControllerAnimated:YES];
+        }
     }
     
 }
 
--(BOOL)validarUsuario:(Usuario*)usuario
+-(BOOL)validarCamposUsuario
 {
-    BOOL result = [self validarText:self.nombreText] || [self validarText:self.apellidoText] || [self validarText:self.nickText] || [self validarText:self.emailText] || [self validarText:self.passText] || [self validarText:self.retypePassText];
+    BOOL result = [self validarText:self.nombreText] & [self validarText:self.apellidoText] & [self validarText:self.nickText] & [self validarText:self.emailText] & [self validarText:self.passText] & [self validarText:self.retypePassText];
     
     if (!result)
     {
-        self.errorView.text = @"Hubo un error, por favor valide los fields";
-        self.errorView.backColor = [UIColor orangeColor];
+        self.errorView.text = @"Hay campos que son obligatorios.";
+        self.errorView.backColor = [UIColor redColor];
         [self.errorView showInView:self.view];
     }
 
@@ -106,12 +110,31 @@
 }
 
 
+-(BOOL)validarPassword
+{
+    BOOL result = YES;
+    
+    if (![self.passText.text isEqualToString:self.retypePassText.text])
+    {
+        self.errorView.text = @"El password debe ser igual";
+        self.errorView.backColor = [UIColor redColor];
+        [self.errorView showInView:self.view];
+        result = NO;
+    }
+    
+    return result;
+}
+
 -(BOOL)validarText:(UITextField*)field
 {
+    
+    field.layer.borderColor=[[UIColor lightGrayColor]CGColor];
+    field.layer.cornerRadius = 5;
+    
     if ([field.text isEqualToString:@""])
     {
         field.layer.borderColor=[[UIColor redColor]CGColor];
-        field.layer.borderWidth= 1.0f;
+        field.layer.borderWidth = 0.5;
         return false;
     }
     

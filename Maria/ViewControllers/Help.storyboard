@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <deployment defaultVersion="1808" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -18,30 +17,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="70"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kFg-Zw-iLI">
-                                <rect key="frame" x="21" y="25" width="558" height="40"/>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="13"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wsI-3B-4mW">
+                                <rect key="frame" x="26" y="30" width="548" height="30"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="15"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="v8P-Rs-wpx" firstAttribute="top" secondItem="kFg-Zw-iLI" secondAttribute="bottom" constant="5" id="8Uj-Xd-jgp"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="kFg-Zw-iLI" secondAttribute="trailing" constant="5" id="J1j-aF-EZJ"/>
-                            <constraint firstItem="kFg-Zw-iLI" firstAttribute="leading" secondItem="8J0-IL-ijy" secondAttribute="leadingMargin" constant="5" id="Tet-We-xBV"/>
-                            <constraint firstItem="kFg-Zw-iLI" firstAttribute="top" secondItem="U66-hR-tSn" secondAttribute="bottom" constant="5" id="eSd-F6-o8t"/>
+                            <constraint firstItem="v8P-Rs-wpx" firstAttribute="top" secondItem="wsI-3B-4mW" secondAttribute="bottom" constant="10" id="HQl-cB-VWM"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="wsI-3B-4mW" secondAttribute="trailing" constant="10" id="diL-cA-SaF"/>
+                            <constraint firstItem="wsI-3B-4mW" firstAttribute="top" secondItem="U66-hR-tSn" secondAttribute="bottom" constant="10" id="qwm-Wl-sx1"/>
+                            <constraint firstItem="wsI-3B-4mW" firstAttribute="leading" secondItem="8J0-IL-ijy" secondAttribute="leadingMargin" constant="10" id="xS4-Fe-acr"/>
                         </constraints>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="600" height="70"/>
                     <connections>
-                        <outlet property="errorLabel" destination="kFg-Zw-iLI" id="dh8-G1-68H"/>
+                        <outlet property="errorLabel" destination="wsI-3B-4mW" id="X8o-iD-Kia"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R9x-7j-xQF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="320" y="278"/>
+            <point key="canvasLocation" x="288" y="231"/>
         </scene>
     </scenes>
 </document>
