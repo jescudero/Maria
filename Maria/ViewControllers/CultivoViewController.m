@@ -13,6 +13,7 @@
 #import "FechaSelectorViewController.h"
 #import "Armario.h"
 #import <QuartzCore/QuartzCore.h> 
+#import "ErrorViewController.h"
 
 @interface CultivoViewController ()<UITextViewDelegate, AgregarArmarioProtocol, FechaSelectorProtocol>
 
@@ -33,6 +34,7 @@
 @property (nonatomic) CGFloat yPosition;
 
 @property (nonatomic, strong) FechaSelectorViewController *fechaVC;
+@property (nonatomic, strong) ErrorViewController *errorView;
 
 
 @end
@@ -86,6 +88,9 @@
                                    action:@selector(dismissKeyboard)];
     
     [self.view addGestureRecognizer:tap];
+    
+    self.errorView = [[UIStoryboard storyboardWithName:@"Help" bundle:nil]instantiateViewControllerWithIdentifier:@"ErrorVC"];
+    [self addChildViewController:self.errorView];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -102,6 +107,7 @@
     // Pass the selected object to the new view controller.
 }
 */
+
 
 
 -(void)cancelFecha{
@@ -129,11 +135,6 @@
     
     [self saveCultivo];
     
-    [self.delegate cultivoGrabado:self.cultivo];
-    
-    [self.navigationController popViewControllerAnimated:YES];
-    
-    [self.delegate cultivoGrabado:self.cultivo];
 }
 
 
@@ -156,16 +157,60 @@
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyy-MM-dd"];
     NSDate *dateFromString = [[NSDate alloc] init];
+    
+    if ([self validaCamposCultivo])
+    {
+        if (!self.cultivo)
+            self.cultivo = [Cultivo create];
         
-    if (!self.cultivo)
-        self.cultivo = [Cultivo create];
+        if ([self validaCultivo:self.cultivo])
+        {
+            self.cultivo.nombre = self.nombreText.text;
+            self.cultivo.notas = self.notasText.text;
+            self.cultivo.fechaInicio = dateFromString;
+            
+            [self.cultivo save];
+            
+            [self.delegate cultivoGrabado:self.cultivo];
+            
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+    }
+
+}
+
+
+-(BOOL)validaCamposCultivo
+{
+    BOOL result = YES;
     
-    self.cultivo.nombre = self.nombreText.text;
-    self.cultivo.notas = self.notasText.text;
-    self.cultivo.fechaInicio = dateFromString;
+    if (![self validarText:self.nombreText])
+    {
+        self.errorView.text = @"Hay campos que son obligatorios.";
+        self.errorView.backColor = [UIColor redColor];
+        [self.errorView showInView:self.view];
+        
+        result = NO;
+    }
     
-    [self.cultivo save];
+    return result;
+}
+
+
+-(BOOL)validaCultivo:(Cultivo*)cultivo
+{
+    BOOL result = YES;
     
+    if (cultivo.armarios.count == 0)
+    {
+        self.errorView.text = @"Debe agregar al menos un armario.";
+        self.errorView.backColor = [UIColor redColor];
+        [self.errorView showInView:self.view];
+        
+        result = NO;
+    }
+    
+    return result;
 }
 
 -(void)cancelAgregarArmario{

@@ -24,4 +24,5 @@
 @property (nonatomic, readonly) CGFloat frameMaxX;
 @property (nonatomic, readonly) CGFloat frameMaxY;
 
+
 @end

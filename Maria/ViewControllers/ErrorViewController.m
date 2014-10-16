@@ -31,7 +31,6 @@
     [self.view addGestureRecognizer:gesture];
     
     
-    
 }
 
 - (void)didReceiveMemoryWarning {

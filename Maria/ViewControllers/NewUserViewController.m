@@ -125,22 +125,7 @@
     return result;
 }
 
--(BOOL)validarText:(UITextField*)field
-{
-    
-    field.layer.borderColor=[[UIColor lightGrayColor]CGColor];
-    field.layer.cornerRadius = 5;
-    
-    if ([field.text isEqualToString:@""])
-    {
-        field.layer.borderColor=[[UIColor redColor]CGColor];
-        field.layer.borderWidth = 0.5;
-        return false;
-    }
-    
-    return true;
-        
-}
+
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {
