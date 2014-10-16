@@ -10,6 +10,8 @@
 		4D0AE64619EEC5210002EAC5 /* Planta.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D0AE64519EEC5210002EAC5 /* Planta.m */; };
 		4D0AE64919EECAA70002EAC5 /* CultivoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D0AE64819EECAA70002EAC5 /* CultivoTableViewCell.m */; };
 		4D0AE64F19F005710002EAC5 /* UIViewController+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D0AE64E19F005710002EAC5 /* UIViewController+Helper.m */; };
+		4D0AE65319F050F10002EAC5 /* Logs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D0AE65219F050F10002EAC5 /* Logs.storyboard */; };
+		4D0AE65619F0515B0002EAC5 /* CultivosLogTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D0AE65519F0515B0002EAC5 /* CultivosLogTableViewController.m */; };
 		4D717E4919DDE01B00DB9DDD /* TipoPlanta.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D717E4819DDE01B00DB9DDD /* TipoPlanta.m */; };
 		4D717E5219DDE21B00DB9DDD /* PlantaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D717E5119DDE21B00DB9DDD /* PlantaViewController.m */; };
 		4D717E5519DED22400DB9DDD /* PlantasTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D717E5419DED22400DB9DDD /* PlantasTableViewController.m */; };
@@ -64,6 +66,9 @@
 		4D0AE64819EECAA70002EAC5 /* CultivoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CultivoTableViewCell.m; sourceTree = "<group>"; };
 		4D0AE64D19F005710002EAC5 /* UIViewController+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Helper.h"; sourceTree = "<group>"; };
 		4D0AE64E19F005710002EAC5 /* UIViewController+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Helper.m"; sourceTree = "<group>"; };
+		4D0AE65219F050F10002EAC5 /* Logs.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Logs.storyboard; sourceTree = "<group>"; };
+		4D0AE65419F0515B0002EAC5 /* CultivosLogTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CultivosLogTableViewController.h; sourceTree = "<group>"; };
+		4D0AE65519F0515B0002EAC5 /* CultivosLogTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CultivosLogTableViewController.m; sourceTree = "<group>"; };
 		4D717E4719DDE01B00DB9DDD /* TipoPlanta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TipoPlanta.h; sourceTree = "<group>"; };
 		4D717E4819DDE01B00DB9DDD /* TipoPlanta.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TipoPlanta.m; sourceTree = "<group>"; };
 		4D717E5019DDE21B00DB9DDD /* PlantaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlantaViewController.h; sourceTree = "<group>"; };
@@ -187,6 +192,16 @@
 			name = Cultivo;
 			sourceTree = "<group>";
 		};
+		4D0AE65119F050D20002EAC5 /* Logs */ = {
+			isa = PBXGroup;
+			children = (
+				4D0AE65219F050F10002EAC5 /* Logs.storyboard */,
+				4D0AE65419F0515B0002EAC5 /* CultivosLogTableViewController.h */,
+				4D0AE65519F0515B0002EAC5 /* CultivosLogTableViewController.m */,
+			);
+			name = Logs;
+			sourceTree = "<group>";
+		};
 		4DBD3C3519E7334D00786F9C /* Usuarios */ = {
 			isa = PBXGroup;
 			children = (
@@ -233,6 +248,7 @@
 		4DCF206719D9DD8600915124 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				4D0AE65119F050D20002EAC5 /* Logs */,
 				4D0AE65019F045940002EAC5 /* Cultivo */,
 				89CF21CB19EDE12F0081D67D /* Help */,
 				4DBD3C3519E7334D00786F9C /* Usuarios */,
@@ -412,6 +428,7 @@
 				4DCF207119D9DD8600915124 /* Main.storyboard in Resources */,
 				4DEAAF4419D59D7D00E3FDDA /* LaunchScreen.xib in Resources */,
 				4DEAAF4119D59D7D00E3FDDA /* Images.xcassets in Resources */,
+				4D0AE65319F050F10002EAC5 /* Logs.storyboard in Resources */,
 				896E2DA019E9AF390093F6B1 /* Help.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -489,6 +506,7 @@
 				4D0AE64919EECAA70002EAC5 /* CultivoTableViewCell.m in Sources */,
 				4DCF207219D9DD8600915124 /* NewUserViewController.m in Sources */,
 				4DCF206619D9DD3500915124 /* Usuario.m in Sources */,
+				4D0AE65619F0515B0002EAC5 /* CultivosLogTableViewController.m in Sources */,
 				4DCF206519D9DD3500915124 /* Riego.m in Sources */,
 				4DCF205F19D9DD3500915124 /* Evento.m in Sources */,
 				4DD4EEAA19DC884000ED57F0 /* UIView+FrameHelper.m in Sources */,

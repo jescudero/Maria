@@ -9,6 +9,8 @@
 #import "InitialViewController.h"
 #import "CultivosTableViewController.h"
 #import "CultivoViewController.h"
+#import "CultivosLogTableViewController.h"
+
 #import "DataManager.h"
 #import "RNFrostedSidebar.h"
 #import "Usuario.h"
@@ -91,6 +93,19 @@
 }
 
 - (void)sidebar:(RNFrostedSidebar *)sidebar didTapItemAtIndex:(NSUInteger)index{
+    
+    if (index == 1) {
+        [sidebar dismissAnimated:YES];
+        
+        CultivosLogTableViewController *logsVC = [[UIStoryboard storyboardWithName:@"Logs" bundle:nil]instantiateViewControllerWithIdentifier:@"CultivosLogVC"];
+
+        [self addChildViewController:logsVC];
+        
+        [self transitionFromViewController:self.cultivoTable toViewController:logsVC duration:0.5 options:UIViewAnimationOptionTransitionCrossDissolve animations:nil completion:nil];
+        
+        
+    }
+    
     if (index == 3) {
         [sidebar dismissAnimated:YES];
         
