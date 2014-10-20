@@ -10,4 +10,6 @@
 
 @interface CultivosLogTableViewController : UITableViewController
 
+-(void)loadData;
+
 @end

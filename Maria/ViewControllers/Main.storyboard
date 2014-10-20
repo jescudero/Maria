@@ -365,19 +365,31 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Syr-CE-dah">
-                                <rect key="frame" x="16" y="0.0" width="568" height="600"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <connections>
-                                    <segue destination="JH5-32-tyL" kind="embed" identifier="cultivosTable" id="eGx-gC-NWl"/>
+                                    <segue destination="JH5-32-tyL" kind="embed" identifier="cultivosTable" id="L40-L2-tbg"/>
                                 </connections>
                             </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Syr-CE-dah" firstAttribute="top" secondItem="vKT-4c-skC" secondAttribute="top" id="0dG-sq-n0M"/>
                             <constraint firstItem="Syr-CE-dah" firstAttribute="leading" secondItem="vKT-4c-skC" secondAttribute="leadingMargin" id="Q65-Bn-cWN"/>
+                            <constraint firstItem="Syr-CE-dah" firstAttribute="leading" secondItem="vKT-4c-skC" secondAttribute="leading" id="Ug0-bo-bg2"/>
                             <constraint firstItem="Syr-CE-dah" firstAttribute="top" secondItem="vKT-4c-skC" secondAttribute="topMargin" id="Urj-zR-bIf"/>
+                            <constraint firstAttribute="trailing" secondItem="Syr-CE-dah" secondAttribute="trailing" id="a5j-H8-MdJ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Syr-CE-dah" secondAttribute="trailing" id="ajp-VL-P05"/>
+                            <constraint firstAttribute="bottom" secondItem="Syr-CE-dah" secondAttribute="bottom" id="fVu-Mp-KD6"/>
                             <constraint firstAttribute="bottomMargin" secondItem="Syr-CE-dah" secondAttribute="bottom" id="kfz-iR-uVq"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Q65-Bn-cWN"/>
+                                <exclude reference="Urj-zR-bIf"/>
+                                <exclude reference="ajp-VL-P05"/>
+                                <exclude reference="kfz-iR-uVq"/>
+                            </mask>
+                        </variation>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="aaM-zs-b1d">
@@ -389,6 +401,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="containerVC" destination="Syr-CE-dah" id="GOa-4Y-Zl8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LpW-cy-dXC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1646,9 +1661,9 @@
         <!--Cultivos Table View Controller-->
         <scene sceneID="WCW-WF-4Ts">
             <objects>
-                <tableViewController id="JH5-32-tyL" customClass="CultivosTableViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="CultivosTableVC" id="JH5-32-tyL" customClass="CultivosTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="84" sectionHeaderHeight="22" sectionFooterHeight="22" id="If9-Rb-3ZN">
-                        <rect key="frame" x="0.0" y="0.0" width="568" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>

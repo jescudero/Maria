@@ -7,8 +7,15 @@
 //
 
 #import "CultivosLogTableViewController.h"
+#import "CultivosLogTableViewCell.h"
+#import "CultivoLogHeaderView.h"
+#import "Cultivo.h"
+#import "Armario.h"
+#import "ArmarioLogViewController.h"
 
 @interface CultivosLogTableViewController ()
+
+@property (nonatomic, strong) NSArray *cultivosList;
 
 @end
 
@@ -29,24 +36,51 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)loadData
+{
+    self.cultivosList = [Cultivo all];
+    [self.tableView reloadData];
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Return the number of sections.
-    return 1;
+    return self.cultivosList.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return 1;
+    Cultivo *cultivo = self.cultivosList[section];
+    
+    return cultivo.armarios.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cultivosLog" forIndexPath:indexPath];
+    CultivosLogTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cultivosLogCell" forIndexPath:indexPath];
     
     // Configure the cell...
+    Armario *armario = [((Cultivo*)self.cultivosList[indexPath.section]).armarios allObjects][indexPath.row];
+    
+    [cell configureView:armario];
     
     return cell;
+}
+
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    Cultivo *cultivo = self.cultivosList[section];
+    
+    CultivoLogHeaderView *cultivoHeader = [[[NSBundle mainBundle] loadNibNamed:@"CultivoLogHeader" owner:self options:nil] objectAtIndex:0];
+
+    [cultivoHeader configureView:cultivo];
+    
+    return cultivoHeader;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+
+    return 70;
 }
 
 /*
@@ -83,14 +117,20 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    ArmarioLogViewController *armarioLog = [segue destinationViewController];
+    
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    Armario *armario = [((Cultivo*)self.cultivosList[indexPath.section]).armarios allObjects][indexPath.row];
+    
+    armarioLog.armario = armario;
 }
-*/
+
 
 @end

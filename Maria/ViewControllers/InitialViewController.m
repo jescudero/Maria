@@ -20,6 +20,13 @@
 @property (nonatomic, strong) RNFrostedSidebar *sideBar;
 @property (nonatomic, strong) CultivoViewController *cultivoVC;
 @property (nonatomic, strong) CultivosTableViewController *cultivoTable;
+@property (nonatomic, strong) CultivosLogTableViewController *logsVC;
+
+@property (nonatomic, strong) UIViewController *currentVC;
+@property (nonatomic, strong) UIViewController *initialVC;
+
+
+@property (weak, nonatomic) IBOutlet UIView *containerVC;
 
 @end
 
@@ -49,11 +56,16 @@
     self.sideBar = [[RNFrostedSidebar alloc] initWithImages:images];
     self.sideBar.delegate = self;
     self.sideBar.width = 120;
-    [self.sideBar show];
     
     [self.cultivoTable loadData];
-
+    
+    
+    self.initialVC = self.childViewControllers.lastObject;
+    self.currentVC = self.initialVC;
+    self.logsVC = [[UIStoryboard storyboardWithName:@"Logs" bundle:nil]instantiateViewControllerWithIdentifier:@"CultivosLogVC"];
+    
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -77,6 +89,8 @@
     if ([segue.identifier isEqualToString:@"cultivosTable"])
     {
         self.cultivoTable = segue.destinationViewController;
+        self.currentVC = self.cultivoTable;
+        self.initialVC = self.cultivoTable;
     }
 }
 
@@ -94,17 +108,53 @@
 
 - (void)sidebar:(RNFrostedSidebar *)sidebar didTapItemAtIndex:(NSUInteger)index{
     
+    if (index == 0) {
+        [sidebar dismissAnimated:YES];
+        
+        if (self.cultivoTable != self.currentVC)
+        {
+            [self.logsVC loadData];
+            
+            [self addChildViewController:self.cultivoTable];
+            self.cultivoTable.view.frame = self.containerVC.bounds;
+            
+            [self moveToNewController:self.cultivoTable];
+        }
+        
+    }
+    
     if (index == 1) {
         [sidebar dismissAnimated:YES];
         
-        CultivosLogTableViewController *logsVC = [[UIStoryboard storyboardWithName:@"Logs" bundle:nil]instantiateViewControllerWithIdentifier:@"CultivosLogVC"];
-
-        [self addChildViewController:logsVC];
-        
-        [self transitionFromViewController:self.cultivoTable toViewController:logsVC duration:0.5 options:UIViewAnimationOptionTransitionCrossDissolve animations:nil completion:nil];
-        
+        if (self.logsVC != self.currentVC)
+        {
+            [self.logsVC loadData];
+            
+            [self addChildViewController:self.logsVC];
+            self.logsVC.view.frame = self.containerVC.bounds;
+            self.logsVC.view.frameY = 64;
+            
+            [self moveToNewController:self.logsVC];
+        }
         
     }
+    
+    if (index == 2) {
+        [sidebar dismissAnimated:YES];
+        
+        if (self.logsVC != self.currentVC)
+        {
+            [self.logsVC loadData];
+            
+            [self addChildViewController:self.logsVC];
+            self.logsVC.view.frame = self.containerVC.bounds;
+            self.logsVC.view.frameY = 64;
+            
+            [self moveToNewController:self.logsVC];
+        }
+        
+    }
+
     
     if (index == 3) {
         [sidebar dismissAnimated:YES];
@@ -112,6 +162,17 @@
         UIAlertView *alter = [[UIAlertView alloc]initWithTitle:@"Maria" message:@"Seguro quiere salir?" delegate:self cancelButtonTitle:@"Si" otherButtonTitles:@"No", nil];
         [alter show];
     }
+}
+
+
+-(void)moveToNewController:(UIViewController *) newController {
+    [self.currentVC willMoveToParentViewController:nil];
+    [self transitionFromViewController:self.currentVC toViewController:newController duration:.5 options:UIViewAnimationOptionTransitionCrossDissolve animations:nil
+                            completion:^(BOOL finished) {
+                                [self.currentVC removeFromParentViewController];
+                                [newController didMoveToParentViewController:self];
+                                self.currentVC = newController;
+                            }];
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex

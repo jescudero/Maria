@@ -1,0 +1,48 @@
+Configuring for iphoneos-cross
+    no-ec_nistp_64_gcc_128 [default]  OPENSSL_NO_EC_NISTP_64_GCC_128 (skip dir)
+    no-gmp          [default]  OPENSSL_NO_GMP (skip dir)
+    no-jpake        [experimental] OPENSSL_NO_JPAKE (skip dir)
+    no-krb5         [krb5-flavor not specified] OPENSSL_NO_KRB5
+    no-md2          [default]  OPENSSL_NO_MD2 (skip dir)
+    no-rc5          [default]  OPENSSL_NO_RC5 (skip dir)
+    no-rfc3779      [default]  OPENSSL_NO_RFC3779 (skip dir)
+    no-sctp         [default]  OPENSSL_NO_SCTP (skip dir)
+    no-shared       [default] 
+    no-store        [experimental] OPENSSL_NO_STORE (skip dir)
+    no-zlib         [default] 
+    no-zlib-dynamic [default] 
+IsMK1MF=0
+CC            =/Applications/Xcode 2.app/Contents/Developer/usr/bin/gcc -arch i386 -miphoneos-version-min=8.0
+CFLAG         =-DOPENSSL_THREADS -D_REENTRANT -DDSO_DLFCN -DHAVE_DLFCN_H -O3 -isysroot $(CROSS_TOP)/SDKs/$(CROSS_SDK) -fomit-frame-pointer -fno-common
+EX_LIBS       =
+CPUID_OBJ     =mem_clr.o
+BN_ASM        =bn_asm.o
+DES_ENC       =des_enc.o fcrypt_b.o
+AES_ENC       =aes_core.o aes_cbc.o
+BF_ENC        =bf_enc.o
+CAST_ENC      =c_enc.o
+RC4_ENC       =rc4_enc.o rc4_skey.o
+RC5_ENC       =rc5_enc.o
+MD5_OBJ_ASM   =
+SHA1_OBJ_ASM  =
+RMD160_OBJ_ASM=
+CMLL_ENC      =camellia.o cmll_misc.o cmll_cbc.o
+MODES_OBJ     =
+ENGINES_OBJ   =
+PROCESSOR     =
+RANLIB        =/usr/bin/ranlib
+ARFLAGS       =
+PERL          =/usr/bin/perl
+THIRTY_TWO_BIT mode
+DES_UNROLL used
+BN_LLONG mode
+RC4 uses uchar
+RC4_CHUNK is unsigned long
+BF_PTR used
+e_os2.h => include/openssl/e_os2.h
+making links in crypto...
+/bin/sh: /Applications/Xcode: No such file or directory
+make: *** [links] Error 1
+making all in crypto...
+/bin/sh: /Applications/Xcode: No such file or directory
+make: *** [build_crypto] Error 1
