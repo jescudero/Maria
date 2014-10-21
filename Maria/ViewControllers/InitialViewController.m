@@ -35,9 +35,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.navigationItem.leftBarButtonItem=nil;
-    self.navigationItem.hidesBackButton=YES;
-    
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"3lines"] style:UIBarButtonItemStylePlain target:self action:@selector(showSideBar)];
     
     DataManager *manager = [[DataManager alloc]init];
@@ -132,7 +129,7 @@
             
             [self addChildViewController:self.logsVC];
             self.logsVC.view.frame = self.containerVC.bounds;
-            self.logsVC.view.frameY = 64;
+          //  self.logsVC.view.frameY = 64;
             
             [self moveToNewController:self.logsVC];
         }

@@ -83,6 +83,17 @@
     return 70;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+
+    ArmarioLogViewController *logVC = [[UIStoryboard storyboardWithName:@"Logs" bundle:nil]instantiateViewControllerWithIdentifier:@"LogsVC"];
+    
+    Armario *armario = [((Cultivo*)self.cultivosList[indexPath.section]).armarios allObjects][indexPath.row];
+    
+    logVC.armario = armario;
+
+    [self.navigationController pushViewController:logVC animated:YES];
+}
+
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -123,13 +134,8 @@
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-    ArmarioLogViewController *armarioLog = [segue destinationViewController];
-    
-    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-    Armario *armario = [((Cultivo*)self.cultivosList[indexPath.section]).armarios allObjects][indexPath.row];
-    
-    armarioLog.armario = armario;
+    // Pass the selected object to the new view controller.    
+
 }
 
 

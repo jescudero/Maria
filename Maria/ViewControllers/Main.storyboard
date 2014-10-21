@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="dNm-GQ-M4I">
     <dependencies>
+        <deployment defaultVersion="1808" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -1680,40 +1681,37 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hpU-Xs-8PD">
-                                            <rect key="frame" x="80" y="5" width="38" height="18"/>
+                                            <rect key="frame" x="80" y="17" width="38" height="18"/>
                                             <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="15"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="brg-9k-6Y9">
-                                            <rect key="frame" x="80" y="28" width="42" height="21"/>
-                                            <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="15"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g0I-P5-Ch2">
-                                            <rect key="frame" x="80" y="54" width="42" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="brg-9k-6Y9">
+                                            <rect key="frame" x="80" y="40" width="38" height="18"/>
                                             <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="15"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="g0I-P5-Ch2" firstAttribute="top" secondItem="brg-9k-6Y9" secondAttribute="bottom" constant="5" id="3ag-Ns-RUl"/>
-                                        <constraint firstItem="g0I-P5-Ch2" firstAttribute="leading" secondItem="EMe-3N-kaI" secondAttribute="trailing" constant="20" id="55H-WG-lbZ"/>
                                         <constraint firstItem="hpU-Xs-8PD" firstAttribute="leading" secondItem="EMe-3N-kaI" secondAttribute="trailing" constant="20" id="9SE-LO-ers"/>
                                         <constraint firstItem="hpU-Xs-8PD" firstAttribute="top" secondItem="kUL-3C-O7M" secondAttribute="top" constant="5" id="G4N-ws-KHO"/>
                                         <constraint firstItem="EMe-3N-kaI" firstAttribute="leading" secondItem="kUL-3C-O7M" secondAttribute="leading" constant="10" id="OhR-89-NSW"/>
+                                        <constraint firstItem="EMe-3N-kaI" firstAttribute="top" secondItem="hpU-Xs-8PD" secondAttribute="top" id="gvR-kB-jTe"/>
                                         <constraint firstItem="brg-9k-6Y9" firstAttribute="top" secondItem="hpU-Xs-8PD" secondAttribute="bottom" constant="5" id="pCp-yf-y06"/>
                                         <constraint firstAttribute="centerY" secondItem="EMe-3N-kaI" secondAttribute="centerY" id="vcJ-KB-gQX"/>
                                         <constraint firstItem="brg-9k-6Y9" firstAttribute="leading" secondItem="EMe-3N-kaI" secondAttribute="trailing" constant="20" id="xmZ-pa-1rZ"/>
                                     </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="G4N-ws-KHO"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="armarioLabel" destination="brg-9k-6Y9" id="OAf-IU-7N4"/>
                                     <outlet property="cultivoLabel" destination="hpU-Xs-8PD" id="DRa-Xj-pBm"/>
                                     <outlet property="foto" destination="EMe-3N-kaI" id="dhL-Zd-IcS"/>
-                                    <outlet property="plantasLabel" destination="g0I-P5-Ch2" id="M7T-aT-Upe"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

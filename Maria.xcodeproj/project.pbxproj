@@ -23,6 +23,7 @@
 		4DAD4DD719F58B6900A86C6A /* CultivoLogHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DAD4DD619F58B6900A86C6A /* CultivoLogHeader.xib */; };
 		4DAD4DDA19F58D3900A86C6A /* CultivoLogHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DAD4DD919F58D3900A86C6A /* CultivoLogHeaderView.m */; };
 		4DAD4DDD19F5A2CC00A86C6A /* ArmarioLogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DAD4DDC19F5A2CC00A86C6A /* ArmarioLogViewController.m */; };
+		4DAD4DE019F6F9B700A86C6A /* PlantasLogTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DAD4DDF19F6F9B700A86C6A /* PlantasLogTableViewCell.m */; };
 		4DCF205C19D9DD3500915124 /* Armario.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DCF204719D9DD3500915124 /* Armario.m */; };
 		4DCF205D19D9DD3500915124 /* CicloVida.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DCF204919D9DD3500915124 /* CicloVida.m */; };
 		4DCF205E19D9DD3500915124 /* Cultivo.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DCF204B19D9DD3500915124 /* Cultivo.m */; };
@@ -95,6 +96,8 @@
 		4DAD4DD919F58D3900A86C6A /* CultivoLogHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CultivoLogHeaderView.m; sourceTree = "<group>"; };
 		4DAD4DDB19F5A2CC00A86C6A /* ArmarioLogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArmarioLogViewController.h; sourceTree = "<group>"; };
 		4DAD4DDC19F5A2CC00A86C6A /* ArmarioLogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArmarioLogViewController.m; sourceTree = "<group>"; };
+		4DAD4DDE19F6F9B700A86C6A /* PlantasLogTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlantasLogTableViewCell.h; sourceTree = "<group>"; };
+		4DAD4DDF19F6F9B700A86C6A /* PlantasLogTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlantasLogTableViewCell.m; sourceTree = "<group>"; };
 		4DB6191719DD8D07000EFBD1 /* Maria-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Maria-Prefix.pch"; sourceTree = SOURCE_ROOT; };
 		4DCF204619D9DD3500915124 /* Armario.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Armario.h; sourceTree = "<group>"; };
 		4DCF204719D9DD3500915124 /* Armario.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Armario.m; sourceTree = "<group>"; };
@@ -221,6 +224,8 @@
 				4DAD4DD919F58D3900A86C6A /* CultivoLogHeaderView.m */,
 				4DAD4DDB19F5A2CC00A86C6A /* ArmarioLogViewController.h */,
 				4DAD4DDC19F5A2CC00A86C6A /* ArmarioLogViewController.m */,
+				4DAD4DDE19F6F9B700A86C6A /* PlantasLogTableViewCell.h */,
+				4DAD4DDF19F6F9B700A86C6A /* PlantasLogTableViewCell.m */,
 			);
 			name = Logs;
 			sourceTree = "<group>";
@@ -543,6 +548,7 @@
 				4DCF207519D9DF2300915124 /* CultivosTableViewController.m in Sources */,
 				4DD4EE8419DAE48600ED57F0 /* CultivoViewController.m in Sources */,
 				4D0AE64919EECAA70002EAC5 /* CultivoTableViewCell.m in Sources */,
+				4DAD4DE019F6F9B700A86C6A /* PlantasLogTableViewCell.m in Sources */,
 				4DCF207219D9DD8600915124 /* NewUserViewController.m in Sources */,
 				4DCF206619D9DD3500915124 /* Usuario.m in Sources */,
 				4D0AE65619F0515B0002EAC5 /* CultivosLogTableViewController.m in Sources */,

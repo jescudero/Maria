@@ -9,10 +9,18 @@
 #import "ArmarioLogViewController.h"
 #import "Armario.h"
 #import "PeriodoLuz.h"
+#import "Luces.h"
+#import "Planta.h"
+#import "PlantasLogTableViewCell.h"
 
-@interface ArmarioLogViewController ()
+@interface ArmarioLogViewController ()<UITableViewDataSource, UITableViewDelegate>
+@property (weak, nonatomic) IBOutlet UILabel *armarioLabel;
 @property (weak, nonatomic) IBOutlet UILabel *periodoLuzLabel;
 @property (weak, nonatomic) IBOutlet UILabel *periodoOscuridadLabel;
+@property (weak, nonatomic) IBOutlet UILabel *iluminacionLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *dimensionLAbel;
+@property (weak, nonatomic) IBOutlet UITableView *plantasTable;
 
 @end
 
@@ -24,9 +32,21 @@
     
     self.title = @"Log Armario";
     
+    self.armarioLabel.text = [NSString stringWithFormat:@"Armario: %@", self.armario.nombre];
+    
+    
+    self.dimensionLAbel.text = [NSString stringWithFormat:@"(alto:%@, largo: %@, ancho: %@)", self.armario.alto, self.armario.largo, self.armario.ancho];
+    
     self.periodoLuzLabel.text =  [NSString stringWithFormat:@"Periodo de Luz: %@", self.armario.fotoPeriodo.horasLuz];
 
     self.periodoOscuridadLabel.text = [NSString stringWithFormat:@"Periodo de Oscuridad: %@", self.armario.fotoPeriodo.horasOscuridad];
+    
+    
+    self.iluminacionLabel.text = [NSString stringWithFormat:@"Tipo Iluminacion: %@ %@", self.armario.iluminacion.tipo, self.armario.iluminacion.watts];
+    
+    
+    self.plantasTable.delegate = self;
+    self.plantasTable.dataSource = self;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -44,4 +64,25 @@
 }
 */
 
+
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    // Return the number of sections.
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    // Return the number of rows in the section.
+    return self.armario.plantas.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    PlantasLogTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"plantasLogCell" forIndexPath:indexPath];
+    
+    Planta *planta = [self.armario.plantas allObjects][indexPath.row];
+    // Configure the cell...
+    [cell configureCell:planta];
+    
+    return cell;
+}
 @end
