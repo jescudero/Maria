@@ -129,8 +129,12 @@
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {
-    if (textField.frameY > 300)
-    self.yPosition = 200;
+    if (textField.frameY > 250)
+    {
+        [UIView animateWithDuration:0.3f animations:^ {
+            self.view.frame = CGRectMake(0, -200, 320, self.view.frame.size.height);
+        }];
+    }
     
     return true;
 }
