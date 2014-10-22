@@ -42,7 +42,11 @@
     NSString *fechaIni = [formatter stringFromDate:cultivo.fechaInicio];
     NSString *fechaFin = [formatter stringFromDate:cultivo.fechaFin];
 
-    self.cultivoLabel.text = [NSString stringWithFormat:@"%@ : %@ - %@", cultivo.nombre, fechaIni, fechaFin];
+    if (fechaFin)
+        self.cultivoLabel.text = [NSString stringWithFormat:@"%@ : %@ - %@", cultivo.nombre, fechaIni, fechaFin];
+    else
+        self.cultivoLabel.text = [NSString stringWithFormat:@"%@ : %@", cultivo.nombre, fechaIni];
+    
     
 }
 

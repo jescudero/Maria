@@ -14,8 +14,9 @@
 #import "CicloVida.h"
 #import "Planta.h"
 #import "ErrorViewController.h"
+#import "RepetirPlantaViewController.h"
 
-@interface PlantaViewController ()<SelectorProtocol, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate>
+@interface PlantaViewController ()<SelectorProtocol, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate, RepetirPlantaDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *tipoPlantaLabel;
 @property (weak, nonatomic) IBOutlet UILabel *tipoSelectedLabel;
@@ -31,6 +32,8 @@
 
 @property (nonatomic, strong) SelectorViewController *selector;
 @property (nonatomic, strong) ErrorViewController *errorView;
+@property (nonatomic, strong) RepetirPlantaViewController *repetirPlanceVC;
+
 
 @property (nonatomic, strong) UIView *overlayView;
 @property (weak, nonatomic) IBOutlet UIImageView *photo;
@@ -74,6 +77,25 @@
     if ([self validaPlantayCiclo])
     {
         
+        self.overlayView = [[UIView alloc]initWithFrame:self.view.frame];
+        self.overlayView.backgroundColor = [UIColor blackColor];
+        self.overlayView.alpha = 0.5;
+        [self.view addSubview:self.overlayView];
+        
+        self.repetirPlanceVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil]instantiateViewControllerWithIdentifier:@"RepetirVC"];
+        self.repetirPlanceVC.view.frame = CGRectMake(self.view.frame.size.width/2 - 250/2, 100, 250, 260);
+        self.repetirPlanceVC.delegate = self;
+        
+        [self addChildViewController:self.repetirPlanceVC];
+        [self.view addSubview:self.repetirPlanceVC.view];
+        
+    }
+    
+}
+
+-(void)repetirPlanta:(NSInteger)num
+{
+    for (int i = 1; i<= num; i++) {
         Planta *planta = [Planta create];
         
         if ([self.alturaText.text isEqualToString:@""])
@@ -91,10 +113,10 @@
         planta.foto = UIImagePNGRepresentation(self.photo.image);
         
         [self.delegate plantaAgregada:planta];
-        
-        [self.navigationController popViewControllerAnimated:YES];
     }
     
+    [self.navigationController popViewControllerAnimated:YES];
+
 }
 
 -(BOOL)validaPlantayCiclo

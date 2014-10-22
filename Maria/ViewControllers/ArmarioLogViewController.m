@@ -12,8 +12,10 @@
 #import "Luces.h"
 #import "Planta.h"
 #import "PlantasLogTableViewCell.h"
+#import "EventoArmarioViewController.h"
 
-@interface ArmarioLogViewController ()<UITableViewDataSource, UITableViewDelegate>
+@interface ArmarioLogViewController ()<UITableViewDataSource, UITableViewDelegate, EventoArmarioProtocol>
+
 @property (weak, nonatomic) IBOutlet UILabel *armarioLabel;
 @property (weak, nonatomic) IBOutlet UILabel *periodoLuzLabel;
 @property (weak, nonatomic) IBOutlet UILabel *periodoOscuridadLabel;
@@ -21,6 +23,11 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *dimensionLAbel;
 @property (weak, nonatomic) IBOutlet UITableView *plantasTable;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *widthConstraint;
+
+@property (strong, nonatomic) EventoArmarioViewController *eventoArmarioVC;
+
+@property (nonatomic, strong) UIView *overlayView;
 
 @end
 
@@ -31,6 +38,9 @@
     // Do any additional setup after loading the view.
     
     self.title = @"Log Armario";
+    
+    
+    self.widthConstraint.constant =self.view.frameWidth;
     
     self.armarioLabel.text = [NSString stringWithFormat:@"Armario: %@", self.armario.nombre];
     
@@ -85,4 +95,40 @@
     
     return cell;
 }
+
+- (IBAction)cambiosArmarioTapped:(id)sender {
+    
+    self.overlayView = [[UIView alloc]initWithFrame:self.view.frame];
+    self.overlayView.backgroundColor = [UIColor blackColor];
+    self.overlayView.alpha = 0.5;
+    [self.view addSubview:self.overlayView];
+    
+    self.eventoArmarioVC = [[UIStoryboard storyboardWithName:@"Logs" bundle:nil]instantiateViewControllerWithIdentifier:@"eventoArmarioVC"];
+    self.eventoArmarioVC.view.frame = CGRectMake(self.view.frame.size.width/2 - 300/2, 50, 300, 480);
+    self.eventoArmarioVC.delegate = self;
+    self.eventoArmarioVC.armario = self.armario;
+    
+    [self addChildViewController:self.eventoArmarioVC];
+    [self.view addSubview:self.eventoArmarioVC.view];
+    
+}
+
+-(void)eventoArmarioGrbado:(EventoArmario*)evento{
+
+    
+}
+
+-(void)eventoArmarioClosed{
+
+    [self.overlayView removeFromSuperview];
+
+    [self.eventoArmarioVC removeFromParentViewController];
+    [self.eventoArmarioVC.view removeFromSuperview];
+    
+}
+
+- (IBAction)cambioPlantasTapped:(id)sender {
+    
+}
+
 @end

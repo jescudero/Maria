@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4D0AE64619EEC5210002EAC5 /* Planta.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D0AE64519EEC5210002EAC5 /* Planta.m */; };
 		4D0AE64919EECAA70002EAC5 /* CultivoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D0AE64819EECAA70002EAC5 /* CultivoTableViewCell.m */; };
 		4D0AE64F19F005710002EAC5 /* UIViewController+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D0AE64E19F005710002EAC5 /* UIViewController+Helper.m */; };
 		4D0AE65319F050F10002EAC5 /* Logs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D0AE65219F050F10002EAC5 /* Logs.storyboard */; };
@@ -24,10 +23,14 @@
 		4DAD4DDA19F58D3900A86C6A /* CultivoLogHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DAD4DD919F58D3900A86C6A /* CultivoLogHeaderView.m */; };
 		4DAD4DDD19F5A2CC00A86C6A /* ArmarioLogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DAD4DDC19F5A2CC00A86C6A /* ArmarioLogViewController.m */; };
 		4DAD4DE019F6F9B700A86C6A /* PlantasLogTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DAD4DDF19F6F9B700A86C6A /* PlantasLogTableViewCell.m */; };
-		4DCF205C19D9DD3500915124 /* Armario.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DCF204719D9DD3500915124 /* Armario.m */; };
+		4DAD4DE319F7F78200A86C6A /* EventoPlanta.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DAD4DE219F7F78200A86C6A /* EventoPlanta.m */; };
+		4DAD4DFB19F7F91500A86C6A /* Armario.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DAD4DF419F7F91500A86C6A /* Armario.m */; };
+		4DAD4DFE19F7F91500A86C6A /* Planta.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DAD4DFA19F7F91500A86C6A /* Planta.m */; };
+		4DAD4E0119F7FBA900A86C6A /* EventoArmario.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DAD4E0019F7FBA900A86C6A /* EventoArmario.m */; };
+		4DAD4E0419F802D900A86C6A /* RepetirPlantaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DAD4E0319F802D900A86C6A /* RepetirPlantaViewController.m */; };
+		4DAD4E0719F8272700A86C6A /* EventoArmarioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DAD4E0619F8272700A86C6A /* EventoArmarioViewController.m */; };
 		4DCF205D19D9DD3500915124 /* CicloVida.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DCF204919D9DD3500915124 /* CicloVida.m */; };
 		4DCF205E19D9DD3500915124 /* Cultivo.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DCF204B19D9DD3500915124 /* Cultivo.m */; };
-		4DCF205F19D9DD3500915124 /* Evento.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DCF204D19D9DD3500915124 /* Evento.m */; };
 		4DCF206019D9DD3500915124 /* Fertilizante.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DCF204F19D9DD3500915124 /* Fertilizante.m */; };
 		4DCF206119D9DD3500915124 /* Luces.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DCF205119D9DD3500915124 /* Luces.m */; };
 		4DCF206219D9DD3500915124 /* Maria.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4DCF205219D9DD3500915124 /* Maria.xcdatamodeld */; };
@@ -67,8 +70,6 @@
 
 /* Begin PBXFileReference section */
 		3DC0FF23E20C4CEF87781FE5 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		4D0AE64419EEC5210002EAC5 /* Planta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Planta.h; sourceTree = "<group>"; };
-		4D0AE64519EEC5210002EAC5 /* Planta.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Planta.m; sourceTree = "<group>"; };
 		4D0AE64719EECAA70002EAC5 /* CultivoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CultivoTableViewCell.h; sourceTree = "<group>"; };
 		4D0AE64819EECAA70002EAC5 /* CultivoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CultivoTableViewCell.m; sourceTree = "<group>"; };
 		4D0AE64D19F005710002EAC5 /* UIViewController+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Helper.h"; sourceTree = "<group>"; };
@@ -98,15 +99,23 @@
 		4DAD4DDC19F5A2CC00A86C6A /* ArmarioLogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArmarioLogViewController.m; sourceTree = "<group>"; };
 		4DAD4DDE19F6F9B700A86C6A /* PlantasLogTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlantasLogTableViewCell.h; sourceTree = "<group>"; };
 		4DAD4DDF19F6F9B700A86C6A /* PlantasLogTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlantasLogTableViewCell.m; sourceTree = "<group>"; };
+		4DAD4DE119F7F78200A86C6A /* EventoPlanta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventoPlanta.h; sourceTree = "<group>"; };
+		4DAD4DE219F7F78200A86C6A /* EventoPlanta.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventoPlanta.m; sourceTree = "<group>"; };
+		4DAD4DF319F7F91500A86C6A /* Armario.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Armario.h; sourceTree = "<group>"; };
+		4DAD4DF419F7F91500A86C6A /* Armario.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Armario.m; sourceTree = "<group>"; };
+		4DAD4DF919F7F91500A86C6A /* Planta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Planta.h; sourceTree = "<group>"; };
+		4DAD4DFA19F7F91500A86C6A /* Planta.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Planta.m; sourceTree = "<group>"; };
+		4DAD4DFF19F7FBA900A86C6A /* EventoArmario.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventoArmario.h; sourceTree = "<group>"; };
+		4DAD4E0019F7FBA900A86C6A /* EventoArmario.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventoArmario.m; sourceTree = "<group>"; };
+		4DAD4E0219F802D900A86C6A /* RepetirPlantaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RepetirPlantaViewController.h; sourceTree = "<group>"; };
+		4DAD4E0319F802D900A86C6A /* RepetirPlantaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RepetirPlantaViewController.m; sourceTree = "<group>"; };
+		4DAD4E0519F8272700A86C6A /* EventoArmarioViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventoArmarioViewController.h; sourceTree = "<group>"; };
+		4DAD4E0619F8272700A86C6A /* EventoArmarioViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventoArmarioViewController.m; sourceTree = "<group>"; };
 		4DB6191719DD8D07000EFBD1 /* Maria-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Maria-Prefix.pch"; sourceTree = SOURCE_ROOT; };
-		4DCF204619D9DD3500915124 /* Armario.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Armario.h; sourceTree = "<group>"; };
-		4DCF204719D9DD3500915124 /* Armario.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Armario.m; sourceTree = "<group>"; };
 		4DCF204819D9DD3500915124 /* CicloVida.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CicloVida.h; sourceTree = "<group>"; };
 		4DCF204919D9DD3500915124 /* CicloVida.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CicloVida.m; sourceTree = "<group>"; };
 		4DCF204A19D9DD3500915124 /* Cultivo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cultivo.h; sourceTree = "<group>"; };
 		4DCF204B19D9DD3500915124 /* Cultivo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cultivo.m; sourceTree = "<group>"; };
-		4DCF204C19D9DD3500915124 /* Evento.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Evento.h; sourceTree = "<group>"; };
-		4DCF204D19D9DD3500915124 /* Evento.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Evento.m; sourceTree = "<group>"; };
 		4DCF204E19D9DD3500915124 /* Fertilizante.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Fertilizante.h; sourceTree = "<group>"; };
 		4DCF204F19D9DD3500915124 /* Fertilizante.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Fertilizante.m; sourceTree = "<group>"; };
 		4DCF205019D9DD3500915124 /* Luces.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Luces.h; sourceTree = "<group>"; };
@@ -205,8 +214,8 @@
 				4D717E5419DED22400DB9DDD /* PlantasTableViewController.m */,
 				4D717E5619DEF65800DB9DDD /* FechaSelectorViewController.h */,
 				4D717E5719DEF65800DB9DDD /* FechaSelectorViewController.m */,
-				4D7A56E519E30C0D00C39845 /* InitialNavigationController.h */,
-				4D7A56E619E30C0D00C39845 /* InitialNavigationController.m */,
+				4DAD4E0219F802D900A86C6A /* RepetirPlantaViewController.h */,
+				4DAD4E0319F802D900A86C6A /* RepetirPlantaViewController.m */,
 			);
 			name = Cultivo;
 			sourceTree = "<group>";
@@ -226,6 +235,8 @@
 				4DAD4DDC19F5A2CC00A86C6A /* ArmarioLogViewController.m */,
 				4DAD4DDE19F6F9B700A86C6A /* PlantasLogTableViewCell.h */,
 				4DAD4DDF19F6F9B700A86C6A /* PlantasLogTableViewCell.m */,
+				4DAD4E0519F8272700A86C6A /* EventoArmarioViewController.h */,
+				4DAD4E0619F8272700A86C6A /* EventoArmarioViewController.m */,
 			);
 			name = Logs;
 			sourceTree = "<group>";
@@ -255,18 +266,20 @@
 			isa = PBXGroup;
 			children = (
 				4DCF205219D9DD3500915124 /* Maria.xcdatamodeld */,
-				4D0AE64419EEC5210002EAC5 /* Planta.h */,
-				4D0AE64519EEC5210002EAC5 /* Planta.m */,
+				4DAD4DFF19F7FBA900A86C6A /* EventoArmario.h */,
+				4DAD4E0019F7FBA900A86C6A /* EventoArmario.m */,
+				4DAD4DE119F7F78200A86C6A /* EventoPlanta.h */,
+				4DAD4DE219F7F78200A86C6A /* EventoPlanta.m */,
 				4D717E4719DDE01B00DB9DDD /* TipoPlanta.h */,
 				4D717E4819DDE01B00DB9DDD /* TipoPlanta.m */,
-				4DCF204619D9DD3500915124 /* Armario.h */,
-				4DCF204719D9DD3500915124 /* Armario.m */,
+				4DAD4DF319F7F91500A86C6A /* Armario.h */,
+				4DAD4DF419F7F91500A86C6A /* Armario.m */,
+				4DAD4DF919F7F91500A86C6A /* Planta.h */,
+				4DAD4DFA19F7F91500A86C6A /* Planta.m */,
 				4DCF204819D9DD3500915124 /* CicloVida.h */,
 				4DCF204919D9DD3500915124 /* CicloVida.m */,
 				4DCF204A19D9DD3500915124 /* Cultivo.h */,
 				4DCF204B19D9DD3500915124 /* Cultivo.m */,
-				4DCF204C19D9DD3500915124 /* Evento.h */,
-				4DCF204D19D9DD3500915124 /* Evento.m */,
 				4DCF204E19D9DD3500915124 /* Fertilizante.h */,
 				4DCF204F19D9DD3500915124 /* Fertilizante.m */,
 				4DCF205019D9DD3500915124 /* Luces.h */,
@@ -291,6 +304,8 @@
 				4D0AE65019F045940002EAC5 /* Cultivo */,
 				89CF21CB19EDE12F0081D67D /* Help */,
 				4DBD3C3519E7334D00786F9C /* Usuarios */,
+				4D7A56E519E30C0D00C39845 /* InitialNavigationController.h */,
+				4D7A56E619E30C0D00C39845 /* InitialNavigationController.m */,
 				4DCF206819D9DD8600915124 /* InitialViewController.h */,
 				4DCF206919D9DD8600915124 /* InitialViewController.m */,
 			);
@@ -521,6 +536,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DAD4E0419F802D900A86C6A /* RepetirPlantaViewController.m in Sources */,
+				4DAD4DE319F7F78200A86C6A /* EventoPlanta.m in Sources */,
 				4DCF206019D9DD3500915124 /* Fertilizante.m in Sources */,
 				4DCF205E19D9DD3500915124 /* Cultivo.m in Sources */,
 				4D717E4919DDE01B00DB9DDD /* TipoPlanta.m in Sources */,
@@ -530,14 +547,14 @@
 				4D717E5519DED22400DB9DDD /* PlantasTableViewController.m in Sources */,
 				4DCF206319D9DD3500915124 /* PeriodoLuz.m in Sources */,
 				4DCF206F19D9DD8600915124 /* InitialViewController.m in Sources */,
+				4DAD4E0119F7FBA900A86C6A /* EventoArmario.m in Sources */,
 				4DEAAF3319D59D7D00E3FDDA /* main.m in Sources */,
-				4DCF205C19D9DD3500915124 /* Armario.m in Sources */,
+				4DAD4DFB19F7F91500A86C6A /* Armario.m in Sources */,
 				4DD4EE9019DC3E3B00ED57F0 /* SelectorViewController.m in Sources */,
 				4DAD4DDA19F58D3900A86C6A /* CultivoLogHeaderView.m in Sources */,
 				4DAD4DDD19F5A2CC00A86C6A /* ArmarioLogViewController.m in Sources */,
 				4DD4EE9319DC49FC00ED57F0 /* DataManager.m in Sources */,
 				4DD4EE8719DAFF6400ED57F0 /* ArmarioViewController.m in Sources */,
-				4D0AE64619EEC5210002EAC5 /* Planta.m in Sources */,
 				4DCF206219D9DD3500915124 /* Maria.xcdatamodeld in Sources */,
 				4DD4EE8D19DB370500ED57F0 /* HorasLuzSelectorViewController.m in Sources */,
 				4D0AE64F19F005710002EAC5 /* UIViewController+Helper.m in Sources */,
@@ -546,6 +563,7 @@
 				4D7A56E719E30C0D00C39845 /* InitialNavigationController.m in Sources */,
 				4DAD4DD519F57B2B00A86C6A /* FotosTableViewController.m in Sources */,
 				4DCF207519D9DF2300915124 /* CultivosTableViewController.m in Sources */,
+				4DAD4E0719F8272700A86C6A /* EventoArmarioViewController.m in Sources */,
 				4DD4EE8419DAE48600ED57F0 /* CultivoViewController.m in Sources */,
 				4D0AE64919EECAA70002EAC5 /* CultivoTableViewCell.m in Sources */,
 				4DAD4DE019F6F9B700A86C6A /* PlantasLogTableViewCell.m in Sources */,
@@ -553,9 +571,9 @@
 				4DCF206619D9DD3500915124 /* Usuario.m in Sources */,
 				4D0AE65619F0515B0002EAC5 /* CultivosLogTableViewController.m in Sources */,
 				4DCF206519D9DD3500915124 /* Riego.m in Sources */,
-				4DCF205F19D9DD3500915124 /* Evento.m in Sources */,
 				4DD4EEAA19DC884000ED57F0 /* UIView+FrameHelper.m in Sources */,
 				4DCF205D19D9DD3500915124 /* CicloVida.m in Sources */,
+				4DAD4DFE19F7F91500A86C6A /* Planta.m in Sources */,
 				4DCF207019D9DD8600915124 /* LoginViewController.m in Sources */,
 				4DAD4DCF19F5716300A86C6A /* CultivosLogTableViewCell.m in Sources */,
 			);

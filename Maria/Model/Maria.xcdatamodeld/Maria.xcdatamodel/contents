@@ -5,6 +5,7 @@
         <attribute name="ancho" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
         <attribute name="largo" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
         <attribute name="nombre" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="eventos" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="EventoArmario" inverseName="armario" inverseEntity="EventoArmario" syncable="YES"/>
         <relationship name="fotoPeriodo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PeriodoLuz" syncable="YES"/>
         <relationship name="iluminacion" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Luces" syncable="YES"/>
         <relationship name="plantas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Planta" syncable="YES"/>
@@ -20,11 +21,18 @@
         <attribute name="tipo" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="armarios" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Armario" syncable="YES"/>
     </entity>
-    <entity name="Evento" representedClassName="Evento" syncable="YES">
+    <entity name="EventoArmario" representedClassName="EventoArmario" syncable="YES">
         <attribute name="fecha" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="armario" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Armario" inverseName="eventos" inverseEntity="Armario" syncable="YES"/>
         <relationship name="cambioFotoPeriodo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PeriodoLuz" syncable="YES"/>
         <relationship name="cambioTipoIluminacion" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Luces" syncable="YES"/>
+    </entity>
+    <entity name="EventoPlanta" representedClassName="EventoPlanta" syncable="YES">
+        <attribute name="fecha" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="foto" optional="YES" attributeType="Binary" syncable="YES"/>
+        <relationship name="cambioCicloVida" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CicloVida" syncable="YES"/>
         <relationship name="fertilizante" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Fertilizante" syncable="YES"/>
+        <relationship name="planta" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Planta" inverseName="eventos" inverseEntity="Planta" syncable="YES"/>
         <relationship name="riego" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Riego" syncable="YES"/>
     </entity>
     <entity name="Fertilizante" representedClassName="Fertilizante" syncable="YES">
@@ -45,6 +53,7 @@
         <attribute name="altura" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
         <attribute name="foto" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="genetica" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="eventos" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="EventoPlanta" inverseName="planta" inverseEntity="EventoPlanta" syncable="YES"/>
         <relationship name="inicioCicloVida" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CicloVida" syncable="YES"/>
         <relationship name="tipoPlanta" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TipoPlanta" syncable="YES"/>
     </entity>
@@ -67,16 +76,17 @@
         <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Armario" positionX="9" positionY="117" width="128" height="148"/>
+        <element name="Armario" positionX="9" positionY="117" width="128" height="165"/>
         <element name="CicloVida" positionX="-18" positionY="99" width="128" height="58"/>
         <element name="Cultivo" positionX="-45" positionY="45" width="128" height="133"/>
-        <element name="Evento" positionX="9" positionY="126" width="128" height="118"/>
+        <element name="EventoArmario" positionX="9" positionY="126" width="128" height="103"/>
         <element name="Fertilizante" positionX="0" positionY="108" width="128" height="105"/>
         <element name="Luces" positionX="-27" positionY="90" width="128" height="73"/>
         <element name="PeriodoLuz" positionX="-9" positionY="108" width="128" height="73"/>
-        <element name="Planta" positionX="-27" positionY="63" width="128" height="120"/>
+        <element name="Planta" positionX="-27" positionY="63" width="128" height="133"/>
         <element name="Riego" positionX="-9" positionY="81" width="128" height="118"/>
         <element name="TipoPlanta" positionX="-27" positionY="99" width="128" height="58"/>
         <element name="Usuario" positionX="-63" positionY="-18" width="128" height="133"/>
+        <element name="EventoPlanta" positionX="-18" positionY="108" width="128" height="133"/>
     </elements>
 </model>

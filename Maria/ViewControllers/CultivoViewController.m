@@ -56,22 +56,12 @@
     [formatter setDateFormat:@"dd -MM-yyyy"];
     NSString *stringFromDate = [formatter stringFromDate:[NSDate date]];
     
-    if (self.cultivo)
-    {
-        stringFromDate = [formatter stringFromDate:self.cultivo.fechaInicio];
-        self.fechaText.text = stringFromDate;
-        self.nombreText.text = self.cultivo.nombre;
-        self.notasText.text = self.cultivo.notas;
-        
-    }
-    else
-    {
-        self.fechaText.text =stringFromDate;
-        
-        self.notasText.text = NSLocalizedString(@"Agregue sus notas al cultivo", nil);
-        self.notasText.textColor = [UIColor lightGrayColor];
-        self.notasText.delegate = self;
-    }
+    self.fechaText.text =stringFromDate;
+    
+    self.notasText.text = NSLocalizedString(@"Agregue sus notas al cultivo", nil);
+    self.notasText.textColor = [UIColor lightGrayColor];
+    self.notasText.delegate = self;
+
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWillShow)

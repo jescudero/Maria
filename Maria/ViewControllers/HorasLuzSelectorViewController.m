@@ -34,8 +34,8 @@
     self.horasLuzStepper.value = self.horasLuz;
     self.horasOscuridadStepper.value = self.horasOscuridad;
     
-    self.horasLuzText.text = [NSString stringWithFormat:@"%ld", self.horasLuz];
-    self.horasOscuridadText.text = [NSString stringWithFormat:@"%ld", self.horasOscuridad];
+    self.horasLuzText.text = [NSString stringWithFormat:@"%d", (int)self.horasLuz];
+    self.horasOscuridadText.text = [NSString stringWithFormat:@"%d", (int)self.horasOscuridad];
     
 }
 
@@ -50,8 +50,8 @@
     {
         self.horasLuz = [sender value];
         self.horasOscuridad = 24 - self.horasLuz;
-        self.horasLuzText.text = [NSString stringWithFormat:@"%ld", self.horasLuz];
-        self.horasOscuridadText.text = [NSString stringWithFormat:@"%ld", self.horasOscuridad];
+        self.horasLuzText.text = [NSString stringWithFormat:@"%d", (int)self.horasLuz];
+        self.horasOscuridadText.text = [NSString stringWithFormat:@"%d", (int)self.horasOscuridad];
     }
     
     
@@ -62,8 +62,8 @@
     {
         self.horasOscuridad = [sender value];
         self.horasLuz = 24 - self.horasOscuridad;
-        self.horasLuzText.text = [NSString stringWithFormat:@"%ld", self.horasLuz];
-        self.horasOscuridadText.text = [NSString stringWithFormat:@"%ld", self.horasOscuridad];
+        self.horasLuzText.text = [NSString stringWithFormat:@"%d", (int)self.horasLuz];
+        self.horasOscuridadText.text = [NSString stringWithFormat:@"%d", (int)self.horasOscuridad];
     }
 }
 

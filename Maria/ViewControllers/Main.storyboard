@@ -1176,6 +1176,118 @@
             </objects>
             <point key="canvasLocation" x="2045" y="1169"/>
         </scene>
+        <!--Repetir Planta View Controller-->
+        <scene sceneID="Bhe-tp-Egs">
+            <objects>
+                <viewController storyboardIdentifier="RepetirVC" id="Im6-1e-yTr" customClass="RepetirPlantaViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="wP9-UD-NhK"/>
+                        <viewControllerLayoutGuide type="bottom" id="Wum-mb-VqI"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="BtO-Af-pwV">
+                        <rect key="frame" x="0.0" y="0.0" width="250" height="250"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tFy-vF-Mlm">
+                                <rect key="frame" x="0.0" y="200" width="125" height="50"/>
+                                <color key="backgroundColor" red="0.3411764706" green="0.3411764706" blue="0.41568627450000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="125" id="rUJ-LC-l0S"/>
+                                    <constraint firstAttribute="height" constant="50" id="w0v-YS-UAd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="15"/>
+                                <state key="normal" title="Repetir Planta">
+                                    <color key="titleColor" red="0.31144502740000002" green="0.92672217150000002" blue="0.8003535584" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="RepetirPlantaViewController:" destination="Im6-1e-yTr" eventType="touchUpInside" id="sVO-jI-DxZ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6id-H4-OXK">
+                                <rect key="frame" x="125" y="200" width="125" height="50"/>
+                                <color key="backgroundColor" red="0.38823529410000002" green="0.46274509800000002" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="4R3-Qd-5bF"/>
+                                    <constraint firstAttribute="width" constant="125" id="arA-f7-xaQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="15"/>
+                                <state key="normal" title="Cancelar">
+                                    <color key="titleColor" red="0.31144502740000002" green="0.92672217150000002" blue="0.8003535584" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelarTapped:" destination="Im6-1e-yTr" eventType="touchUpInside" id="PIX-pp-4Gk"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Desea repetir esta planta una determinada cantidad de veces?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aPL-RP-k5G">
+                                <rect key="frame" x="10" y="30" width="230" height="35"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Ze-FN-E9W">
+                                <rect key="frame" x="25" y="90" width="200" height="70"/>
+                                <subviews>
+                                    <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minimumValue="1" maximumValue="20" translatesAutoresizingMaskIntoConstraints="NO" id="Sfc-av-Twm">
+                                        <rect key="frame" x="106" y="21" width="94" height="29"/>
+                                        <connections>
+                                            <action selector="plantasStepperTapped:" destination="Im6-1e-yTr" eventType="valueChanged" id="ELC-jC-HHT"/>
+                                        </connections>
+                                    </stepper>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nro plantas" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yh5-4h-XNI">
+                                        <rect key="frame" x="0.0" y="20" width="96" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="5aW-yz-h48"/>
+                                    <constraint firstAttribute="centerY" secondItem="Sfc-av-Twm" secondAttribute="centerY" id="P4G-Qw-a9r"/>
+                                    <constraint firstAttribute="centerY" secondItem="yh5-4h-XNI" secondAttribute="centerY" id="TZz-Wd-d3o"/>
+                                    <constraint firstAttribute="width" constant="200" id="Wb6-f5-psC"/>
+                                    <constraint firstAttribute="trailing" secondItem="Sfc-av-Twm" secondAttribute="trailing" id="XmT-vi-EwL"/>
+                                    <constraint firstItem="yh5-4h-XNI" firstAttribute="leading" secondItem="3Ze-FN-E9W" secondAttribute="leading" id="nu2-Mb-GIf"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="aPL-RP-k5G" firstAttribute="top" secondItem="wP9-UD-NhK" secondAttribute="bottom" constant="10" id="1PC-Ib-C3P"/>
+                            <constraint firstItem="tFy-vF-Mlm" firstAttribute="leading" secondItem="BtO-Af-pwV" secondAttribute="leading" id="6bX-MR-phf"/>
+                            <constraint firstItem="Wum-mb-VqI" firstAttribute="top" secondItem="6id-H4-OXK" secondAttribute="bottom" id="6cC-s4-8rw"/>
+                            <constraint firstAttribute="trailing" secondItem="aPL-RP-k5G" secondAttribute="trailing" constant="10" id="9gF-93-OxJ"/>
+                            <constraint firstAttribute="centerX" secondItem="3Ze-FN-E9W" secondAttribute="centerX" id="HBd-h7-rdi"/>
+                            <constraint firstItem="aPL-RP-k5G" firstAttribute="leading" secondItem="BtO-Af-pwV" secondAttribute="leading" constant="10" id="JyO-MD-mkP"/>
+                            <constraint firstAttribute="centerY" secondItem="3Ze-FN-E9W" secondAttribute="centerY" id="Mrf-ec-XNS"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="aPL-RP-k5G" secondAttribute="trailing" constant="10" id="YrN-R6-OIJ"/>
+                            <constraint firstItem="aPL-RP-k5G" firstAttribute="leading" secondItem="BtO-Af-pwV" secondAttribute="leadingMargin" constant="10" id="cZp-5s-W4B"/>
+                            <constraint firstAttribute="trailing" secondItem="6id-H4-OXK" secondAttribute="trailing" id="ohH-WR-Xfm"/>
+                            <constraint firstItem="Wum-mb-VqI" firstAttribute="top" secondItem="tFy-vF-Mlm" secondAttribute="bottom" id="q7e-lf-oxR"/>
+                            <constraint firstItem="aPL-RP-k5G" firstAttribute="top" secondItem="wP9-UD-NhK" secondAttribute="bottom" constant="10" id="x1o-Nx-hjE"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="YrN-R6-OIJ"/>
+                                <exclude reference="cZp-5s-W4B"/>
+                                <exclude reference="x1o-Nx-hjE"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="250" height="250"/>
+                    <connections>
+                        <outlet property="cancelButton" destination="6id-H4-OXK" id="MKt-N7-oI4"/>
+                        <outlet property="nroPlantasText" destination="yh5-4h-XNI" id="QRp-z9-sOV"/>
+                        <outlet property="plantasSteper" destination="Sfc-av-Twm" id="qZn-ay-3bB"/>
+                        <outlet property="repetirButton" destination="tFy-vF-Mlm" id="DcP-Xg-CLq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fuh-JL-csa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2678" y="1028"/>
+        </scene>
         <!--Horas Luz Selector View Controller-->
         <scene sceneID="sig-cL-8qI">
             <objects>
@@ -1185,7 +1297,7 @@
                         <viewControllerLayoutGuide type="bottom" id="J2C-7l-Zil"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="4Y2-fN-aKq">
-                        <rect key="frame" x="0.0" y="0.0" width="250" height="260"/>
+                        <rect key="frame" x="0.0" y="0.0" width="250" height="250"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Horas de Luz" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W2r-IA-SVs">
@@ -1217,7 +1329,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="udT-Hz-93t">
-                                <rect key="frame" x="0.0" y="210" width="125" height="50"/>
+                                <rect key="frame" x="0.0" y="200" width="125" height="50"/>
                                 <color key="backgroundColor" red="0.3411764706" green="0.3411764706" blue="0.41568627450000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="125" id="7s9-QB-W5O"/>
@@ -1232,7 +1344,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iUR-2J-adL">
-                                <rect key="frame" x="125" y="210" width="125" height="50"/>
+                                <rect key="frame" x="125" y="200" width="125" height="50"/>
                                 <color key="backgroundColor" red="0.38823529410000002" green="0.46274509800000002" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="ajM-bS-D5q"/>
@@ -1284,7 +1396,7 @@
                         </constraints>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="250" height="260"/>
+                    <size key="freeformSize" width="250" height="250"/>
                     <connections>
                         <outlet property="cancelButton" destination="iUR-2J-adL" id="lck-TW-BDi"/>
                         <outlet property="horasLuzLabel" destination="W2r-IA-SVs" id="DsM-Pe-crZ"/>
@@ -1663,7 +1775,7 @@
         <scene sceneID="WCW-WF-4Ts">
             <objects>
                 <tableViewController storyboardIdentifier="CultivosTableVC" id="JH5-32-tyL" customClass="CultivosTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="84" sectionHeaderHeight="22" sectionFooterHeight="22" id="If9-Rb-3ZN">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="84" sectionHeaderHeight="22" sectionFooterHeight="22" id="If9-Rb-3ZN">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

@@ -129,7 +129,7 @@
             
             [self addChildViewController:self.logsVC];
             self.logsVC.view.frame = self.containerVC.bounds;
-          //  self.logsVC.view.frameY = 64;
+            self.logsVC.view.frameY = 64;
             
             [self moveToNewController:self.logsVC];
         }

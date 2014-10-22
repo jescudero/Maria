@@ -1,15 +1,15 @@
 //
 //  Armario.h
-//  Maria
+//  Pods
 //
-//  Created by Juan Escudero on 9/29/14.
-//  Copyright (c) 2014 Juan Escudero. All rights reserved.
+//  Created by Juan Escudero on 10/22/14.
+//
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Luces, PeriodoLuz, Planta;
+@class Evento, Luces, PeriodoLuz, Planta;
 
 @interface Armario : NSManagedObject
 
@@ -17,9 +17,10 @@
 @property (nonatomic, retain) NSDecimalNumber * ancho;
 @property (nonatomic, retain) NSDecimalNumber * largo;
 @property (nonatomic, retain) NSString * nombre;
-@property (nonatomic, retain) NSSet *plantas;
-@property (nonatomic, retain) Luces *iluminacion;
 @property (nonatomic, retain) PeriodoLuz *fotoPeriodo;
+@property (nonatomic, retain) Luces *iluminacion;
+@property (nonatomic, retain) NSSet *plantas;
+@property (nonatomic, retain) NSSet *eventos;
 @end
 
 @interface Armario (CoreDataGeneratedAccessors)
@@ -28,5 +29,10 @@
 - (void)removePlantasObject:(Planta *)value;
 - (void)addPlantas:(NSSet *)values;
 - (void)removePlantas:(NSSet *)values;
+
+- (void)addEventosObject:(Evento *)value;
+- (void)removeEventosObject:(Evento *)value;
+- (void)addEventos:(NSSet *)values;
+- (void)removeEventos:(NSSet *)values;
 
 @end

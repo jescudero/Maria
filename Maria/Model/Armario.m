@@ -1,12 +1,13 @@
 //
 //  Armario.m
-//  Maria
+//  Pods
 //
-//  Created by Juan Escudero on 9/29/14.
-//  Copyright (c) 2014 Juan Escudero. All rights reserved.
+//  Created by Juan Escudero on 10/22/14.
+//
 //
 
 #import "Armario.h"
+#import "EventoArmario.h"
 #import "Luces.h"
 #import "PeriodoLuz.h"
 #import "Planta.h"
@@ -18,8 +19,9 @@
 @dynamic ancho;
 @dynamic largo;
 @dynamic nombre;
-@dynamic plantas;
-@dynamic iluminacion;
 @dynamic fotoPeriodo;
+@dynamic iluminacion;
+@dynamic plantas;
+@dynamic eventos;
 
 @end
