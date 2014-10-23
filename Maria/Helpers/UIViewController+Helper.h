@@ -12,4 +12,6 @@
 
 -(BOOL)validarText:(UITextField*)field;
 
+
+
 @end

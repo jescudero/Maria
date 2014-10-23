@@ -1,12 +1,13 @@
 //
 //  EventoPlanta.m
-//  Pods
+//  Maria
 //
-//  Created by Juan Escudero on 10/22/14.
-//
+//  Created by Juan Escudero on 10/23/14.
+//  Copyright (c) 2014 Juan Escudero. All rights reserved.
 //
 
 #import "EventoPlanta.h"
+#import "CicloVida.h"
 #import "Fertilizante.h"
 #import "Planta.h"
 #import "Riego.h"
@@ -16,8 +17,9 @@
 
 @dynamic fecha;
 @dynamic foto;
+@dynamic cambioCicloVida;
+@dynamic fertilizante;
 @dynamic planta;
 @dynamic riego;
-@dynamic fertilizante;
 
 @end

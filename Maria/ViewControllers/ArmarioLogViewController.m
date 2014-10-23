@@ -13,6 +13,7 @@
 #import "Planta.h"
 #import "PlantasLogTableViewCell.h"
 #import "EventoArmarioViewController.h"
+#import "EventoPlantaViewController.h"
 #import "EventoArmario.h"
 
 @interface ArmarioLogViewController ()<UITableViewDataSource, UITableViewDelegate, EventoArmarioProtocol>
@@ -27,6 +28,7 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *cambiosArmarioButton;
 @property (strong, nonatomic) EventoArmarioViewController *eventoArmarioVC;
+@property (strong, nonatomic) EventoPlantaViewController *eventoPlantaVC;
 
 @property (nonatomic, strong) UIView *overlayView;
 
@@ -149,6 +151,9 @@
 
 - (IBAction)cambioPlantasTapped:(id)sender {
     
+    self.eventoPlantaVC = [[UIStoryboard storyboardWithName:@"Logs" bundle:nil]instantiateViewControllerWithIdentifier:@"EventoPlantaVC"];
+    
+    [self.navigationController pushViewController:self.eventoPlantaVC animated:YES];
 }
 
 @end

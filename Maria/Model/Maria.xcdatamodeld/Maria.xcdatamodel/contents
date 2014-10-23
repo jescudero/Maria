@@ -80,6 +80,7 @@
         <element name="CicloVida" positionX="-18" positionY="99" width="128" height="58"/>
         <element name="Cultivo" positionX="-45" positionY="45" width="128" height="133"/>
         <element name="EventoArmario" positionX="9" positionY="126" width="128" height="103"/>
+        <element name="EventoPlanta" positionX="-18" positionY="108" width="128" height="135"/>
         <element name="Fertilizante" positionX="0" positionY="108" width="128" height="105"/>
         <element name="Luces" positionX="-27" positionY="90" width="128" height="73"/>
         <element name="PeriodoLuz" positionX="-9" positionY="108" width="128" height="73"/>
@@ -87,6 +88,5 @@
         <element name="Riego" positionX="-9" positionY="81" width="128" height="118"/>
         <element name="TipoPlanta" positionX="-27" positionY="99" width="128" height="58"/>
         <element name="Usuario" positionX="-63" positionY="-18" width="128" height="133"/>
-        <element name="EventoPlanta" positionX="-18" positionY="108" width="128" height="133"/>
     </elements>
 </model>

@@ -11,6 +11,8 @@
 #import "Planta.h"
 #import "Armario.h"
 
+#import "UIImageHelper.h"
+
 @implementation CultivoLogHeaderView
 
 /*
@@ -29,7 +31,10 @@
     if (planta.foto)
         self.foto.image = [UIImage imageWithData:planta.foto];
     else
-        self.foto.image = [UIImage imageNamed:@"purple"];
+    {
+        UIImageHelper *helper = [[UIImageHelper alloc]init];
+        self.foto.image = [helper getRandomFlowerImage];
+    }
     
     
     self.foto.layer.cornerRadius =  self.foto.frame.size.height /2;

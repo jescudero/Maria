@@ -9,6 +9,10 @@
 #import "PlantasLogTableViewCell.h"
 #import "Planta.h"
 #import "TipoPlanta.h"
+#import "CicloVida.h"
+#import "EventoPlanta.h"
+
+#import "UIImageHelper.h"
 
 @implementation PlantasLogTableViewCell
 
@@ -28,11 +32,27 @@
     if (planta.foto)
         self.foto.image = [UIImage imageWithData:planta.foto];
     else
-        self.foto.image = [UIImage imageNamed:@"purple"];
-
+    {
+        UIImageHelper *helper = [[UIImageHelper alloc]init];
+        self.foto.image = [helper getRandomFlowerImage];
+    }
     
-    self.titulo.text = [NSString stringWithFormat:@"%@, ciclo de vida:%@", planta.tipoPlanta.tipoPlanta, @"PONER CICLO"];
-    self.subtitulo.text = [NSString stringWithFormat:@"%@, %@", planta.genetica, planta.altura];
+    NSString *ciclo = planta.inicioCicloVida.nombre;
+    
+    if (planta.eventos.count > 0)
+    {
+        NSArray *eventos = [planta.eventos allObjects];
+        
+        NSArray *sortArray = [eventos sortedArrayUsingComparator: ^(EventoPlanta *obj1, EventoPlanta *obj2) {
+            return [obj1.fecha compare:obj2.fecha];
+        }];
+        
+        ciclo = ((EventoPlanta*)sortArray[0]).cambioCicloVida.nombre;
+    }
+    
+    self.tipo.text = [NSString stringWithFormat:@"Tipo:%@", planta.tipoPlanta.tipoPlanta];
+    self.ciclo.text = [NSString stringWithFormat:@"Ciclo vida:%@", ciclo];
+    self.genetica.text = [NSString stringWithFormat:@"Genetica:%@", planta.genetica];
     
 }
 

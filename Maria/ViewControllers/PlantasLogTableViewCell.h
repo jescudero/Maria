@@ -11,8 +11,9 @@
 @class Planta;
 
 @interface PlantasLogTableViewCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UILabel *titulo;
-@property (weak, nonatomic) IBOutlet UILabel *subtitulo;
+@property (weak, nonatomic) IBOutlet UILabel *tipo;
+@property (weak, nonatomic) IBOutlet UILabel *ciclo;
+@property (weak, nonatomic) IBOutlet UILabel *genetica;
 @property (weak, nonatomic) IBOutlet UIImageView *foto;
 
 
