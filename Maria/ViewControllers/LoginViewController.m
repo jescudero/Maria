@@ -94,7 +94,7 @@
 -(void)keyboardWillShow {
     // Animate the current view out of the way
     [UIView animateWithDuration:0.3f animations:^ {
-        self.view.frame = CGRectMake(0, -120, 320, self.view.frame.size.height);
+        self.view.frame = CGRectMake(0, -80, 320, self.view.frame.size.height);
     }];
 }
 

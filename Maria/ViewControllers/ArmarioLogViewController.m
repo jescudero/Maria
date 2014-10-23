@@ -13,6 +13,7 @@
 #import "Planta.h"
 #import "PlantasLogTableViewCell.h"
 #import "EventoArmarioViewController.h"
+#import "EventoArmario.h"
 
 @interface ArmarioLogViewController ()<UITableViewDataSource, UITableViewDelegate, EventoArmarioProtocol>
 
@@ -20,14 +21,16 @@
 @property (weak, nonatomic) IBOutlet UILabel *periodoLuzLabel;
 @property (weak, nonatomic) IBOutlet UILabel *periodoOscuridadLabel;
 @property (weak, nonatomic) IBOutlet UILabel *iluminacionLabel;
-
 @property (weak, nonatomic) IBOutlet UILabel *dimensionLAbel;
 @property (weak, nonatomic) IBOutlet UITableView *plantasTable;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *widthConstraint;
 
+@property (weak, nonatomic) IBOutlet UIButton *cambiosArmarioButton;
 @property (strong, nonatomic) EventoArmarioViewController *eventoArmarioVC;
 
 @property (nonatomic, strong) UIView *overlayView;
+
+@property (nonatomic, strong) EventoArmario *eventoArmario;
 
 @end
 
@@ -98,33 +101,50 @@
 
 - (IBAction)cambiosArmarioTapped:(id)sender {
     
-    self.overlayView = [[UIView alloc]initWithFrame:self.view.frame];
-    self.overlayView.backgroundColor = [UIColor blackColor];
-    self.overlayView.alpha = 0.5;
-    [self.view addSubview:self.overlayView];
-    
-    self.eventoArmarioVC = [[UIStoryboard storyboardWithName:@"Logs" bundle:nil]instantiateViewControllerWithIdentifier:@"eventoArmarioVC"];
-    self.eventoArmarioVC.view.frame = CGRectMake(self.view.frame.size.width/2 - 300/2, 50, 300, 480);
-    self.eventoArmarioVC.delegate = self;
-    self.eventoArmarioVC.armario = self.armario;
-    
-    [self addChildViewController:self.eventoArmarioVC];
-    [self.view addSubview:self.eventoArmarioVC.view];
-    
+    if ([self.cambiosArmarioButton.titleLabel.text isEqualToString:@"Remover Cambios"])
+    {
+        self.eventoArmario = nil;
+        
+        [self.cambiosArmarioButton setTitleColor:[UIColor colorWithRed:79.0/255.0 green:236.0/255.0 blue:204.0/255.0 alpha:1.0] forState:UIControlStateNormal];
+        
+        [self.cambiosArmarioButton setTitle:@"Cambios a armario" forState:UIControlStateNormal];
+        
+        [self.periodoLuzLabel setTextColor:[UIColor blackColor]];
+        [self.periodoOscuridadLabel setTextColor:[UIColor blackColor]];
+        [self.iluminacionLabel setTextColor:[UIColor blackColor]];
+    }
+    else
+    {
+        self.eventoArmarioVC = [[UIStoryboard storyboardWithName:@"Logs" bundle:nil]instantiateViewControllerWithIdentifier:@"eventoArmarioVC"];
+        self.eventoArmarioVC.delegate = self;
+        self.eventoArmarioVC.armario = self.armario;
+        
+        [self.navigationController pushViewController:self.eventoArmarioVC animated:YES];
+    }
 }
 
 -(void)eventoArmarioGrbado:(EventoArmario*)evento{
 
+    self.eventoArmario = evento;
     
+    
+    self.periodoLuzLabel.text =  [NSString stringWithFormat:@"Periodo de Luz: %@", self.eventoArmario.cambioFotoPeriodo.horasLuz];
+    
+    self.periodoOscuridadLabel.text = [NSString stringWithFormat:@"Periodo de Oscuridad: %@", self.eventoArmario.cambioFotoPeriodo.horasOscuridad];
+    
+    self.iluminacionLabel.text = [NSString stringWithFormat:@"Tipo Iluminacion: %@ %@", self.eventoArmario.cambioTipoIluminacion.tipo, self.eventoArmario.cambioTipoIluminacion.watts];
+    
+    [self.periodoLuzLabel setTextColor:[UIColor redColor]];
+    [self.periodoOscuridadLabel setTextColor:[UIColor redColor]];
+    [self.iluminacionLabel setTextColor:[UIColor redColor]];
+    
+    [self.cambiosArmarioButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    
+    [self.cambiosArmarioButton setTitle:@"Remover Cambios" forState:UIControlStateNormal];
 }
 
 -(void)eventoArmarioClosed{
-
-    [self.overlayView removeFromSuperview];
-
-    [self.eventoArmarioVC removeFromParentViewController];
-    [self.eventoArmarioVC.view removeFromSuperview];
-    
+   
 }
 
 - (IBAction)cambioPlantasTapped:(id)sender {

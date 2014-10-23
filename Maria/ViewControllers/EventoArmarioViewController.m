@@ -10,8 +10,10 @@
 #import "Armario.h"
 #import "PeriodoLuz.h"
 #import "Luces.h"
+#import "FechaSelectorViewController.h"
+#import "EventoArmario.h"
 
-@interface EventoArmarioViewController ()<UITableViewDelegate, UITableViewDataSource>
+@interface EventoArmarioViewController ()<UITableViewDelegate, UITableViewDataSource, FechaSelectorProtocol>
 
 @property (weak, nonatomic) IBOutlet UITableView *iluminacionTable;
 @property (weak, nonatomic) IBOutlet UITextField *horasLuzText;
@@ -20,7 +22,9 @@
 @property (weak, nonatomic) IBOutlet UIStepper *horasOscuridadStepper;
 @property (weak, nonatomic) IBOutlet UIButton *cambiarButton;
 @property (weak, nonatomic) IBOutlet UIButton *cancelarButton;
-
+@property (weak, nonatomic) IBOutlet UIButton *calendarioButton;
+@property (weak, nonatomic) IBOutlet UITextField *fechaText;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *widthView;
 
 @property (nonatomic, strong) NSArray *iluminacionList;
 @property (nonatomic, strong) NSIndexPath *selectedIndex;
@@ -28,6 +32,7 @@
 @property (nonatomic) NSInteger horasLuz;
 @property (nonatomic) NSInteger horasOscuridad;
 
+@property (nonatomic, strong) FechaSelectorViewController *fechaVC;
 @end
 
 @implementation EventoArmarioViewController
@@ -36,8 +41,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.iluminacionList = [Luces all];
+    self.widthView.constant = self.view.frameWidth;
     
+    self.title = @"Cambio en el Armario";
+    
+    self.iluminacionList = [Luces all];
     
     self.horasLuz = 12.0;
     self.horasOscuridad = 12.0;
@@ -50,13 +58,18 @@
     self.horasOscuridadText.text = [NSString stringWithFormat:@"%d", (int)self.horasOscuridadStepper.value];
     
     [self.iluminacionTable reloadData];
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setLocale:[NSLocale currentLocale]];
+    [formatter setDateFormat:@"dd-MM-yyyy"];
+    NSString *stringFromDate = [formatter stringFromDate:[NSDate date]];
+    
+    self.fechaText.text =stringFromDate;
 }
 
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    
-
     
     [self.iluminacionTable selectRowAtIndexPath:self.selectedIndex animated:NO scrollPosition:UITableViewScrollPositionNone];
     
@@ -153,12 +166,70 @@
 
 - (IBAction)cambiarTapped:(id)sender {
 
-    [self.delegate eventoArmarioClosed];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
+    [dateFormatter setLocale:[NSLocale currentLocale]];
+    [dateFormatter setDateFormat:@"dd-MM-yyyy"];
+    
+    PeriodoLuz *periodo = [PeriodoLuz create];
+    periodo.horasLuz = [NSDecimalNumber decimalNumberWithString:[NSString stringWithFormat:@"%d",self.horasLuz]];
+    periodo.horasOscuridad = [NSDecimalNumber decimalNumberWithString:[NSString stringWithFormat:@"%d",self.horasOscuridad]];
+    
+    EventoArmario *eventoArmario = [EventoArmario create];
+    eventoArmario.fecha = [dateFormatter dateFromString:self.fechaText.text];
+    eventoArmario.cambioFotoPeriodo = periodo;
+    eventoArmario.cambioTipoIluminacion = (Luces*)self.iluminacionList[[self.iluminacionTable indexPathForSelectedRow].row];
+    eventoArmario.armario = self.armario;
+    
+    [self.navigationController popViewControllerAnimated:YES];
+    
+    [self.delegate eventoArmarioGrbado:eventoArmario];
 }
 
 - (IBAction)cancelarTapped:(id)sender {
     
+    [self.navigationController popViewControllerAnimated:YES];
+    
     [self.delegate eventoArmarioClosed];
+}
+
+- (IBAction)calendarioTApped:(id)sender {
+
+    [self showPicker];
+}
+
+
+-(void)showPicker
+{
+    self.fechaVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil]instantiateViewControllerWithIdentifier:@"fechaPicker"];
+    self.fechaVC.delegate = self;
+    
+    [self addChildViewController:self.fechaVC];
+    [self.view addSubview:self.fechaVC.view];
+    
+    self.fechaVC.view.frameX = 0;
+    self.fechaVC.view.frameHeight = 260;
+    self.fechaVC.view.frameY = self.view.frameHeight -  self.fechaVC.view.frameHeight;
+}
+
+-(void)cancelFecha{
+    
+    [self.fechaVC removeFromParentViewController];
+    [self.fechaVC.view removeFromSuperview];
+    
+}
+
+-(void)selectFecha:(NSDate*)fecha{
+    
+    [self.fechaVC removeFromParentViewController];
+    [self.fechaVC.view removeFromSuperview];
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setLocale:[NSLocale currentLocale]];
+    [formatter setDateFormat:@"dd -MM-yyyy"];
+    NSString *stringFromDate = [formatter stringFromDate:fecha];
+    
+    self.fechaText.text =stringFromDate;
+    
 }
 
 @end

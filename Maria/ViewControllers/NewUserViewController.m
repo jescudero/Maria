@@ -25,8 +25,12 @@
 @property (weak, nonatomic) IBOutlet UITextField *emailText;
 @property (weak, nonatomic) IBOutlet UITextField *passText;
 @property (weak, nonatomic) IBOutlet UITextField *retypePassText;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *widthView;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomHeight;
 
 @property (nonatomic, strong) ErrorViewController *errorView;
+
 
 @property (nonatomic) CGFloat yPosition;
 
@@ -41,18 +45,20 @@
     self.title = @"Nuevo Usuario";
     
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(keyboardWillShow)
+                                             selector:@selector(keyboardWillShow:)
                                                  name:UIKeyboardWillShowNotification
                                                object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(keyboardWillHide)
+                                             selector:@selector(keyboardWillHide:)
                                                  name:UIKeyboardWillHideNotification
                                                object:nil];
     
     
     self.errorView = [[UIStoryboard storyboardWithName:@"Help" bundle:nil]instantiateViewControllerWithIdentifier:@"ErrorVC"];
     [self addChildViewController:self.errorView];
+    
+    self.widthView.constant = self.view.frameWidth;
 
 }
 
@@ -74,19 +80,19 @@
 
 - (IBAction)save:(id)sender {
     
-    Usuario *usuario = [Usuario create];
-    usuario.nombre = self.nombreText.text;
-    usuario.apellido = self.apellidoText.text;
-    usuario.nickName = self.nickText.text;
-    usuario.email = self.emailText.text;
-    usuario.password = self.passText.text;
-
-    
+    [sender resignFirstResponder];
     
     if ([self validarCamposUsuario])
     {
         if ([self validarPassword])
         {
+            Usuario *usuario = [Usuario create];
+            usuario.nombre = self.nombreText.text;
+            usuario.apellido = self.apellidoText.text;
+            usuario.nickName = self.nickText.text;
+            usuario.email = self.emailText.text;
+            usuario.password = self.passText.text;
+            
             [usuario save];
             [self.navigationController popViewControllerAnimated:YES];
         }
@@ -127,37 +133,29 @@
 
 
 
-- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
-{
-    if (textField.frameY > 250)
-    {
-        [UIView animateWithDuration:0.3f animations:^ {
-            self.view.frame = CGRectMake(0, -200, 320, self.view.frame.size.height);
-        }];
-    }
-    
-    return true;
-}
-
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{
     
-    [textField resignFirstResponder];
+  //
     
     return true;
 }
 
--(void)keyboardWillShow {
-    // Animate the current view out of the way
-    [UIView animateWithDuration:0.3f animations:^ {
-        self.view.frame = CGRectMake(0, -self.yPosition, 320, self.view.frame.size.height);
-    }];
+-(void)keyboardWillShow:(NSNotification *)note {
+    
+    
+    CGRect keyboardBounds;
+    [[note.userInfo valueForKey:UIKeyboardFrameBeginUserInfoKey] getValue: &keyboardBounds];
+    
+    self.bottomHeight.constant = self.bottomHeight.constant + keyboardBounds.size.height;
+ 
 }
 
--(void)keyboardWillHide {
+-(void)keyboardWillHide:(NSNotification *)note  {
     // Animate the current view back to its original position
-    [UIView animateWithDuration:0.3f animations:^ {
-        self.view.frame = CGRectMake(0, 0, 320, self.view.frame.size.height);
-    }];
+    CGRect keyboardBounds;
+    [[note.userInfo valueForKey:UIKeyboardFrameBeginUserInfoKey] getValue: &keyboardBounds];
+    
+    self.bottomHeight.constant = self.bottomHeight.constant - keyboardBounds.size.height;
 }
 
 @end
