@@ -50,6 +50,8 @@
 @property (nonatomic, strong) Riego *riego;
 @property (nonatomic, strong) CicloVida *ciclo;
 
+@property (weak, nonatomic) IBOutlet UIView *containerView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *heightConstraint;
 
 @end
 
@@ -69,7 +71,11 @@
     NSString *stringFromDate = [formatter stringFromDate:[NSDate date]];
     
     self.fechaText.text =stringFromDate;
-    self.alturaText.text = [NSString stringWithFormat:@"%@",self.planta.altura.stringValue];
+    
+    if (self.planta.altura)
+        self.alturaText.text = [NSString stringWithFormat:@"%@",self.planta.altura.stringValue];
+    else
+        self.alturaText.text = @"-";
     
     NSString *ciclo = self.planta.inicioCicloVida.nombre;
 
@@ -197,7 +203,7 @@
     
     self.fertilizanteVC = [[UIStoryboard storyboardWithName:@"Logs" bundle:nil]instantiateViewControllerWithIdentifier:@"FertilizanteVC"];
     self.fertilizanteVC.delegate = self;
-    self.fertilizanteVC.view.frame = CGRectMake(self.view.frameWidth/ 2 - 250/2, self.view.frameHeight/ 2 - 400/2, 250, 400);
+    self.fertilizanteVC.view.frame = CGRectMake(self.view.frameWidth/ 2 - 250/2, 50, 250, 400);
     
     [self addChildViewController:self.fertilizanteVC];
     [self.view addSubview:self.fertilizanteVC.view];
@@ -215,8 +221,8 @@
     
     [self.overlayView removeFromSuperview];
     
-    [self.riegoVC removeFromParentViewController];
-    [self.riegoVC.view removeFromSuperview];
+    [self.fertilizanteVC removeFromParentViewController];
+    [self.fertilizanteVC.view removeFromSuperview];
     
 }
 
@@ -224,24 +230,28 @@
 
     [self.overlayView removeFromSuperview];
     
-    [self.riegoVC removeFromParentViewController];
-    [self.riegoVC.view removeFromSuperview];
+    [self.fertilizanteVC removeFromParentViewController];
+    [self.fertilizanteVC.view removeFromSuperview];
 }
 
 - (IBAction)riegoTapped:(id)sender {
     
-    self.overlayView = [[UIView alloc]initWithFrame:self.view.frame];
-    self.overlayView.backgroundColor = [UIColor blackColor];
-    self.overlayView.alpha = 0.5;
-    [self.view addSubview:self.overlayView];
-    
+    self.overlayView = [[UIView alloc]initWithFrame:self.containerView.frame];
+    self.overlayView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5];
+    [self.containerView addSubview:self.overlayView];
+
     
     self.riegoVC = [[UIStoryboard storyboardWithName:@"Logs" bundle:nil]instantiateViewControllerWithIdentifier:@"RiegoVC"];
     self.riegoVC.delegate = self;
-    self.riegoVC.view.frame = CGRectMake(self.view.frameWidth/ 2 - 250/2, self.view.frameHeight/ 2 - 400/2, 250, 400);
+    self.riegoVC.view.frame = CGRectMake(self.view.frameWidth/ 2 - 250/2, 50, 250, 400);
+    self.riegoVC.view.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:1.0];
+    self.riegoVC.view.alpha = 1.0;
     
+
     [self addChildViewController:self.riegoVC];
-    [self.view addSubview:self.riegoVC.view];
+    [self.overlayView addSubview:self.riegoVC.view];
+    
+    
 }
 
 -(void)riegoGrabado:(Riego *)riego
@@ -265,6 +275,23 @@
     
     [self.riegoVC removeFromParentViewController];
     [self.riegoVC.view removeFromSuperview];
+}
+
+-(void)keybaoarShow:(NSNotification *)note{
+
+    CGRect keyboardBounds;
+    [[note.userInfo valueForKey:UIKeyboardFrameBeginUserInfoKey] getValue: &keyboardBounds];
+    
+    self.heightConstraint.constant = self.heightConstraint.constant + keyboardBounds.size.height;
+    
+}
+
+-(void)keybaoarHide:(NSNotification *)note
+{
+    CGRect keyboardBounds;
+    [[note.userInfo valueForKey:UIKeyboardFrameBeginUserInfoKey] getValue: &keyboardBounds];
+    
+    self.heightConstraint.constant = self.heightConstraint.constant - keyboardBounds.size.height;
 }
 
 -(void)riegoCancelado

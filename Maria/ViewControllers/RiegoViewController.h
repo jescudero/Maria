@@ -14,6 +14,8 @@
 
 -(void)riegoGrabado:(Riego*)riego;
 -(void)riegoCancelado;
+-(void)keybaoarShow:(NSNotification *)note;
+-(void)keybaoarHide:(NSNotification *)note;
 
 @end
 

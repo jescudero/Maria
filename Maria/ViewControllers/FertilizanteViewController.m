@@ -8,8 +8,10 @@
 
 #import "FertilizanteViewController.h"
 #import "Fertilizante.h"
+#import <QuartzCore/QuartzCore.h>
 
-@interface FertilizanteViewController ()
+@interface FertilizanteViewController ()<UITextFieldDelegate, UITextViewDelegate>
+
 @property (weak, nonatomic) IBOutlet UITextField *nombreText;
 @property (weak, nonatomic) IBOutlet UITextField *marcaText;
 @property (weak, nonatomic) IBOutlet UITextField *tipoText;
@@ -23,7 +25,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.title = @"Fertilizante";
+    [[self.caracteristicasText layer] setBorderColor:[[UIColor grayColor] CGColor]];
+    [[self.caracteristicasText layer] setBorderWidth:1];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -40,6 +44,13 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+-(BOOL) textFieldShouldReturn:(UITextField *)textField{
+    
+    [textField resignFirstResponder];
+    return YES;
+}
+
 - (IBAction)guardarTapped:(id)sender {
     
     Fertilizante *fertilizante = [Fertilizante create];
@@ -55,5 +66,16 @@
 - (IBAction)cancelarTapped:(id)sender {
     
     [self.delegate fertilizanteCancelado];
+}
+
+-(void)keyboardWillShow:(NSNotification *)note {
+    
+    [self.delegate keybaoarShow:note];
+    
+}
+
+-(void)keyboardWillHide:(NSNotification *)note  {
+    
+    [self.delegate keybaoarHide:note];
 }
 @end

@@ -8,8 +8,10 @@
 
 #import "RiegoViewController.h"
 #import "Riego.h"
+#import <QuartzCore/QuartzCore.h>
 
-@interface RiegoViewController ()
+@interface RiegoViewController ()<UITextFieldDelegate, UITextViewDelegate>
+
 @property (weak, nonatomic) IBOutlet UITextField *ecText;
 @property (weak, nonatomic) IBOutlet UITextField *phText;
 @property (weak, nonatomic) IBOutlet UITextField *temperaturaText;
@@ -24,7 +26,19 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.title = @"Riego";
+    [[self.notasText layer] setBorderColor:[[UIColor grayColor] CGColor]];
+    [[self.notasText layer] setBorderWidth:1];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillShow:)
+                                                 name:UIKeyboardWillShowNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillHide:)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -41,6 +55,7 @@
     // Pass the selected object to the new view controller.
 }
 */
+
 - (IBAction)guardarTapped:(id)sender {
     
     Riego *riego = [Riego create];
@@ -53,13 +68,30 @@
     
     [self.delegate riegoGrabado:riego];
     
-    
-    
 }
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    
+    [textField resignFirstResponder];
+    
+    return true;
+}
+
 - (IBAction)cancelarTapped:(id)sender {
 
     [self.delegate riegoCancelado];
+}
 
+
+-(void)keyboardWillShow:(NSNotification *)note {
+    
+    [self.delegate keybaoarShow:note];
+    
+}
+
+-(void)keyboardWillHide:(NSNotification *)note  {
+
+    [self.delegate keybaoarHide:note];
 }
 
 @end

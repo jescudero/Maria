@@ -729,7 +729,7 @@
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="altura cm" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ORU-ME-BYp">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="altura cm" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ORU-ME-BYp">
                                                 <rect key="frame" x="20" y="192" width="100" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="100" id="JoA-hZ-wBW"/>
@@ -887,6 +887,7 @@
                                             <constraint firstItem="V4P-tO-wCy" firstAttribute="top" secondItem="SXJ-Uj-20k" secondAttribute="bottom" constant="20" id="FFn-GA-1uT"/>
                                             <constraint firstItem="oLn-oz-9WO" firstAttribute="top" secondItem="41H-34-a60" secondAttribute="bottom" constant="20" id="FR1-t6-amX"/>
                                             <constraint firstItem="Cfi-7f-che" firstAttribute="top" secondItem="nIM-y3-19c" secondAttribute="bottom" constant="20" id="IW6-Lu-7ox"/>
+                                            <constraint firstAttribute="height" constant="556" id="Ic9-aK-a0v"/>
                                             <constraint firstItem="9h6-eV-SZM" firstAttribute="leading" secondItem="wVO-ZZ-ooh" secondAttribute="leading" id="KkY-PA-bjS"/>
                                             <constraint firstItem="oLn-oz-9WO" firstAttribute="leading" secondItem="SXJ-Uj-20k" secondAttribute="leading" id="LfO-aj-foG"/>
                                             <constraint firstItem="DWV-1u-Ply" firstAttribute="leading" secondItem="4F7-ct-zeq" secondAttribute="leading" id="MY1-TK-byc"/>
@@ -924,6 +925,7 @@
                                         </constraints>
                                         <variation key="default">
                                             <mask key="constraints">
+                                                <exclude reference="Ic9-aK-a0v"/>
                                                 <exclude reference="Xke-Fd-FHi"/>
                                                 <exclude reference="uDm-4h-Gb9"/>
                                                 <exclude reference="sQO-TY-fNC"/>
@@ -967,11 +969,13 @@
                         <outlet property="cancelarButton" destination="94m-eD-Mr9" id="cxc-XK-LDx"/>
                         <outlet property="cicloVidaButton" destination="0dW-2l-MBe" id="H8h-4H-66s"/>
                         <outlet property="cicloVidaLabel" destination="SXJ-Uj-20k" id="pw8-uS-WU0"/>
+                        <outlet property="containerView" destination="8qg-4E-kBh" id="oak-Iu-SJd"/>
                         <outlet property="fechaText" destination="41H-34-a60" id="tH5-xx-xGO"/>
                         <outlet property="fertilizanteButton" destination="9h6-eV-SZM" id="sme-B6-aAN"/>
                         <outlet property="fertilizanteLabel" destination="bxC-kj-Uwl" id="HsE-F3-ucz"/>
                         <outlet property="foto1" destination="nIM-y3-19c" id="YhQ-fT-Ij9"/>
                         <outlet property="foto2" destination="ckH-ug-Udm" id="lNr-cf-tOC"/>
+                        <outlet property="heightConstraint" destination="4mi-Ie-q55" id="VdW-9p-hCm"/>
                         <outlet property="riegoButton" destination="wVO-ZZ-ooh" id="ymd-Bg-17q"/>
                         <outlet property="riegoLabel" destination="4F7-ct-zeq" id="tih-ke-PRp"/>
                         <outlet property="widthView" destination="YRI-0a-KLk" id="lT0-ej-LwE"/>
@@ -1029,7 +1033,10 @@
                                     <constraint firstAttribute="width" constant="80" id="5Ih-hQ-ZsE"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numbersAndPunctuation" enablesReturnKeyAutomatically="YES"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numbersAndPunctuation" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="yMG-tm-bj9" id="dQv-mD-366"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PaG-sj-u6L">
                                 <rect key="frame" x="125" y="133" width="80" height="30"/>
@@ -1037,7 +1044,10 @@
                                     <constraint firstAttribute="width" constant="80" id="EIE-jO-0Tv"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numbersAndPunctuation" enablesReturnKeyAutomatically="YES"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numbersAndPunctuation" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="yMG-tm-bj9" id="ac2-JA-g91"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Pm-BP-gLJ">
                                 <rect key="frame" x="60" y="95" width="80" height="30"/>
@@ -1045,7 +1055,10 @@
                                     <constraint firstAttribute="width" constant="80" id="NA8-CO-Tho"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numbersAndPunctuation" enablesReturnKeyAutomatically="YES"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numbersAndPunctuation" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="yMG-tm-bj9" id="ADi-3A-5Ee"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nbS-bO-Bp9">
                                 <rect key="frame" x="77" y="171" width="80" height="30"/>
@@ -1053,7 +1066,10 @@
                                     <constraint firstAttribute="width" constant="80" id="mzU-f8-8oj"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numbersAndPunctuation" enablesReturnKeyAutomatically="YES"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numbersAndPunctuation" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="yMG-tm-bj9" id="94Z-yJ-UIO"/>
+                                </connections>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="28p-gN-yQR">
                                 <rect key="frame" x="20" y="243" width="210" height="100"/>
@@ -1063,7 +1079,10 @@
                                     <constraint firstAttribute="width" constant="210" id="sPl-Yh-pRg"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="yMG-tm-bj9" id="q3t-i4-AMt"/>
+                                </connections>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M3P-IU-dDI">
                                 <rect key="frame" x="0.0" y="350" width="125" height="50"/>
@@ -1146,7 +1165,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zwy-UE-mCk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="623" y="1292"/>
+            <point key="canvasLocation" x="1084" y="516"/>
         </scene>
         <!--Fertilizante View Controller-->
         <scene sceneID="7B2-IP-hsu">
@@ -1225,6 +1244,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="DWI-wR-nph" id="QGn-4P-sf8"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f3n-jE-w4G">
                                 <rect key="frame" x="73" y="95" width="150" height="30"/>
@@ -1233,6 +1255,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="DWI-wR-nph" id="pyb-Se-QNb"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G4h-n5-gPJ">
                                 <rect key="frame" x="60" y="133" width="150" height="30"/>
@@ -1241,6 +1266,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="DWI-wR-nph" id="AFR-Uk-OvL"/>
+                                </connections>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IWt-O4-qhi">
                                 <rect key="frame" x="20" y="205" width="200" height="140"/>
@@ -1296,7 +1324,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SnP-RQ-eVN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1263" y="615"/>
+            <point key="canvasLocation" x="1343" y="563"/>
         </scene>
     </scenes>
     <resources>

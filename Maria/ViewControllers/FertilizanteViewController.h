@@ -14,7 +14,8 @@
 
 -(void)fertilizanteGuardado:(Fertilizante*)fertilizante;
 -(void)fertilizanteCancelado;
-
+-(void)keybaoarShow:(NSNotification *)note;
+-(void)keybaoarHide:(NSNotification *)note;
 
 @end
 
