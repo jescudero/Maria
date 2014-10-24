@@ -16,8 +16,9 @@
 #import "RiegoViewController.h"
 #import "FertilizanteViewController.h"
 #import "FechaSelectorViewController.h"
+#import "SelectorViewController.h"
 
-@interface EventoPlantaViewController ()<RiegoProtocol, FertilizanteProtocol, FechaSelectorProtocol>
+@interface EventoPlantaViewController ()<RiegoProtocol, FertilizanteProtocol, FechaSelectorProtocol, SelectorProtocol>
 
 @property (weak, nonatomic) IBOutlet UITextField *fechaText;
 
@@ -25,15 +26,11 @@
 @property (weak, nonatomic) IBOutlet UILabel *cicloVidaLabel;
 @property (weak, nonatomic) IBOutlet UITextField *alturaText;
 @property (weak, nonatomic) IBOutlet UIButton *cicloVidaButton;
-
 @property (weak, nonatomic) IBOutlet UIButton *riegoButton;
 @property (weak, nonatomic) IBOutlet UILabel *riegoLabel;
-
 @property (weak, nonatomic) IBOutlet UIButton *fertilizanteButton;
-
 @property (weak, nonatomic) IBOutlet UILabel *fertilizanteLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *foto1;
-
 @property (weak, nonatomic) IBOutlet UIImageView *foto2;
 @property (weak, nonatomic) IBOutlet UIButton *cancelarButton;
 @property (weak, nonatomic) IBOutlet UIButton *cambiarButton;
@@ -43,6 +40,7 @@
 @property (nonatomic, strong) RiegoViewController *riegoVC;
 @property (nonatomic, strong) FertilizanteViewController *fertilizanteVC;
 @property (nonatomic, strong) FechaSelectorViewController *fechaVC;
+@property (nonatomic, strong) SelectorViewController *selector;
 
 @property (nonatomic, strong) UIView *overlayView;
 
@@ -50,6 +48,7 @@
 @property (nonatomic, strong) EventoPlanta *eventoPlanta;
 @property (nonatomic, strong) Fertilizante *fertilizante;
 @property (nonatomic, strong) Riego *riego;
+@property (nonatomic, strong) CicloVida *ciclo;
 
 
 @end
@@ -110,6 +109,41 @@
 }
 */
 - (IBAction)cicloVidaTapped:(id)sender {
+    
+    self.overlayView = [[UIView alloc]initWithFrame:self.view.frame];
+    self.overlayView.backgroundColor = [UIColor blackColor];
+    self.overlayView.alpha = 0.5;
+    [self.view addSubview:self.overlayView];
+    
+    self.selector = [[UIStoryboard storyboardWithName:@"Main" bundle:nil]instantiateViewControllerWithIdentifier:@"TipoLuzVC"];
+    self.selector.view.frame = CGRectMake(self.view.frame.size.width/2 - 300/2, 100, 300, 260);
+    self.selector.delegate = self;
+    self.selector.titleVC.text = @"Ciclo de Vida";
+    self.selector.property_first = @"nombre";
+    self.selector.datasource = [CicloVida all];
+    
+    [self addChildViewController:self.selector];
+    [self.view addSubview:self.selector.view];
+}
+
+-(void)cancelSeleccion{
+    
+    [self.overlayView removeFromSuperview];
+    
+    [self.selector removeFromParentViewController];
+    [self.selector.view removeFromSuperview];
+}
+
+
+-(void)selectElement:(id)element{
+    
+    self.ciclo = (CicloVida*)element;
+    self.cicloVidaLabel.text = [NSString stringWithFormat:@"%@", self.ciclo.nombre];
+    
+    [self.overlayView removeFromSuperview];
+    
+    [self.selector removeFromParentViewController];
+    [self.selector.view removeFromSuperview];
 }
 
 - (IBAction)calendarioTapped:(id)sender {
@@ -172,6 +206,13 @@
 
 -(void)fertilizanteGuardado:(Fertilizante *)fertilizante
 {
+    
+    NSString *nombre = [fertilizante.nombre isEqualToString:@""] ? @"Generico" : fertilizante.nombre;
+    NSString *tipo = [fertilizante.tipo isEqualToString:@""] ? @"" : fertilizante.tipo;
+    NSString *marca = [fertilizante.marca isEqualToString:@""] ? @"NN" : fertilizante.marca;
+    
+    self.fertilizanteLabel.text = [NSString stringWithFormat:@"%@, %@ (%@)", nombre, tipo, marca];
+    
     [self.overlayView removeFromSuperview];
     
     [self.riegoVC removeFromParentViewController];
@@ -205,6 +246,21 @@
 
 -(void)riegoGrabado:(Riego *)riego
 {
+    
+    NSString *litros = [riego.litros isEqualToNumber:[NSNumber numberWithInt:0]] ? @"Riego indeterminado" : riego.litros.stringValue;
+    
+    NSString *ec = [riego.ec isEqualToNumber:[NSNumber numberWithInt:0]] ? @"NN" : riego.ec.stringValue;
+
+    NSString *ph = [riego.ph isEqualToNumber:[NSNumber numberWithInt:0]] ? @"NN" : riego.ph.stringValue;
+    
+    NSString *temperatura = [riego.temperatura isEqualToNumber:[NSNumber numberWithInt:0]] ? @"NN" : riego.temperatura.stringValue;
+
+    if ([litros isEqualToString:@"Riego indeterminado"])
+        self.riegoLabel.text = litros;
+    else
+        self.riegoLabel.text = [NSString stringWithFormat:@" %@ lts (ec: %@ - ph: %@ - temp: %@)", litros, ec, ph, temperatura];
+
+    
     [self.overlayView removeFromSuperview];
     
     [self.riegoVC removeFromParentViewController];
@@ -218,6 +274,30 @@
     [self.riegoVC removeFromParentViewController];
     [self.riegoVC.view removeFromSuperview];
     
+}
+
+- (IBAction)guardarEventoPlantaTapped:(id)sender {
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+    [formatter setLocale:[NSLocale currentLocale]];
+    [formatter setDateFormat:@"dd-MM-yyyy"];
+
+    self.eventoPlanta = [EventoPlanta create];
+    self.eventoPlanta.fecha = [formatter dateFromString:self.fechaText.text];
+    self.eventoPlanta.fertilizante = self.fertilizante;
+    self.eventoPlanta.cambioCicloVida = self.ciclo;
+    self.eventoPlanta.riego = self.riego;
+    self.eventoPlanta.planta = self.planta;
+    
+    [self.eventoPlanta save];
+    
+    [self.navigationController popViewControllerAnimated:YES];
+    
+}
+
+- (IBAction)cancelarEventoPlantaTapped:(id)sender {
+
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

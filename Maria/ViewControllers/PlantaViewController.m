@@ -83,7 +83,7 @@
         [self.view addSubview:self.overlayView];
         
         self.repetirPlanceVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil]instantiateViewControllerWithIdentifier:@"RepetirVC"];
-        self.repetirPlanceVC.view.frame = CGRectMake(self.view.frame.size.width/2 - 250/2, 100, 250, 260);
+        self.repetirPlanceVC.view.frame = CGRectMake(self.view.frameWidth/2 - 250/2, self.view.frameHeight/2 - 200/2, 250, 200);
         self.repetirPlanceVC.delegate = self;
         
         [self addChildViewController:self.repetirPlanceVC];

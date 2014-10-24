@@ -1193,11 +1193,11 @@
                         <viewControllerLayoutGuide type="bottom" id="Wum-mb-VqI"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="BtO-Af-pwV">
-                        <rect key="frame" x="0.0" y="0.0" width="250" height="250"/>
+                        <rect key="frame" x="0.0" y="0.0" width="250" height="200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tFy-vF-Mlm">
-                                <rect key="frame" x="0.0" y="200" width="125" height="50"/>
+                                <rect key="frame" x="0.0" y="150" width="125" height="50"/>
                                 <color key="backgroundColor" red="0.3411764706" green="0.3411764706" blue="0.41568627450000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="125" id="rUJ-LC-l0S"/>
@@ -1213,7 +1213,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6id-H4-OXK">
-                                <rect key="frame" x="125" y="200" width="125" height="50"/>
+                                <rect key="frame" x="125" y="150" width="125" height="50"/>
                                 <color key="backgroundColor" red="0.38823529410000002" green="0.46274509800000002" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="4R3-Qd-5bF"/>
@@ -1235,7 +1235,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Ze-FN-E9W">
-                                <rect key="frame" x="25" y="90" width="200" height="70"/>
+                                <rect key="frame" x="25" y="65" width="200" height="70"/>
                                 <subviews>
                                     <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minimumValue="1" maximumValue="20" translatesAutoresizingMaskIntoConstraints="NO" id="Sfc-av-Twm">
                                         <rect key="frame" x="106" y="21" width="94" height="29"/>
@@ -1262,7 +1262,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="aPL-RP-k5G" firstAttribute="top" secondItem="wP9-UD-NhK" secondAttribute="bottom" constant="10" id="1PC-Ib-C3P"/>
+                            <constraint firstItem="aPL-RP-k5G" firstAttribute="top" secondItem="wP9-UD-NhK" secondAttribute="bottom" constant="30" id="1PC-Ib-C3P"/>
                             <constraint firstItem="tFy-vF-Mlm" firstAttribute="leading" secondItem="BtO-Af-pwV" secondAttribute="leading" id="6bX-MR-phf"/>
                             <constraint firstItem="Wum-mb-VqI" firstAttribute="top" secondItem="6id-H4-OXK" secondAttribute="bottom" id="6cC-s4-8rw"/>
                             <constraint firstAttribute="trailing" secondItem="aPL-RP-k5G" secondAttribute="trailing" constant="10" id="9gF-93-OxJ"/>
@@ -1283,8 +1283,11 @@
                             </mask>
                         </variation>
                     </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="250" height="250"/>
+                    <size key="freeformSize" width="250" height="200"/>
                     <connections>
                         <outlet property="cancelButton" destination="6id-H4-OXK" id="MKt-N7-oI4"/>
                         <outlet property="nroPlantasText" destination="yh5-4h-XNI" id="QRp-z9-sOV"/>
