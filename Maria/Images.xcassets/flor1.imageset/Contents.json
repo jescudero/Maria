@@ -2,12 +2,13 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x"
+      "scale" : "1x",
+      "filename" : "flor1.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "flor1.jpg"
+      "filename" : "flor1@2x.png"
     },
     {
       "idiom" : "universal",

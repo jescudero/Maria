@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class Planta;
+
 @interface EventoPlantaViewController : UIViewController
+
+@property (nonatomic, strong) Planta *planta;
 
 @end

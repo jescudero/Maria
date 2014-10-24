@@ -11,6 +11,9 @@
 		4D0AE64F19F005710002EAC5 /* UIViewController+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D0AE64E19F005710002EAC5 /* UIViewController+Helper.m */; };
 		4D0AE65319F050F10002EAC5 /* Logs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D0AE65219F050F10002EAC5 /* Logs.storyboard */; };
 		4D0AE65619F0515B0002EAC5 /* CultivosLogTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D0AE65519F0515B0002EAC5 /* CultivosLogTableViewController.m */; };
+		4D2F459A19FA967800CBDC37 /* Riego.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2F459919FA967800CBDC37 /* Riego.m */; };
+		4D2F459D19FA9E9C00CBDC37 /* RiegoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2F459C19FA9E9C00CBDC37 /* RiegoViewController.m */; };
+		4D2F45A019FAAF1000CBDC37 /* FertilizanteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2F459F19FAAF1000CBDC37 /* FertilizanteViewController.m */; };
 		4D717E4919DDE01B00DB9DDD /* TipoPlanta.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D717E4819DDE01B00DB9DDD /* TipoPlanta.m */; };
 		4D717E5219DDE21B00DB9DDD /* PlantaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D717E5119DDE21B00DB9DDD /* PlantaViewController.m */; };
 		4D717E5519DED22400DB9DDD /* PlantasTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D717E5419DED22400DB9DDD /* PlantasTableViewController.m */; };
@@ -37,7 +40,6 @@
 		4DCF206119D9DD3500915124 /* Luces.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DCF205119D9DD3500915124 /* Luces.m */; };
 		4DCF206219D9DD3500915124 /* Maria.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4DCF205219D9DD3500915124 /* Maria.xcdatamodeld */; };
 		4DCF206319D9DD3500915124 /* PeriodoLuz.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DCF205519D9DD3500915124 /* PeriodoLuz.m */; };
-		4DCF206519D9DD3500915124 /* Riego.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DCF205919D9DD3500915124 /* Riego.m */; };
 		4DCF206619D9DD3500915124 /* Usuario.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DCF205B19D9DD3500915124 /* Usuario.m */; };
 		4DCF206F19D9DD8600915124 /* InitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DCF206919D9DD8600915124 /* InitialViewController.m */; };
 		4DCF207019D9DD8600915124 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DCF206B19D9DD8600915124 /* LoginViewController.m */; };
@@ -79,6 +81,12 @@
 		4D0AE65219F050F10002EAC5 /* Logs.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Logs.storyboard; sourceTree = "<group>"; };
 		4D0AE65419F0515B0002EAC5 /* CultivosLogTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CultivosLogTableViewController.h; sourceTree = "<group>"; };
 		4D0AE65519F0515B0002EAC5 /* CultivosLogTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CultivosLogTableViewController.m; sourceTree = "<group>"; };
+		4D2F459819FA967800CBDC37 /* Riego.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Riego.h; path = ../../Riego.h; sourceTree = "<group>"; };
+		4D2F459919FA967800CBDC37 /* Riego.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Riego.m; path = ../../Riego.m; sourceTree = "<group>"; };
+		4D2F459B19FA9E9C00CBDC37 /* RiegoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RiegoViewController.h; sourceTree = "<group>"; };
+		4D2F459C19FA9E9C00CBDC37 /* RiegoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RiegoViewController.m; sourceTree = "<group>"; };
+		4D2F459E19FAAF1000CBDC37 /* FertilizanteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FertilizanteViewController.h; sourceTree = "<group>"; };
+		4D2F459F19FAAF1000CBDC37 /* FertilizanteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FertilizanteViewController.m; sourceTree = "<group>"; };
 		4D717E4719DDE01B00DB9DDD /* TipoPlanta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TipoPlanta.h; sourceTree = "<group>"; };
 		4D717E4819DDE01B00DB9DDD /* TipoPlanta.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TipoPlanta.m; sourceTree = "<group>"; };
 		4D717E5019DDE21B00DB9DDD /* PlantaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlantaViewController.h; sourceTree = "<group>"; };
@@ -129,8 +137,6 @@
 		4DCF205319D9DD3500915124 /* Maria.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Maria.xcdatamodel; sourceTree = "<group>"; };
 		4DCF205419D9DD3500915124 /* PeriodoLuz.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PeriodoLuz.h; sourceTree = "<group>"; };
 		4DCF205519D9DD3500915124 /* PeriodoLuz.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PeriodoLuz.m; sourceTree = "<group>"; };
-		4DCF205819D9DD3500915124 /* Riego.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Riego.h; sourceTree = "<group>"; };
-		4DCF205919D9DD3500915124 /* Riego.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Riego.m; sourceTree = "<group>"; };
 		4DCF205A19D9DD3500915124 /* Usuario.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Usuario.h; sourceTree = "<group>"; };
 		4DCF205B19D9DD3500915124 /* Usuario.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Usuario.m; sourceTree = "<group>"; };
 		4DCF206819D9DD8600915124 /* InitialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitialViewController.h; sourceTree = "<group>"; };
@@ -245,6 +251,10 @@
 				4DAD4E0619F8272700A86C6A /* EventoArmarioViewController.m */,
 				4DAD4E0E19F99F6D00A86C6A /* EventoPlantaViewController.h */,
 				4DAD4E0F19F99F6D00A86C6A /* EventoPlantaViewController.m */,
+				4D2F459B19FA9E9C00CBDC37 /* RiegoViewController.h */,
+				4D2F459C19FA9E9C00CBDC37 /* RiegoViewController.m */,
+				4D2F459E19FAAF1000CBDC37 /* FertilizanteViewController.h */,
+				4D2F459F19FAAF1000CBDC37 /* FertilizanteViewController.m */,
 			);
 			name = Logs;
 			sourceTree = "<group>";
@@ -294,10 +304,10 @@
 				4DCF205119D9DD3500915124 /* Luces.m */,
 				4DCF205419D9DD3500915124 /* PeriodoLuz.h */,
 				4DCF205519D9DD3500915124 /* PeriodoLuz.m */,
-				4DCF205819D9DD3500915124 /* Riego.h */,
-				4DCF205919D9DD3500915124 /* Riego.m */,
 				4DCF205A19D9DD3500915124 /* Usuario.h */,
 				4DCF205B19D9DD3500915124 /* Usuario.m */,
+				4D2F459819FA967800CBDC37 /* Riego.h */,
+				4D2F459919FA967800CBDC37 /* Riego.m */,
 				4DD4EE9119DC49FC00ED57F0 /* DataManager.h */,
 				4DD4EE9219DC49FC00ED57F0 /* DataManager.m */,
 			);
@@ -557,6 +567,7 @@
 				4DCF206319D9DD3500915124 /* PeriodoLuz.m in Sources */,
 				4DCF206F19D9DD8600915124 /* InitialViewController.m in Sources */,
 				4DAD4E0119F7FBA900A86C6A /* EventoArmario.m in Sources */,
+				4D2F45A019FAAF1000CBDC37 /* FertilizanteViewController.m in Sources */,
 				4DEAAF3319D59D7D00E3FDDA /* main.m in Sources */,
 				4DAD4DFB19F7F91500A86C6A /* Armario.m in Sources */,
 				4DD4EE9019DC3E3B00ED57F0 /* SelectorViewController.m in Sources */,
@@ -581,8 +592,9 @@
 				4DCF207219D9DD8600915124 /* NewUserViewController.m in Sources */,
 				4DCF206619D9DD3500915124 /* Usuario.m in Sources */,
 				4D0AE65619F0515B0002EAC5 /* CultivosLogTableViewController.m in Sources */,
-				4DCF206519D9DD3500915124 /* Riego.m in Sources */,
 				4DD4EEAA19DC884000ED57F0 /* UIView+FrameHelper.m in Sources */,
+				4D2F459D19FA9E9C00CBDC37 /* RiegoViewController.m in Sources */,
+				4D2F459A19FA967800CBDC37 /* Riego.m in Sources */,
 				4DAD4E0A19F9899B00A86C6A /* UIImageHelper.m in Sources */,
 				4DCF205D19D9DD3500915124 /* CicloVida.m in Sources */,
 				4DAD4DFE19F7F91500A86C6A /* Planta.m in Sources */,
