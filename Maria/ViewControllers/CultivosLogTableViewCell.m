@@ -10,6 +10,8 @@
 #import "Cultivo.h"
 #import "Armario.h"
 #import "Planta.h"
+#import "EventoPlanta.h"
+#import "EventoArmario.h"
 
 @implementation CultivosLogTableViewCell
 
@@ -25,7 +27,57 @@
 
 -(void)configureView:(Armario*)armario
 {
-    self.armarioLabel.text = [NSString stringWithFormat:@"Armario: %@ - Plantas: %d", armario.nombre, armario.plantas.count];
+    self.armarioLabel.text = [NSString stringWithFormat:@"Armario: %@ - Plantas: %@", armario.nombre, @(armario.plantas.count)];
+    
+    
+    NSString *lastEvent = @"-";
+    
+    NSArray *eventoArmario = [armario.eventos allObjects];
+    
+    if (eventoArmario.count > 0)
+    {
+        NSArray *sortArray = [eventoArmario sortedArrayUsingComparator: ^(EventoArmario *obj1, EventoArmario *obj2) {
+        return [obj1.fecha compare:obj2.fecha];
+        }];
+    
+        NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+        [formatter setDateFormat:@"dd/MM/yyyy"];
+        [formatter setLocale:[NSLocale currentLocale]];
+    
+        lastEvent = [formatter stringFromDate:((EventoArmario*)sortArray[0]).fecha];
+    }
+    
+    self.eventosArmarioLabel.text = [NSString stringWithFormat:@"Ultima modificacion armario: %@", lastEvent];
+    
+    
+    NSString *ultimoEventoPlanta = @"-";
+    
+    NSArray *plantas = [armario.plantas allObjects];
+    
+    NSMutableArray *eventosPlantas = [[NSMutableArray alloc]init];
+    
+    for (Planta *planta in plantas) {
+    
+        if (planta.eventos.count > 0)
+            [eventosPlantas addObjectsFromArray:[planta.eventos allObjects]];
+    }
+    
+    if (eventosPlantas.count > 0)
+    {
+        NSArray *sortArrayPlantas = [eventosPlantas sortedArrayUsingComparator: ^(EventoPlanta *obj1, EventoPlanta *obj2) {
+            return [obj1.fecha compare:obj2.fecha];
+        }];
+        
+        
+        NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+        [formatter setDateFormat:@"dd/MM/yyyy"];
+        [formatter setLocale:[NSLocale currentLocale]];
+        
+        ultimoEventoPlanta = [formatter stringFromDate:((EventoPlanta*)sortArrayPlantas[0]).fecha];
+    }
+             
+    self.eventosPlantaLabel.text = [NSString stringWithFormat:@"Ultima modificacion plantas: %@", lastEvent];
+    
 }
 
 @end

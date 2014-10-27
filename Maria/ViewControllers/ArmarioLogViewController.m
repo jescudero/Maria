@@ -33,6 +33,7 @@
 @property (nonatomic, strong) UIView *overlayView;
 
 @property (nonatomic, strong) EventoArmario *eventoArmario;
+@property (nonatomic, strong) EventoPlanta *eventoPlanta;
 
 @end
 
@@ -155,5 +156,7 @@
     
     [self.navigationController pushViewController:self.eventoPlantaVC animated:YES];
 }
+
+
 
 @end

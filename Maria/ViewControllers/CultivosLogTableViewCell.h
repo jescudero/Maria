@@ -12,6 +12,9 @@
 @interface CultivosLogTableViewCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *armarioLabel;
+@property (weak, nonatomic) IBOutlet UILabel *eventosArmarioLabel;
+@property (weak, nonatomic) IBOutlet UILabel *eventosPlantaLabel;
+
 
 -(void)configureView:(Armario*)armario;
 
