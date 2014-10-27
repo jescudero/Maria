@@ -36,6 +36,12 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self loadData];
+}
+
 -(void)loadData
 {
     self.cultivosList = [Cultivo all];

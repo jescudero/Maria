@@ -15,14 +15,16 @@
 #import "EventoArmarioViewController.h"
 #import "EventoPlantaViewController.h"
 #import "EventoArmario.h"
+#import "EventoPlanta.h"
 
-@interface ArmarioLogViewController ()<UITableViewDataSource, UITableViewDelegate, EventoArmarioProtocol>
+@interface ArmarioLogViewController ()<UITableViewDataSource, UITableViewDelegate, EventoArmarioProtocol, EventoPlantaProtocol>
 
 @property (weak, nonatomic) IBOutlet UILabel *armarioLabel;
 @property (weak, nonatomic) IBOutlet UILabel *periodoLuzLabel;
 @property (weak, nonatomic) IBOutlet UILabel *periodoOscuridadLabel;
 @property (weak, nonatomic) IBOutlet UILabel *iluminacionLabel;
 @property (weak, nonatomic) IBOutlet UILabel *dimensionLAbel;
+@property (weak, nonatomic) IBOutlet UIButton *grabarTodoButton;
 @property (weak, nonatomic) IBOutlet UITableView *plantasTable;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *widthConstraint;
 
@@ -146,17 +148,30 @@
     [self.cambiosArmarioButton setTitle:@"Remover Cambios" forState:UIControlStateNormal];
 }
 
--(void)eventoArmarioClosed{
-   
-}
-
 - (IBAction)cambioPlantasTapped:(id)sender {
     
     self.eventoPlantaVC = [[UIStoryboard storyboardWithName:@"Logs" bundle:nil]instantiateViewControllerWithIdentifier:@"EventoPlantaVC"];
+    self.eventoPlantaVC.delegate = self;
     
     [self.navigationController pushViewController:self.eventoPlantaVC animated:YES];
 }
 
+-(void)eventoPlantaCreado:(EventoPlanta*)eventoPlanta
+{
+    self.eventoPlanta = eventoPlanta;
+    
+}
+
+- (IBAction)grabarCambios:(id)sender {
+
+    if (self.eventoArmario)
+        [self.eventoArmario save];
+    
+    if (self.eventoPlanta)
+        [self.eventoPlanta save];
+    
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
 
 
 @end

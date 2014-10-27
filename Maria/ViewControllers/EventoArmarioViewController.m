@@ -47,8 +47,8 @@
     
     self.iluminacionList = [Luces all];
     
-    self.horasLuz = 12.0;
-    self.horasOscuridad = 12.0;
+    self.horasLuz = [self.armario.fotoPeriodo.horasLuz integerValue];
+    self.horasOscuridad = [self.armario.fotoPeriodo.horasOscuridad integerValue];
     
     self.horasLuzStepper.value = self.horasLuz;
     self.horasOscuridadStepper.value = self.horasOscuridad;
@@ -189,7 +189,6 @@
     
     [self.navigationController popViewControllerAnimated:YES];
     
-    [self.delegate eventoArmarioClosed];
 }
 
 - (IBAction)calendarioTApped:(id)sender {

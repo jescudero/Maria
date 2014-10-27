@@ -13,7 +13,6 @@
 @protocol EventoArmarioProtocol <NSObject>
 
 -(void)eventoArmarioGrbado:(EventoArmario*)evento;
--(void)eventoArmarioClosed;
 
 @end
 

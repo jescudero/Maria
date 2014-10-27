@@ -9,9 +9,18 @@
 #import <UIKit/UIKit.h>
 
 @class Planta;
+@class EventoPlanta;
+
+@protocol EventoPlantaProtocol <NSObject>
+
+-(void)eventoPlantaCreado:(EventoPlanta*)eventoPlanta;
+
+@end
 
 @interface EventoPlantaViewController : UIViewController
 
 @property (nonatomic, strong) Planta *planta;
+@property (nonatomic, strong) id<EventoPlantaProtocol> delegate;
+
 
 @end

@@ -195,18 +195,19 @@
 
 - (IBAction)fertilizanteTapped:(id)sender {
     
-    self.overlayView = [[UIView alloc]initWithFrame:self.view.frame];
-    self.overlayView.backgroundColor = [UIColor blackColor];
-    self.overlayView.alpha = 0.5;
-    [self.view addSubview:self.overlayView];
+    self.overlayView = [[UIView alloc]initWithFrame:self.containerView.frame];
+    self.overlayView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5];
+    [self.containerView addSubview:self.overlayView];
     
     
     self.fertilizanteVC = [[UIStoryboard storyboardWithName:@"Logs" bundle:nil]instantiateViewControllerWithIdentifier:@"FertilizanteVC"];
     self.fertilizanteVC.delegate = self;
     self.fertilizanteVC.view.frame = CGRectMake(self.view.frameWidth/ 2 - 250/2, 50, 250, 400);
-    
+    self.fertilizanteVC.view.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:1.0];
+    self.fertilizanteVC.view.alpha = 1.0;
+
     [self addChildViewController:self.fertilizanteVC];
-    [self.view addSubview:self.fertilizanteVC.view];
+    [self.overlayView addSubview:self.fertilizanteVC.view];
     
 }
 
@@ -315,8 +316,8 @@
     self.eventoPlanta.cambioCicloVida = self.ciclo;
     self.eventoPlanta.riego = self.riego;
     self.eventoPlanta.planta = self.planta;
-    
-    [self.eventoPlanta save];
+        
+    [self.delegate eventoPlantaCreado:self.eventoPlanta];
     
     [self.navigationController popViewControllerAnimated:YES];
     
