@@ -61,7 +61,7 @@
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setLocale:[NSLocale currentLocale]];
-    [formatter setDateFormat:@"dd-MM-yyyy"];
+    [formatter setDateFormat:@"dd/MM/yyyy"];
     NSString *stringFromDate = [formatter stringFromDate:[NSDate date]];
     
     self.fechaText.text =stringFromDate;
@@ -168,7 +168,7 @@
 
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
     [dateFormatter setLocale:[NSLocale currentLocale]];
-    [dateFormatter setDateFormat:@"dd-MM-yyyy"];
+    [dateFormatter setDateFormat:@"dd/MM/yyyy"];
     
     PeriodoLuz *periodo = [PeriodoLuz create];
     periodo.horasLuz = [NSDecimalNumber decimalNumberWithString:[NSString stringWithFormat:@"%d",self.horasLuz]];
@@ -224,7 +224,7 @@
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setLocale:[NSLocale currentLocale]];
-    [formatter setDateFormat:@"dd -MM-yyyy"];
+    [formatter setDateFormat:@"dd/MM/yyyy"];
     NSString *stringFromDate = [formatter stringFromDate:fecha];
     
     self.fechaText.text =stringFromDate;

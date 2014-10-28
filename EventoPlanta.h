@@ -2,7 +2,7 @@
 //  EventoPlanta.h
 //  Maria
 //
-//  Created by Juan Escudero on 10/24/14.
+//  Created by Juan Escudero on 10/27/14.
 //  Copyright (c) 2014 Juan Escudero. All rights reserved.
 //
 
@@ -16,6 +16,7 @@
 @property (nonatomic, retain) NSDate * fecha;
 @property (nonatomic, retain) NSData * foto1;
 @property (nonatomic, retain) NSData * foto2;
+@property (nonatomic, retain) NSDecimalNumber * cambioAltura;
 @property (nonatomic, retain) CicloVida *cambioCicloVida;
 @property (nonatomic, retain) Fertilizante *fertilizante;
 @property (nonatomic, retain) Planta *planta;

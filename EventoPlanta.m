@@ -2,7 +2,7 @@
 //  EventoPlanta.m
 //  Maria
 //
-//  Created by Juan Escudero on 10/24/14.
+//  Created by Juan Escudero on 10/27/14.
 //  Copyright (c) 2014 Juan Escudero. All rights reserved.
 //
 
@@ -18,6 +18,7 @@
 @dynamic fecha;
 @dynamic foto1;
 @dynamic foto2;
+@dynamic cambioAltura;
 @dynamic cambioCicloVida;
 @dynamic fertilizante;
 @dynamic planta;

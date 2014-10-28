@@ -45,7 +45,6 @@
 @property (nonatomic, strong) UIView *overlayView;
 
 
-@property (nonatomic, strong) EventoPlanta *eventoPlanta;
 @property (nonatomic, strong) Fertilizante *fertilizante;
 @property (nonatomic, strong) Riego *riego;
 @property (nonatomic, strong) CicloVida *ciclo;
@@ -67,7 +66,7 @@
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setLocale:[NSLocale currentLocale]];
-    [formatter setDateFormat:@"dd-MM-yyyy"];
+    [formatter setDateFormat:@"dd/MM/yyyy"];
     NSString *stringFromDate = [formatter stringFromDate:[NSDate date]];
     
     self.fechaText.text =stringFromDate;
@@ -78,8 +77,6 @@
         self.alturaText.text = @"-";
     
     NSString *ciclo = self.planta.inicioCicloVida.nombre;
-
-    self.eventoPlanta = nil;
     
     if (self.planta.eventos.count > 0)
     {
@@ -91,7 +88,6 @@
         
         ciclo = ((EventoPlanta*)sortArray[0]).cambioCicloVida.nombre;
         
-        self.eventoPlanta = (EventoPlanta*)sortArray[0];
     }
     
     self.cicloVidaLabel.text = ciclo;
@@ -186,7 +182,7 @@
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setLocale:[NSLocale currentLocale]];
-    [formatter setDateFormat:@"dd -MM-yyyy"];
+    [formatter setDateFormat:@"dd/MM/yyyy"];
     NSString *stringFromDate = [formatter stringFromDate:fecha];
     
     self.fechaText.text =stringFromDate;
@@ -308,16 +304,25 @@
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
     [formatter setLocale:[NSLocale currentLocale]];
-    [formatter setDateFormat:@"dd-MM-yyyy"];
+    [formatter setDateFormat:@"dd/MM/yyyy"];
 
-    self.eventoPlanta = [EventoPlanta create];
-    self.eventoPlanta.fecha = [formatter dateFromString:self.fechaText.text];
-    self.eventoPlanta.fertilizante = self.fertilizante;
-    self.eventoPlanta.cambioCicloVida = self.ciclo;
-    self.eventoPlanta.riego = self.riego;
-    self.eventoPlanta.planta = self.planta;
+    NSMutableArray *listEvents = [[NSMutableArray alloc]init];
+    
+    
+    for (Planta *planta in self.listaPlantas) {
+     
+        EventoPlanta *eventoPlanta = [EventoPlanta create];
+        eventoPlanta.fecha = [formatter dateFromString:self.fechaText.text];
+        eventoPlanta.fertilizante = self.fertilizante;
+        eventoPlanta.cambioCicloVida = self.ciclo;
+        eventoPlanta.cambioAltura = [NSDecimalNumber decimalNumberWithString:self.alturaText.text];
+        eventoPlanta.riego = self.riego;
+        eventoPlanta.planta = self.planta;
+    
+        [listEvents addObject:eventoPlanta];
+    }
         
-    [self.delegate eventoPlantaCreado:self.eventoPlanta];
+    [self.delegate eventoPlantaCreado:listEvents];
     
     [self.navigationController popViewControllerAnimated:YES];
     

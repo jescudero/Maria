@@ -13,13 +13,15 @@
 
 @protocol EventoPlantaProtocol <NSObject>
 
--(void)eventoPlantaCreado:(EventoPlanta*)eventoPlanta;
+-(void)eventoPlantaCreado:(NSArray*)eventos;
 
 @end
 
 @interface EventoPlantaViewController : UIViewController
 
 @property (nonatomic, strong) Planta *planta;
+@property (nonatomic, strong) NSArray *listaPlantas;
+
 @property (nonatomic, strong) id<EventoPlantaProtocol> delegate;
 
 

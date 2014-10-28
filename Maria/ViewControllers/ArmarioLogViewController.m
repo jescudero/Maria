@@ -17,7 +17,7 @@
 #import "EventoArmario.h"
 #import "EventoPlanta.h"
 
-@interface ArmarioLogViewController ()<UITableViewDataSource, UITableViewDelegate, EventoArmarioProtocol, EventoPlantaProtocol>
+@interface ArmarioLogViewController ()<UITableViewDataSource, UITableViewDelegate, EventoArmarioProtocol, EventoPlantaProtocol, PlantasLogCellProtocol>
 
 @property (weak, nonatomic) IBOutlet UILabel *armarioLabel;
 @property (weak, nonatomic) IBOutlet UILabel *periodoLuzLabel;
@@ -35,7 +35,7 @@
 @property (nonatomic, strong) UIView *overlayView;
 
 @property (nonatomic, strong) EventoArmario *eventoArmario;
-@property (nonatomic, strong) EventoPlanta *eventoPlanta;
+@property (nonatomic, strong) NSArray *eventosPlanta;
 
 @end
 
@@ -97,6 +97,8 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     PlantasLogTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"plantasLogCell" forIndexPath:indexPath];
     
+    cell.delegate = self;
+    
     Planta *planta = [self.armario.plantas allObjects][indexPath.row];
     // Configure the cell...
     [cell configureCell:planta];
@@ -156,10 +158,9 @@
     [self.navigationController pushViewController:self.eventoPlantaVC animated:YES];
 }
 
--(void)eventoPlantaCreado:(EventoPlanta*)eventoPlanta
+-(void)eventoPlantaCreado:(NSArray*)eventos
 {
-    self.eventoPlanta = eventoPlanta;
-    
+    self.eventosPlanta = eventos;
 }
 
 - (IBAction)grabarCambios:(id)sender {
@@ -167,11 +168,23 @@
     if (self.eventoArmario)
         [self.eventoArmario save];
     
-    if (self.eventoPlanta)
-        [self.eventoPlanta save];
+    if (self.eventosPlanta.count > 1)
+    {
+        for (EventoPlanta *eventoPlanta in self.eventosPlanta) {
+            [eventoPlanta save];
+        }
+    }
     
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
+-(void)cambioButtonTapped:(Planta*)planta{
+
+    self.eventoPlantaVC = [[UIStoryboard storyboardWithName:@"Logs" bundle:nil]instantiateViewControllerWithIdentifier:@"EventoPlantaVC"];
+    self.eventoPlantaVC.delegate = self;
+    self.eventoPlantaVC.planta = planta;
+    
+    [self.navigationController pushViewController:self.eventoPlantaVC animated:YES];
+}
 
 @end

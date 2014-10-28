@@ -13,9 +13,10 @@
 		4D0AE65619F0515B0002EAC5 /* CultivosLogTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D0AE65519F0515B0002EAC5 /* CultivosLogTableViewController.m */; };
 		4D2F459D19FA9E9C00CBDC37 /* RiegoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2F459C19FA9E9C00CBDC37 /* RiegoViewController.m */; };
 		4D2F45A019FAAF1000CBDC37 /* FertilizanteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2F459F19FAAF1000CBDC37 /* FertilizanteViewController.m */; };
-		4D2F45A319FACDE900CBDC37 /* EventoPlanta.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2F45A219FACDE900CBDC37 /* EventoPlanta.m */; };
 		4D2F45A619FACE7400CBDC37 /* Fertilizante.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2F45A519FACE7400CBDC37 /* Fertilizante.m */; };
 		4D2F45A919FACE8E00CBDC37 /* Riego.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2F45A819FACE8E00CBDC37 /* Riego.m */; };
+		4D5A4C8619FF19FE00DA8B1D /* EventoArmario.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D5A4C8519FF19FE00DA8B1D /* EventoArmario.m */; };
+		4D5A4C8919FF19FF00DA8B1D /* EventoPlanta.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D5A4C8819FF19FF00DA8B1D /* EventoPlanta.m */; };
 		4D717E4919DDE01B00DB9DDD /* TipoPlanta.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D717E4819DDE01B00DB9DDD /* TipoPlanta.m */; };
 		4D717E5219DDE21B00DB9DDD /* PlantaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D717E5119DDE21B00DB9DDD /* PlantaViewController.m */; };
 		4D717E5519DED22400DB9DDD /* PlantasTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D717E5419DED22400DB9DDD /* PlantasTableViewController.m */; };
@@ -30,7 +31,6 @@
 		4DAD4DE019F6F9B700A86C6A /* PlantasLogTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DAD4DDF19F6F9B700A86C6A /* PlantasLogTableViewCell.m */; };
 		4DAD4DFB19F7F91500A86C6A /* Armario.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DAD4DF419F7F91500A86C6A /* Armario.m */; };
 		4DAD4DFE19F7F91500A86C6A /* Planta.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DAD4DFA19F7F91500A86C6A /* Planta.m */; };
-		4DAD4E0119F7FBA900A86C6A /* EventoArmario.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DAD4E0019F7FBA900A86C6A /* EventoArmario.m */; };
 		4DAD4E0419F802D900A86C6A /* RepetirPlantaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DAD4E0319F802D900A86C6A /* RepetirPlantaViewController.m */; };
 		4DAD4E0719F8272700A86C6A /* EventoArmarioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DAD4E0619F8272700A86C6A /* EventoArmarioViewController.m */; };
 		4DAD4E0A19F9899B00A86C6A /* UIImageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DAD4E0919F9899B00A86C6A /* UIImageHelper.m */; };
@@ -85,12 +85,14 @@
 		4D2F459C19FA9E9C00CBDC37 /* RiegoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RiegoViewController.m; sourceTree = "<group>"; };
 		4D2F459E19FAAF1000CBDC37 /* FertilizanteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FertilizanteViewController.h; sourceTree = "<group>"; };
 		4D2F459F19FAAF1000CBDC37 /* FertilizanteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FertilizanteViewController.m; sourceTree = "<group>"; };
-		4D2F45A119FACDE900CBDC37 /* EventoPlanta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventoPlanta.h; sourceTree = "<group>"; };
-		4D2F45A219FACDE900CBDC37 /* EventoPlanta.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventoPlanta.m; sourceTree = "<group>"; };
 		4D2F45A419FACE7400CBDC37 /* Fertilizante.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Fertilizante.h; sourceTree = "<group>"; };
 		4D2F45A519FACE7400CBDC37 /* Fertilizante.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Fertilizante.m; sourceTree = "<group>"; };
 		4D2F45A719FACE8E00CBDC37 /* Riego.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Riego.h; path = ../../Riego.h; sourceTree = "<group>"; };
 		4D2F45A819FACE8E00CBDC37 /* Riego.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Riego.m; path = ../../Riego.m; sourceTree = "<group>"; };
+		4D5A4C8419FF19FE00DA8B1D /* EventoArmario.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EventoArmario.h; path = ../../EventoArmario.h; sourceTree = "<group>"; };
+		4D5A4C8519FF19FE00DA8B1D /* EventoArmario.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EventoArmario.m; path = ../../EventoArmario.m; sourceTree = "<group>"; };
+		4D5A4C8719FF19FF00DA8B1D /* EventoPlanta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EventoPlanta.h; path = ../../EventoPlanta.h; sourceTree = "<group>"; };
+		4D5A4C8819FF19FF00DA8B1D /* EventoPlanta.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EventoPlanta.m; path = ../../EventoPlanta.m; sourceTree = "<group>"; };
 		4D717E4719DDE01B00DB9DDD /* TipoPlanta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TipoPlanta.h; sourceTree = "<group>"; };
 		4D717E4819DDE01B00DB9DDD /* TipoPlanta.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TipoPlanta.m; sourceTree = "<group>"; };
 		4D717E5019DDE21B00DB9DDD /* PlantaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlantaViewController.h; sourceTree = "<group>"; };
@@ -117,8 +119,6 @@
 		4DAD4DF419F7F91500A86C6A /* Armario.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Armario.m; sourceTree = "<group>"; };
 		4DAD4DF919F7F91500A86C6A /* Planta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Planta.h; sourceTree = "<group>"; };
 		4DAD4DFA19F7F91500A86C6A /* Planta.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Planta.m; sourceTree = "<group>"; };
-		4DAD4DFF19F7FBA900A86C6A /* EventoArmario.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventoArmario.h; sourceTree = "<group>"; };
-		4DAD4E0019F7FBA900A86C6A /* EventoArmario.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventoArmario.m; sourceTree = "<group>"; };
 		4DAD4E0219F802D900A86C6A /* RepetirPlantaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RepetirPlantaViewController.h; sourceTree = "<group>"; };
 		4DAD4E0319F802D900A86C6A /* RepetirPlantaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RepetirPlantaViewController.m; sourceTree = "<group>"; };
 		4DAD4E0519F8272700A86C6A /* EventoArmarioViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventoArmarioViewController.h; sourceTree = "<group>"; };
@@ -284,14 +284,14 @@
 			isa = PBXGroup;
 			children = (
 				4DCF205219D9DD3500915124 /* Maria.xcdatamodeld */,
+				4D5A4C8719FF19FF00DA8B1D /* EventoPlanta.h */,
+				4D5A4C8819FF19FF00DA8B1D /* EventoPlanta.m */,
+				4D5A4C8419FF19FE00DA8B1D /* EventoArmario.h */,
+				4D5A4C8519FF19FE00DA8B1D /* EventoArmario.m */,
 				4D2F45A719FACE8E00CBDC37 /* Riego.h */,
 				4D2F45A819FACE8E00CBDC37 /* Riego.m */,
 				4D2F45A419FACE7400CBDC37 /* Fertilizante.h */,
 				4D2F45A519FACE7400CBDC37 /* Fertilizante.m */,
-				4D2F45A119FACDE900CBDC37 /* EventoPlanta.h */,
-				4D2F45A219FACDE900CBDC37 /* EventoPlanta.m */,
-				4DAD4DFF19F7FBA900A86C6A /* EventoArmario.h */,
-				4DAD4E0019F7FBA900A86C6A /* EventoArmario.m */,
 				4D717E4719DDE01B00DB9DDD /* TipoPlanta.h */,
 				4D717E4819DDE01B00DB9DDD /* TipoPlanta.m */,
 				4DAD4DF319F7F91500A86C6A /* Armario.h */,
@@ -560,16 +560,15 @@
 				4DCF205E19D9DD3500915124 /* Cultivo.m in Sources */,
 				4D717E4919DDE01B00DB9DDD /* TipoPlanta.m in Sources */,
 				896E2DA319E9AF6A0093F6B1 /* ErrorViewController.m in Sources */,
+				4D5A4C8619FF19FE00DA8B1D /* EventoArmario.m in Sources */,
 				4D2F45A919FACE8E00CBDC37 /* Riego.m in Sources */,
 				4DEAAF3619D59D7D00E3FDDA /* AppDelegate.m in Sources */,
 				4D717E5819DEF65800DB9DDD /* FechaSelectorViewController.m in Sources */,
 				4D717E5519DED22400DB9DDD /* PlantasTableViewController.m in Sources */,
 				4DCF206319D9DD3500915124 /* PeriodoLuz.m in Sources */,
 				4DCF206F19D9DD8600915124 /* InitialViewController.m in Sources */,
-				4DAD4E0119F7FBA900A86C6A /* EventoArmario.m in Sources */,
 				4D2F45A019FAAF1000CBDC37 /* FertilizanteViewController.m in Sources */,
 				4DEAAF3319D59D7D00E3FDDA /* main.m in Sources */,
-				4D2F45A319FACDE900CBDC37 /* EventoPlanta.m in Sources */,
 				4DAD4DFB19F7F91500A86C6A /* Armario.m in Sources */,
 				4DD4EE9019DC3E3B00ED57F0 /* SelectorViewController.m in Sources */,
 				4DAD4DDA19F58D3900A86C6A /* CultivoLogHeaderView.m in Sources */,
@@ -591,6 +590,7 @@
 				4D0AE64919EECAA70002EAC5 /* CultivoTableViewCell.m in Sources */,
 				4DAD4DE019F6F9B700A86C6A /* PlantasLogTableViewCell.m in Sources */,
 				4DCF207219D9DD8600915124 /* NewUserViewController.m in Sources */,
+				4D5A4C8919FF19FF00DA8B1D /* EventoPlanta.m in Sources */,
 				4DCF206619D9DD3500915124 /* Usuario.m in Sources */,
 				4D0AE65619F0515B0002EAC5 /* CultivosLogTableViewController.m in Sources */,
 				4DD4EEAA19DC884000ED57F0 /* UIView+FrameHelper.m in Sources */,

@@ -16,6 +16,7 @@
 
 @implementation PlantasLogTableViewCell
 
+
 - (void)awakeFromNib {
     // Initialization code
 }
@@ -28,6 +29,7 @@
 
 -(void)configureCell:(Planta*)planta
 {
+    self.planta = planta;
     
     if (planta.foto)
         self.foto.image = [UIImage imageWithData:planta.foto];
@@ -53,6 +55,11 @@
     self.tipo.text = [NSString stringWithFormat:@"Tipo:%@", planta.tipoPlanta.tipoPlanta];
     self.ciclo.text = [NSString stringWithFormat:@"Ciclo vida:%@", ciclo];
     self.genetica.text = [NSString stringWithFormat:@"Genetica:%@", planta.genetica];
+    
+}
+- (IBAction)cambioButtonTapped:(id)sender {
+    
+    [self.delegate cambioButtonTapped:self.planta];
     
 }
 

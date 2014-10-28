@@ -2,7 +2,7 @@
 //  EventoArmario.m
 //  Maria
 //
-//  Created by Juan Escudero on 10/22/14.
+//  Created by Juan Escudero on 10/27/14.
 //  Copyright (c) 2014 Juan Escudero. All rights reserved.
 //
 
@@ -15,8 +15,8 @@
 @implementation EventoArmario
 
 @dynamic fecha;
+@dynamic armario;
 @dynamic cambioFotoPeriodo;
 @dynamic cambioTipoIluminacion;
-@dynamic armario;
 
 @end
