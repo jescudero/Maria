@@ -13,6 +13,7 @@
 @protocol PlantasLogCellProtocol <NSObject>
 
 -(void)cambioButtonTapped:(Planta*)planta;
+-(void)eliminarCambioButtonTapped:(Planta*)planta;
 
 @end
 
@@ -22,6 +23,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *ciclo;
 @property (weak, nonatomic) IBOutlet UILabel *genetica;
 @property (weak, nonatomic) IBOutlet UIImageView *foto;
+@property (weak, nonatomic) IBOutlet UIButton *cambioButton;
+
 
 @property (nonatomic, strong) id<PlantasLogCellProtocol> delegate;
 

@@ -10,8 +10,10 @@
 #import "Cultivo.h"
 #import "Armario.h"
 #import "Planta.h"
+#import "Planta+ViewManagement.h"
 #import "EventoPlanta.h"
 #import "EventoArmario.h"
+
 
 @implementation CultivosLogTableViewCell
 

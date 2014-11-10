@@ -57,7 +57,7 @@
     [self.cultivoTable loadData];
     
     
-    self.initialVC = self.childViewControllers.lastObject;
+    //self.initialVC = self.childViewControllers.lastObject;
     self.currentVC = self.initialVC;
     self.logsVC = [[UIStoryboard storyboardWithName:@"Logs" bundle:nil]instantiateViewControllerWithIdentifier:@"CultivosLogVC"];
     
@@ -125,7 +125,6 @@
         
         if (self.logsVC != self.currentVC)
         {
-            [self.logsVC loadData];
             
             [self addChildViewController:self.logsVC];
             self.logsVC.view.frame = self.containerVC.bounds;

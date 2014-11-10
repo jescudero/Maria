@@ -30,11 +30,12 @@
 		4DAD4DDD19F5A2CC00A86C6A /* ArmarioLogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DAD4DDC19F5A2CC00A86C6A /* ArmarioLogViewController.m */; };
 		4DAD4DE019F6F9B700A86C6A /* PlantasLogTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DAD4DDF19F6F9B700A86C6A /* PlantasLogTableViewCell.m */; };
 		4DAD4DFB19F7F91500A86C6A /* Armario.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DAD4DF419F7F91500A86C6A /* Armario.m */; };
-		4DAD4DFE19F7F91500A86C6A /* Planta.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DAD4DFA19F7F91500A86C6A /* Planta.m */; };
 		4DAD4E0419F802D900A86C6A /* RepetirPlantaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DAD4E0319F802D900A86C6A /* RepetirPlantaViewController.m */; };
 		4DAD4E0719F8272700A86C6A /* EventoArmarioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DAD4E0619F8272700A86C6A /* EventoArmarioViewController.m */; };
 		4DAD4E0A19F9899B00A86C6A /* UIImageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DAD4E0919F9899B00A86C6A /* UIImageHelper.m */; };
 		4DAD4E1019F99F6D00A86C6A /* EventoPlantaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DAD4E0F19F99F6D00A86C6A /* EventoPlantaViewController.m */; };
+		4DB4FD031A06D85F001498FB /* Planta.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB4FD021A06D85F001498FB /* Planta.m */; };
+		4DB4FD061A06DCC9001498FB /* Planta+ViewManagement.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB4FD051A06DCC9001498FB /* Planta+ViewManagement.m */; };
 		4DCF205D19D9DD3500915124 /* CicloVida.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DCF204919D9DD3500915124 /* CicloVida.m */; };
 		4DCF205E19D9DD3500915124 /* Cultivo.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DCF204B19D9DD3500915124 /* Cultivo.m */; };
 		4DCF206119D9DD3500915124 /* Luces.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DCF205119D9DD3500915124 /* Luces.m */; };
@@ -52,6 +53,7 @@
 		4DD4EE9019DC3E3B00ED57F0 /* SelectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD4EE8F19DC3E3B00ED57F0 /* SelectorViewController.m */; };
 		4DD4EE9319DC49FC00ED57F0 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD4EE9219DC49FC00ED57F0 /* DataManager.m */; };
 		4DD4EEAA19DC884000ED57F0 /* UIView+FrameHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD4EEA919DC884000ED57F0 /* UIView+FrameHelper.m */; };
+		4DE849C81A0066F100660D79 /* AlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE849C71A0066F100660D79 /* AlertViewController.m */; };
 		4DEAAF3319D59D7D00E3FDDA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DEAAF3219D59D7D00E3FDDA /* main.m */; };
 		4DEAAF3619D59D7D00E3FDDA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DEAAF3519D59D7D00E3FDDA /* AppDelegate.m */; };
 		4DEAAF4119D59D7D00E3FDDA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DEAAF4019D59D7D00E3FDDA /* Images.xcassets */; };
@@ -117,8 +119,6 @@
 		4DAD4DDF19F6F9B700A86C6A /* PlantasLogTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlantasLogTableViewCell.m; sourceTree = "<group>"; };
 		4DAD4DF319F7F91500A86C6A /* Armario.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Armario.h; sourceTree = "<group>"; };
 		4DAD4DF419F7F91500A86C6A /* Armario.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Armario.m; sourceTree = "<group>"; };
-		4DAD4DF919F7F91500A86C6A /* Planta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Planta.h; sourceTree = "<group>"; };
-		4DAD4DFA19F7F91500A86C6A /* Planta.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Planta.m; sourceTree = "<group>"; };
 		4DAD4E0219F802D900A86C6A /* RepetirPlantaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RepetirPlantaViewController.h; sourceTree = "<group>"; };
 		4DAD4E0319F802D900A86C6A /* RepetirPlantaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RepetirPlantaViewController.m; sourceTree = "<group>"; };
 		4DAD4E0519F8272700A86C6A /* EventoArmarioViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventoArmarioViewController.h; sourceTree = "<group>"; };
@@ -127,6 +127,10 @@
 		4DAD4E0919F9899B00A86C6A /* UIImageHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIImageHelper.m; sourceTree = "<group>"; };
 		4DAD4E0E19F99F6D00A86C6A /* EventoPlantaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventoPlantaViewController.h; sourceTree = "<group>"; };
 		4DAD4E0F19F99F6D00A86C6A /* EventoPlantaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventoPlantaViewController.m; sourceTree = "<group>"; };
+		4DB4FD011A06D85F001498FB /* Planta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Planta.h; path = ../../Planta.h; sourceTree = "<group>"; };
+		4DB4FD021A06D85F001498FB /* Planta.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Planta.m; path = ../../Planta.m; sourceTree = "<group>"; };
+		4DB4FD041A06DCC9001498FB /* Planta+ViewManagement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Planta+ViewManagement.h"; sourceTree = "<group>"; };
+		4DB4FD051A06DCC9001498FB /* Planta+ViewManagement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Planta+ViewManagement.m"; sourceTree = "<group>"; };
 		4DB6191719DD8D07000EFBD1 /* Maria-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Maria-Prefix.pch"; sourceTree = SOURCE_ROOT; };
 		4DCF204819D9DD3500915124 /* CicloVida.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CicloVida.h; sourceTree = "<group>"; };
 		4DCF204919D9DD3500915124 /* CicloVida.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CicloVida.m; sourceTree = "<group>"; };
@@ -161,6 +165,8 @@
 		4DD4EEA419DC879600ED57F0 /* UIKitHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIKitHelpers.h; sourceTree = "<group>"; };
 		4DD4EEA819DC884000ED57F0 /* UIView+FrameHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+FrameHelper.h"; sourceTree = "<group>"; };
 		4DD4EEA919DC884000ED57F0 /* UIView+FrameHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+FrameHelper.m"; sourceTree = "<group>"; };
+		4DE849C61A0066F100660D79 /* AlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertViewController.h; sourceTree = "<group>"; };
+		4DE849C71A0066F100660D79 /* AlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertViewController.m; sourceTree = "<group>"; };
 		4DEAAF2D19D59D7D00E3FDDA /* Maria.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Maria.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DEAAF3119D59D7D00E3FDDA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4DEAAF3219D59D7D00E3FDDA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -255,6 +261,8 @@
 				4D2F459C19FA9E9C00CBDC37 /* RiegoViewController.m */,
 				4D2F459E19FAAF1000CBDC37 /* FertilizanteViewController.h */,
 				4D2F459F19FAAF1000CBDC37 /* FertilizanteViewController.m */,
+				4DE849C61A0066F100660D79 /* AlertViewController.h */,
+				4DE849C71A0066F100660D79 /* AlertViewController.m */,
 			);
 			name = Logs;
 			sourceTree = "<group>";
@@ -290,14 +298,14 @@
 				4D5A4C8519FF19FE00DA8B1D /* EventoArmario.m */,
 				4D2F45A719FACE8E00CBDC37 /* Riego.h */,
 				4D2F45A819FACE8E00CBDC37 /* Riego.m */,
+				4DB4FD011A06D85F001498FB /* Planta.h */,
+				4DB4FD021A06D85F001498FB /* Planta.m */,
 				4D2F45A419FACE7400CBDC37 /* Fertilizante.h */,
 				4D2F45A519FACE7400CBDC37 /* Fertilizante.m */,
 				4D717E4719DDE01B00DB9DDD /* TipoPlanta.h */,
 				4D717E4819DDE01B00DB9DDD /* TipoPlanta.m */,
 				4DAD4DF319F7F91500A86C6A /* Armario.h */,
 				4DAD4DF419F7F91500A86C6A /* Armario.m */,
-				4DAD4DF919F7F91500A86C6A /* Planta.h */,
-				4DAD4DFA19F7F91500A86C6A /* Planta.m */,
 				4DCF204819D9DD3500915124 /* CicloVida.h */,
 				4DCF204919D9DD3500915124 /* CicloVida.m */,
 				4DCF204A19D9DD3500915124 /* Cultivo.h */,
@@ -310,6 +318,8 @@
 				4DCF205B19D9DD3500915124 /* Usuario.m */,
 				4DD4EE9119DC49FC00ED57F0 /* DataManager.h */,
 				4DD4EE9219DC49FC00ED57F0 /* DataManager.m */,
+				4DB4FD041A06DCC9001498FB /* Planta+ViewManagement.h */,
+				4DB4FD051A06DCC9001498FB /* Planta+ViewManagement.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -557,8 +567,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				4DAD4E0419F802D900A86C6A /* RepetirPlantaViewController.m in Sources */,
+				4DB4FD061A06DCC9001498FB /* Planta+ViewManagement.m in Sources */,
 				4DCF205E19D9DD3500915124 /* Cultivo.m in Sources */,
 				4D717E4919DDE01B00DB9DDD /* TipoPlanta.m in Sources */,
+				4DB4FD031A06D85F001498FB /* Planta.m in Sources */,
 				896E2DA319E9AF6A0093F6B1 /* ErrorViewController.m in Sources */,
 				4D5A4C8619FF19FE00DA8B1D /* EventoArmario.m in Sources */,
 				4D2F45A919FACE8E00CBDC37 /* Riego.m in Sources */,
@@ -567,6 +579,7 @@
 				4D717E5519DED22400DB9DDD /* PlantasTableViewController.m in Sources */,
 				4DCF206319D9DD3500915124 /* PeriodoLuz.m in Sources */,
 				4DCF206F19D9DD8600915124 /* InitialViewController.m in Sources */,
+				4DE849C81A0066F100660D79 /* AlertViewController.m in Sources */,
 				4D2F45A019FAAF1000CBDC37 /* FertilizanteViewController.m in Sources */,
 				4DEAAF3319D59D7D00E3FDDA /* main.m in Sources */,
 				4DAD4DFB19F7F91500A86C6A /* Armario.m in Sources */,
@@ -597,7 +610,6 @@
 				4D2F459D19FA9E9C00CBDC37 /* RiegoViewController.m in Sources */,
 				4DAD4E0A19F9899B00A86C6A /* UIImageHelper.m in Sources */,
 				4DCF205D19D9DD3500915124 /* CicloVida.m in Sources */,
-				4DAD4DFE19F7F91500A86C6A /* Planta.m in Sources */,
 				4DCF207019D9DD8600915124 /* LoginViewController.m in Sources */,
 				4DAD4DCF19F5716300A86C6A /* CultivosLogTableViewCell.m in Sources */,
 			);

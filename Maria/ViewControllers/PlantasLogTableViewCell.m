@@ -8,6 +8,7 @@
 
 #import "PlantasLogTableViewCell.h"
 #import "Planta.h"
+#import "Planta+ViewManagement.h"
 #import "TipoPlanta.h"
 #import "CicloVida.h"
 #import "EventoPlanta.h"
@@ -49,18 +50,33 @@
             return [obj1.fecha compare:obj2.fecha];
         }];
         
-        ciclo = ((EventoPlanta*)sortArray[0]).cambioCicloVida.nombre;
+        if (((EventoPlanta*)sortArray[0]).cambioCicloVida)
+            ciclo = ((EventoPlanta*)sortArray[0]).cambioCicloVida.nombre;
     }
     
     self.tipo.text = [NSString stringWithFormat:@"Tipo:%@", planta.tipoPlanta.tipoPlanta];
     self.ciclo.text = [NSString stringWithFormat:@"Ciclo vida:%@", ciclo];
     self.genetica.text = [NSString stringWithFormat:@"Genetica:%@", planta.genetica];
     
+    if (self.planta.tieneCambios)
+        if (self.planta.tieneCambios.boolValue == YES)
+            [self.cambioButton setTitle:@"Eliminar" forState:UIControlStateNormal];
+    
 }
+
 - (IBAction)cambioButtonTapped:(id)sender {
-    
-    [self.delegate cambioButtonTapped:self.planta];
-    
+
+    if ([self.cambioButton.titleLabel.text isEqualToString:@"Cambio"])
+    {
+       // self.planta.tieneCambios = [NSNumber numberWithBool:YES];
+        [self.delegate cambioButtonTapped:self.planta];
+    }
+    else
+    {
+        self.planta.tieneCambios = [NSNumber numberWithBool:NO];
+        [self.delegate eliminarCambioButtonTapped:self.planta];
+    }
 }
+
 
 @end

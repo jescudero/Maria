@@ -56,6 +56,7 @@
         <attribute name="altura" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
         <attribute name="foto" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="genetica" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tieneCambios" optional="YES" transient="YES" attributeType="Boolean" syncable="YES"/>
         <relationship name="eventos" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="EventoPlanta" inverseName="planta" inverseEntity="EventoPlanta" syncable="YES"/>
         <relationship name="inicioCicloVida" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CicloVida" syncable="YES"/>
         <relationship name="tipoPlanta" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TipoPlanta" syncable="YES"/>
@@ -87,7 +88,7 @@
         <element name="Fertilizante" positionX="0" positionY="108" width="128" height="118"/>
         <element name="Luces" positionX="-27" positionY="90" width="128" height="73"/>
         <element name="PeriodoLuz" positionX="-9" positionY="108" width="128" height="73"/>
-        <element name="Planta" positionX="-27" positionY="63" width="128" height="133"/>
+        <element name="Planta" positionX="-27" positionY="63" width="128" height="150"/>
         <element name="Riego" positionX="-9" positionY="81" width="128" height="118"/>
         <element name="TipoPlanta" positionX="-27" positionY="99" width="128" height="58"/>
         <element name="Usuario" positionX="-63" positionY="-18" width="128" height="133"/>

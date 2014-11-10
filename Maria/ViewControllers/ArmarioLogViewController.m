@@ -11,6 +11,7 @@
 #import "PeriodoLuz.h"
 #import "Luces.h"
 #import "Planta.h"
+#import "Planta+ViewManagement.h"
 #import "PlantasLogTableViewCell.h"
 #import "EventoArmarioViewController.h"
 #import "EventoPlantaViewController.h"
@@ -35,7 +36,7 @@
 @property (nonatomic, strong) UIView *overlayView;
 
 @property (nonatomic, strong) EventoArmario *eventoArmario;
-@property (nonatomic, strong) NSArray *eventosPlanta;
+@property (nonatomic, strong) NSMutableArray *eventosPlanta;
 
 @end
 
@@ -100,7 +101,7 @@
     cell.delegate = self;
     
     Planta *planta = [self.armario.plantas allObjects][indexPath.row];
-    // Configure the cell...
+
     [cell configureCell:planta];
     
     return cell;
@@ -134,7 +135,6 @@
 
     self.eventoArmario = evento;
     
-    
     self.periodoLuzLabel.text =  [NSString stringWithFormat:@"Periodo de Luz: %@", self.eventoArmario.cambioFotoPeriodo.horasLuz];
     
     self.periodoOscuridadLabel.text = [NSString stringWithFormat:@"Periodo de Oscuridad: %@", self.eventoArmario.cambioFotoPeriodo.horasOscuridad];
@@ -150,32 +150,38 @@
     [self.cambiosArmarioButton setTitle:@"Remover Cambios" forState:UIControlStateNormal];
 }
 
-- (IBAction)cambioPlantasTapped:(id)sender {
-    
-    self.eventoPlantaVC = [[UIStoryboard storyboardWithName:@"Logs" bundle:nil]instantiateViewControllerWithIdentifier:@"EventoPlantaVC"];
-    self.eventoPlantaVC.delegate = self;
-    
-    [self.navigationController pushViewController:self.eventoPlantaVC animated:YES];
-}
 
--(void)eventoPlantaCreado:(NSArray*)eventos
+-(void)eventoPlantaCreado:(EventoPlanta*)eventoPlanta
 {
-    self.eventosPlanta = eventos;
+    [self.eventosPlanta addObject:eventoPlanta];
+    
+    [self.plantasTable reloadData];
 }
 
-- (IBAction)grabarCambios:(id)sender {
-
-    if (self.eventoArmario)
-        [self.eventoArmario save];
+-(void)eliminarCambioButtonTapped:(Planta *)planta
+{
+    EventoPlanta *lastEventAdded = [[planta.eventos allObjects]lastObject];
+    EventoPlanta *removeEvent;
     
-    if (self.eventosPlanta.count > 1)
-    {
-        for (EventoPlanta *eventoPlanta in self.eventosPlanta) {
-            [eventoPlanta save];
+    for (EventoPlanta *eventoPlanta in self.eventosPlanta) {
+        if ([eventoPlanta isEqual:lastEventAdded])
+        {
+            removeEvent = eventoPlanta;
+            break;
         }
     }
     
-    [self.navigationController popToRootViewControllerAnimated:YES];
+    [self.eventosPlanta removeObject:removeEvent];
+    
+
+    for (int i=0; i<[self.armario.plantas allObjects].count; i++) {
+        
+        if ([(Planta*)[self.armario.plantas allObjects][i] isEqual:planta])
+            ((Planta*)[self.armario.plantas allObjects][i]).tieneCambios = [NSNumber numberWithBool:NO];
+    }
+    
+    [self.plantasTable reloadData];
+
 }
 
 -(void)cambioButtonTapped:(Planta*)planta{
@@ -185,6 +191,21 @@
     self.eventoPlantaVC.planta = planta;
     
     [self.navigationController pushViewController:self.eventoPlantaVC animated:YES];
+}
+
+- (IBAction)grabarCambios:(id)sender {
+    
+    if (self.eventoArmario)
+        [self.eventoArmario save];
+    
+    if (self.eventosPlanta.count > 0)
+    {
+        for (EventoPlanta *eventoPlanta in self.eventosPlanta) {
+            [eventoPlanta save];
+        }
+    }
+    
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 @end
