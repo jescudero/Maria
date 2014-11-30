@@ -8,7 +8,6 @@
 
 #import "EventoPlantaViewController.h"
 #import "Planta.h"
-#import "Planta+ViewManagement.h"
 #import "EventoPlanta.h"
 #import "CicloVida.h"
 #import "Fertilizante.h"
@@ -306,8 +305,6 @@
 
 - (IBAction)guardarEventoPlantaTapped:(id)sender {
     
-    self.planta.tieneCambios = [NSNumber numberWithBool:YES];
-
     NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
     [formatter setLocale:[NSLocale currentLocale]];
     [formatter setDateFormat:@"dd/MM/yyyy"];

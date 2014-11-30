@@ -35,7 +35,6 @@
 		4DAD4E0A19F9899B00A86C6A /* UIImageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DAD4E0919F9899B00A86C6A /* UIImageHelper.m */; };
 		4DAD4E1019F99F6D00A86C6A /* EventoPlantaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DAD4E0F19F99F6D00A86C6A /* EventoPlantaViewController.m */; };
 		4DB4FD031A06D85F001498FB /* Planta.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB4FD021A06D85F001498FB /* Planta.m */; };
-		4DB4FD061A06DCC9001498FB /* Planta+ViewManagement.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB4FD051A06DCC9001498FB /* Planta+ViewManagement.m */; };
 		4DCF205D19D9DD3500915124 /* CicloVida.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DCF204919D9DD3500915124 /* CicloVida.m */; };
 		4DCF205E19D9DD3500915124 /* Cultivo.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DCF204B19D9DD3500915124 /* Cultivo.m */; };
 		4DCF206119D9DD3500915124 /* Luces.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DCF205119D9DD3500915124 /* Luces.m */; };
@@ -129,8 +128,6 @@
 		4DAD4E0F19F99F6D00A86C6A /* EventoPlantaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventoPlantaViewController.m; sourceTree = "<group>"; };
 		4DB4FD011A06D85F001498FB /* Planta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Planta.h; path = ../../Planta.h; sourceTree = "<group>"; };
 		4DB4FD021A06D85F001498FB /* Planta.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Planta.m; path = ../../Planta.m; sourceTree = "<group>"; };
-		4DB4FD041A06DCC9001498FB /* Planta+ViewManagement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Planta+ViewManagement.h"; sourceTree = "<group>"; };
-		4DB4FD051A06DCC9001498FB /* Planta+ViewManagement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Planta+ViewManagement.m"; sourceTree = "<group>"; };
 		4DB6191719DD8D07000EFBD1 /* Maria-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Maria-Prefix.pch"; sourceTree = SOURCE_ROOT; };
 		4DCF204819D9DD3500915124 /* CicloVida.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CicloVida.h; sourceTree = "<group>"; };
 		4DCF204919D9DD3500915124 /* CicloVida.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CicloVida.m; sourceTree = "<group>"; };
@@ -318,8 +315,6 @@
 				4DCF205B19D9DD3500915124 /* Usuario.m */,
 				4DD4EE9119DC49FC00ED57F0 /* DataManager.h */,
 				4DD4EE9219DC49FC00ED57F0 /* DataManager.m */,
-				4DB4FD041A06DCC9001498FB /* Planta+ViewManagement.h */,
-				4DB4FD051A06DCC9001498FB /* Planta+ViewManagement.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -567,7 +562,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4DAD4E0419F802D900A86C6A /* RepetirPlantaViewController.m in Sources */,
-				4DB4FD061A06DCC9001498FB /* Planta+ViewManagement.m in Sources */,
 				4DCF205E19D9DD3500915124 /* Cultivo.m in Sources */,
 				4D717E4919DDE01B00DB9DDD /* TipoPlanta.m in Sources */,
 				4DB4FD031A06D85F001498FB /* Planta.m in Sources */,

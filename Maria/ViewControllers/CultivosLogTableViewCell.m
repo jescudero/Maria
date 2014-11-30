@@ -10,7 +10,6 @@
 #import "Cultivo.h"
 #import "Armario.h"
 #import "Planta.h"
-#import "Planta+ViewManagement.h"
 #import "EventoPlanta.h"
 #import "EventoArmario.h"
 
@@ -32,24 +31,24 @@
     self.armarioLabel.text = [NSString stringWithFormat:@"Armario: %@ - Plantas: %@", armario.nombre, @(armario.plantas.count)];
     
     
-    NSString *lastEvent = @"-";
+    NSString *ultimoEventoArmario = @"-";
     
     NSArray *eventoArmario = [armario.eventos allObjects];
     
     if (eventoArmario.count > 0)
     {
         NSArray *sortArray = [eventoArmario sortedArrayUsingComparator: ^(EventoArmario *obj1, EventoArmario *obj2) {
-        return [obj1.fecha compare:obj2.fecha];
+        return [obj2.fecha compare:obj1.fecha];
         }];
     
         NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
         [formatter setDateFormat:@"dd/MM/yyyy"];
         [formatter setLocale:[NSLocale currentLocale]];
     
-        lastEvent = [formatter stringFromDate:((EventoArmario*)sortArray[0]).fecha];
+        ultimoEventoArmario = [formatter stringFromDate:((EventoArmario*)sortArray[0]).fecha];
     }
     
-    self.eventosArmarioLabel.text = [NSString stringWithFormat:@"Ultima modificacion armario: %@", lastEvent];
+    self.eventosArmarioLabel.text = [NSString stringWithFormat:@"Ultima modificacion armario: %@", ultimoEventoArmario];
     
     
     NSString *ultimoEventoPlanta = @"-";
@@ -67,7 +66,7 @@
     if (eventosPlantas.count > 0)
     {
         NSArray *sortArrayPlantas = [eventosPlantas sortedArrayUsingComparator: ^(EventoPlanta *obj1, EventoPlanta *obj2) {
-            return [obj1.fecha compare:obj2.fecha];
+            return [obj2.fecha compare:obj1.fecha];
         }];
         
         
@@ -78,7 +77,7 @@
         ultimoEventoPlanta = [formatter stringFromDate:((EventoPlanta*)sortArrayPlantas[0]).fecha];
     }
              
-    self.eventosPlantaLabel.text = [NSString stringWithFormat:@"Ultima modificacion plantas: %@", lastEvent];
+    self.eventosPlantaLabel.text = [NSString stringWithFormat:@"Ultima modificacion plantas: %@", ultimoEventoPlanta];
     
 }
 

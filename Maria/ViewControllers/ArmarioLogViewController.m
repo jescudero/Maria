@@ -11,7 +11,6 @@
 #import "PeriodoLuz.h"
 #import "Luces.h"
 #import "Planta.h"
-#import "Planta+ViewManagement.h"
 #import "PlantasLogTableViewCell.h"
 #import "EventoArmarioViewController.h"
 #import "EventoPlantaViewController.h"
@@ -66,6 +65,8 @@
     
     self.plantasTable.delegate = self;
     self.plantasTable.dataSource = self;
+    
+    self.eventosPlanta = [[NSMutableArray alloc]init];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -102,7 +103,24 @@
     
     Planta *planta = [self.armario.plantas allObjects][indexPath.row];
 
-    [cell configureCell:planta];
+    BOOL hayCambios = NO;
+    
+    EventoPlanta *eventoCambio = nil;
+    
+    if (self.eventosPlanta.count > 0)
+    {
+        for (EventoPlanta* ev in self.eventosPlanta) {
+            if (ev.planta == planta)
+            {
+                hayCambios = YES;
+                eventoCambio = ev;
+                
+            }
+        }
+    }
+    
+    [cell configureCell:planta conCambios:hayCambios eventoPlanta:eventoCambio];
+
     
     return cell;
 }
@@ -160,11 +178,10 @@
 
 -(void)eliminarCambioButtonTapped:(Planta *)planta
 {
-    EventoPlanta *lastEventAdded = [[planta.eventos allObjects]lastObject];
     EventoPlanta *removeEvent;
     
     for (EventoPlanta *eventoPlanta in self.eventosPlanta) {
-        if ([eventoPlanta isEqual:lastEventAdded])
+        if (eventoPlanta.planta == planta)
         {
             removeEvent = eventoPlanta;
             break;
@@ -173,12 +190,6 @@
     
     [self.eventosPlanta removeObject:removeEvent];
     
-
-    for (int i=0; i<[self.armario.plantas allObjects].count; i++) {
-        
-        if ([(Planta*)[self.armario.plantas allObjects][i] isEqual:planta])
-            ((Planta*)[self.armario.plantas allObjects][i]).tieneCambios = [NSNumber numberWithBool:NO];
-    }
     
     [self.plantasTable reloadData];
 

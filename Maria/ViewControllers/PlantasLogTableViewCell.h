@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @class Planta;
+@class EventoPlanta;
 
 @protocol PlantasLogCellProtocol <NSObject>
 
@@ -30,7 +31,6 @@
 
 @property (nonatomic, strong) Planta *planta;
 
--(void)configureCell:(Planta*)planta;
-
+-(void)configureCell:(Planta*)planta conCambios:(BOOL)conCambios eventoPlanta:(EventoPlanta*)eventoPlanta;
 
 @end
