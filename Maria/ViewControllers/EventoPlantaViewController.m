@@ -219,6 +219,8 @@
     
     self.fertilizanteLabel.text = [NSString stringWithFormat:@"%@, %@ (%@)", nombre, tipo, marca];
     
+    self.fertilizante = fertilizante;
+    
     [self.overlayView removeFromSuperview];
     
     [self.fertilizanteVC removeFromParentViewController];
@@ -248,6 +250,7 @@
     self.riegoVC.view.alpha = 1.0;
     
 
+
     [self addChildViewController:self.riegoVC];
     [self.overlayView addSubview:self.riegoVC.view];
     
@@ -256,6 +259,8 @@
 
 -(void)riegoGrabado:(Riego *)riego
 {
+    
+    self.riego = riego;
     
     NSString *litros = [riego.litros isEqualToNumber:[NSNumber numberWithInt:0]] ? @"Riego indeterminado" : riego.litros.stringValue;
     

@@ -15,6 +15,7 @@
 		4D2F45A019FAAF1000CBDC37 /* FertilizanteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2F459F19FAAF1000CBDC37 /* FertilizanteViewController.m */; };
 		4D2F45A619FACE7400CBDC37 /* Fertilizante.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2F45A519FACE7400CBDC37 /* Fertilizante.m */; };
 		4D2F45A919FACE8E00CBDC37 /* Riego.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2F45A819FACE8E00CBDC37 /* Riego.m */; };
+		4D3E15921A2BD35C002AB3B0 /* LogTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3E15911A2BD35C002AB3B0 /* LogTableViewCell.m */; };
 		4D5A4C8619FF19FE00DA8B1D /* EventoArmario.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D5A4C8519FF19FE00DA8B1D /* EventoArmario.m */; };
 		4D5A4C8919FF19FF00DA8B1D /* EventoPlanta.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D5A4C8819FF19FF00DA8B1D /* EventoPlanta.m */; };
 		4D717E4919DDE01B00DB9DDD /* TipoPlanta.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D717E4819DDE01B00DB9DDD /* TipoPlanta.m */; };
@@ -58,6 +59,7 @@
 		4DEAAF4119D59D7D00E3FDDA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DEAAF4019D59D7D00E3FDDA /* Images.xcassets */; };
 		4DEAAF4419D59D7D00E3FDDA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DEAAF4219D59D7D00E3FDDA /* LaunchScreen.xib */; };
 		4DEAAF5019D59D7D00E3FDDA /* MariaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DEAAF4F19D59D7D00E3FDDA /* MariaTests.m */; };
+		4DF1DDD91A2BB72F00A30D76 /* LogTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF1DDD81A2BB72F00A30D76 /* LogTableViewController.m */; };
 		896E2DA019E9AF390093F6B1 /* Help.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 896E2D9F19E9AF390093F6B1 /* Help.storyboard */; };
 		896E2DA319E9AF6A0093F6B1 /* ErrorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 896E2DA219E9AF6A0093F6B1 /* ErrorViewController.m */; };
 		B73EF1E84BD046BD8D232594 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DC0FF23E20C4CEF87781FE5 /* libPods.a */; };
@@ -90,6 +92,8 @@
 		4D2F45A519FACE7400CBDC37 /* Fertilizante.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Fertilizante.m; sourceTree = "<group>"; };
 		4D2F45A719FACE8E00CBDC37 /* Riego.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Riego.h; path = ../../Riego.h; sourceTree = "<group>"; };
 		4D2F45A819FACE8E00CBDC37 /* Riego.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Riego.m; path = ../../Riego.m; sourceTree = "<group>"; };
+		4D3E15901A2BD35C002AB3B0 /* LogTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogTableViewCell.h; sourceTree = "<group>"; };
+		4D3E15911A2BD35C002AB3B0 /* LogTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogTableViewCell.m; sourceTree = "<group>"; };
 		4D5A4C8419FF19FE00DA8B1D /* EventoArmario.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EventoArmario.h; path = ../../EventoArmario.h; sourceTree = "<group>"; };
 		4D5A4C8519FF19FE00DA8B1D /* EventoArmario.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EventoArmario.m; path = ../../EventoArmario.m; sourceTree = "<group>"; };
 		4D5A4C8719FF19FF00DA8B1D /* EventoPlanta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EventoPlanta.h; path = ../../EventoPlanta.h; sourceTree = "<group>"; };
@@ -174,6 +178,8 @@
 		4DEAAF4919D59D7D00E3FDDA /* MariaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MariaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DEAAF4E19D59D7D00E3FDDA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4DEAAF4F19D59D7D00E3FDDA /* MariaTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MariaTests.m; sourceTree = "<group>"; };
+		4DF1DDD71A2BB72F00A30D76 /* LogTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogTableViewController.h; sourceTree = "<group>"; };
+		4DF1DDD81A2BB72F00A30D76 /* LogTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogTableViewController.m; sourceTree = "<group>"; };
 		896E2D9F19E9AF390093F6B1 /* Help.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Help.storyboard; sourceTree = "<group>"; };
 		896E2DA119E9AF6A0093F6B1 /* ErrorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ErrorViewController.h; sourceTree = "<group>"; };
 		896E2DA219E9AF6A0093F6B1 /* ErrorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ErrorViewController.m; sourceTree = "<group>"; };
@@ -260,6 +266,10 @@
 				4D2F459F19FAAF1000CBDC37 /* FertilizanteViewController.m */,
 				4DE849C61A0066F100660D79 /* AlertViewController.h */,
 				4DE849C71A0066F100660D79 /* AlertViewController.m */,
+				4DF1DDD71A2BB72F00A30D76 /* LogTableViewController.h */,
+				4DF1DDD81A2BB72F00A30D76 /* LogTableViewController.m */,
+				4D3E15901A2BD35C002AB3B0 /* LogTableViewCell.h */,
+				4D3E15911A2BD35C002AB3B0 /* LogTableViewCell.m */,
 			);
 			name = Logs;
 			sourceTree = "<group>";
@@ -601,7 +611,9 @@
 				4DCF206619D9DD3500915124 /* Usuario.m in Sources */,
 				4D0AE65619F0515B0002EAC5 /* CultivosLogTableViewController.m in Sources */,
 				4DD4EEAA19DC884000ED57F0 /* UIView+FrameHelper.m in Sources */,
+				4DF1DDD91A2BB72F00A30D76 /* LogTableViewController.m in Sources */,
 				4D2F459D19FA9E9C00CBDC37 /* RiegoViewController.m in Sources */,
+				4D3E15921A2BD35C002AB3B0 /* LogTableViewCell.m in Sources */,
 				4DAD4E0A19F9899B00A86C6A /* UIImageHelper.m in Sources */,
 				4DCF205D19D9DD3500915124 /* CicloVida.m in Sources */,
 				4DCF207019D9DD8600915124 /* LoginViewController.m in Sources */,

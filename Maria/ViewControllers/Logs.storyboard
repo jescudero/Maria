@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
+        <deployment defaultVersion="1808" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -62,7 +63,71 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uRH-uG-aKT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-452" y="-141"/>
+            <point key="canvasLocation" x="-778" y="-393"/>
+        </scene>
+        <!--Log Table View Controller-->
+        <scene sceneID="J9B-EB-rqk">
+            <objects>
+                <tableViewController storyboardIdentifier="LogsTableVC" id="W21-iz-GJn" customClass="LogTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="22" sectionFooterHeight="22" id="dHn-aV-L0n">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LogCell" id="H1H-2Q-BqI" customClass="LogTableViewCell">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="H1H-2Q-BqI" id="6s0-Sk-JhO">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="12/10/2014" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3E9-JQ-VVV">
+                                            <rect key="frame" x="10" y="5" width="78" height="28"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T6B-yY-Fgj">
+                                            <rect key="frame" x="10" y="38" width="37" height="18"/>
+                                            <color key="backgroundColor" red="0.92941176469999998" green="0.0" blue="0.40784313729999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="T6B-yY-Fgj" firstAttribute="top" secondItem="3E9-JQ-VVV" secondAttribute="bottom" constant="5" id="3w9-AV-HQ8"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="T6B-yY-Fgj" secondAttribute="bottom" constant="5" id="CXp-pm-Q4S"/>
+                                        <constraint firstAttribute="bottom" secondItem="T6B-yY-Fgj" secondAttribute="bottom" constant="10" id="LU1-PP-zim"/>
+                                        <constraint firstItem="T6B-yY-Fgj" firstAttribute="leading" secondItem="6s0-Sk-JhO" secondAttribute="leading" constant="10" id="NUD-F4-m7r"/>
+                                        <constraint firstItem="3E9-JQ-VVV" firstAttribute="leading" secondItem="6s0-Sk-JhO" secondAttribute="leading" constant="10" id="Z0v-Bz-DYu"/>
+                                        <constraint firstItem="3E9-JQ-VVV" firstAttribute="top" secondItem="6s0-Sk-JhO" secondAttribute="top" constant="5" id="gQi-Ro-0n4"/>
+                                        <constraint firstAttribute="trailing" secondItem="T6B-yY-Fgj" secondAttribute="trailing" constant="20" id="lki-6c-vDS"/>
+                                        <constraint firstItem="T6B-yY-Fgj" firstAttribute="leading" secondItem="6s0-Sk-JhO" secondAttribute="leading" constant="10" id="mnV-ZA-L82"/>
+                                        <constraint firstItem="T6B-yY-Fgj" firstAttribute="top" secondItem="3E9-JQ-VVV" secondAttribute="bottom" constant="5" id="wQR-qd-hcs"/>
+                                    </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="3w9-AV-HQ8"/>
+                                            <exclude reference="LU1-PP-zim"/>
+                                            <exclude reference="lki-6c-vDS"/>
+                                            <exclude reference="mnV-ZA-L82"/>
+                                        </mask>
+                                    </variation>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="detailLabel" destination="T6B-yY-Fgj" id="poK-hF-fpT"/>
+                                    <outlet property="fechaLabel" destination="3E9-JQ-VVV" id="SnW-NL-6KD"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="W21-iz-GJn" id="Z4L-5a-fvN"/>
+                            <outlet property="delegate" destination="W21-iz-GJn" id="SIk-2g-Qyw"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="t3j-Q6-ugc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-663" y="629"/>
         </scene>
         <!--Armario Log View Controller-->
         <scene sceneID="pBZ-bI-PZE">

@@ -12,8 +12,9 @@
 #import "Cultivo.h"
 #import "Armario.h"
 #import "ArmarioLogViewController.h"
+#import "LogTableViewController.h"
 
-@interface CultivosLogTableViewController ()
+@interface CultivosLogTableViewController ()<UIGestureRecognizerDelegate>
 
 @property (nonatomic, strong) NSArray *cultivosList;
 
@@ -81,6 +82,13 @@
     CultivoLogHeaderView *cultivoHeader = [[[NSBundle mainBundle] loadNibNamed:@"CultivoLogHeader" owner:self options:nil] objectAtIndex:0];
 
     [cultivoHeader configureView:cultivo];
+    cultivoHeader.tag = section;
+    
+    UITapGestureRecognizer *singleTapRecogniser = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(gestureHandler:)];
+    [singleTapRecogniser setDelegate:self];
+    singleTapRecogniser.numberOfTouchesRequired = 1;
+    singleTapRecogniser.numberOfTapsRequired = 1;
+    [cultivoHeader addGestureRecognizer:singleTapRecogniser];
     
     return cultivoHeader;
 }
@@ -99,6 +107,17 @@
     logVC.armario = armario;
 
     [self.navigationController pushViewController:logVC animated:YES];
+}
+
+-(void)gestureHandler:(UITapGestureRecognizer*)gesture
+{
+    LogTableViewController *logTableVC = [[UIStoryboard storyboardWithName:@"Logs" bundle:nil]instantiateViewControllerWithIdentifier:@"LogsTableVC"];
+    
+    NSInteger section = gesture.view.tag;
+    
+    logTableVC.cultivo = self.cultivosList[section];
+    
+    [self.navigationController pushViewController:logTableVC animated:YES];
 }
 
 /*
