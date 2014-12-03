@@ -53,10 +53,10 @@
 
     
     if (eventoPlanta.cambioAltura != [NSDecimalNumber numberWithInt:0])
-        cambioAltura = [NSString stringWithFormat:@"Nueva altura: %@ \n", eventoPlanta.cambioAltura];
+        cambioAltura = [NSString stringWithFormat:@"Nueva altura: %@", eventoPlanta.cambioAltura];
     
     if (eventoPlanta.cambioCicloVida != nil)
-        cambioCiclo = [NSString stringWithFormat:@"Ciclo de vida: %@ \n", eventoPlanta.cambioCicloVida.nombre];
+        cambioCiclo = [NSString stringWithFormat:@"Ciclo de vida: %@", eventoPlanta.cambioCicloVida.nombre];
     
     if (eventoPlanta.riego != nil)
     {
@@ -72,7 +72,7 @@
         if ([litros isEqualToString:@"Riego indeterminado"])
             cambioRiego = litros;
         else
-            cambioRiego = [NSString stringWithFormat:@" %@ lts (ec: %@ - ph: %@ - temp: %@) \n", litros, ec, ph, temperatura];
+            cambioRiego = [NSString stringWithFormat:@" %@ lts (ec: %@ - ph: %@ - temp: %@)", litros, ec, ph, temperatura];
         
 
     }
@@ -83,13 +83,43 @@
         NSString *tipo = [eventoPlanta.fertilizante.tipo isEqualToString:@""] ? @"" : eventoPlanta.fertilizante.tipo;
         NSString *marca = [eventoPlanta.fertilizante.marca isEqualToString:@""] ? @"NN" : eventoPlanta.fertilizante.marca;
         
-        cambioFetr = [NSString stringWithFormat:@"%@, %@ (%@) \n", nombre, tipo, marca];
+        cambioFetr = [NSString stringWithFormat:@"%@, %@ (%@)", nombre, tipo, marca];
         
     }
     
-    NSString *text = [NSString stringWithFormat:@"%@ %@ %@ %@", cambioAltura, cambioCiclo, cambioRiego, cambioFetr];
+    NSString *text = @"";
     
-    self.detailLabel.text = [text substringToIndex:[text length]-2];
+    if (![cambioAltura isEqualToString:@""])
+        text = [text stringByAppendingString:cambioAltura];
+    
+    if ([text isEqualToString:@""])
+    {
+        if (![cambioCiclo isEqualToString:@""])
+            text = [text stringByAppendingString:cambioCiclo];
+    }
+    else
+        if (![cambioCiclo isEqualToString:@""])
+            text = [text stringByAppendingString:[NSString stringWithFormat:@"\n %@", cambioCiclo]];
+    
+    if ([text isEqualToString:@""])
+    {
+        if (![cambioRiego isEqualToString:@""])
+            text = [text stringByAppendingString:cambioRiego];
+    }
+    else
+        if (![cambioRiego isEqualToString:@""])
+            text = [text stringByAppendingString:[NSString stringWithFormat:@"\n %@", cambioRiego]];
+    
+    if ([text isEqualToString:@""])
+    {
+        if (![cambioFetr isEqualToString:@""])
+            text = [text stringByAppendingString:cambioFetr];
+    }
+    else
+        if (![cambioFetr isEqualToString:@""])
+            text = [text stringByAppendingString:[NSString stringWithFormat:@"\n %@", cambioFetr]];
+    
+    self.detailLabel.text =text;
     
 }
 
