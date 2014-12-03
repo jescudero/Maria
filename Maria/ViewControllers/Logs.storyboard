@@ -79,16 +79,15 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="H1H-2Q-BqI" id="6s0-Sk-JhO">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="12/10/2014" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3E9-JQ-VVV">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" misplaced="YES" text="12/10/2014" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3E9-JQ-VVV">
                                             <rect key="frame" x="10" y="5" width="78" height="28"/>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T6B-yY-Fgj">
-                                            <rect key="frame" x="10" y="38" width="37" height="18"/>
-                                            <color key="backgroundColor" red="0.92941176469999998" green="0.0" blue="0.40784313729999999" alpha="1" colorSpace="calibratedRGB"/>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T6B-yY-Fgj">
+                                            <rect key="frame" x="10" y="39" width="35" height="17"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -204,7 +203,7 @@
                                                     <constraint firstAttribute="height" constant="200" id="jGp-Dy-e7F"/>
                                                 </constraints>
                                                 <prototypes>
-                                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="plantasLogCell" rowHeight="75" id="Kdd-2Y-x6o" customClass="PlantasLogTableViewCell">
+                                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="plantasLogCell" rowHeight="75" id="Kdd-2Y-x6o" customClass="PlantasLogTableViewCell">
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Kdd-2Y-x6o" id="g1R-yU-69p">
                                                             <autoresizingMask key="autoresizingMask"/>
@@ -556,7 +555,7 @@
                                                     <action selector="calendarioTApped:" destination="QSk-6G-vG1" eventType="touchUpInside" id="IBP-4C-zEp"/>
                                                 </connections>
                                             </button>
-                                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="24" translatesAutoresizingMaskIntoConstraints="NO" id="Obu-4X-xf8">
+                                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" continuous="NO" value="1" minimumValue="1" maximumValue="24" translatesAutoresizingMaskIntoConstraints="NO" id="Obu-4X-xf8">
                                                 <rect key="frame" x="75" y="205" width="94" height="29"/>
                                                 <color key="tintColor" red="0.3411764706" green="0.3411764706" blue="0.41568627450000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <connections>
@@ -601,7 +600,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="24" translatesAutoresizingMaskIntoConstraints="NO" id="YDW-Bz-NRe">
+                                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" continuous="NO" value="1" minimumValue="1" maximumValue="24" translatesAutoresizingMaskIntoConstraints="NO" id="YDW-Bz-NRe">
                                                 <rect key="frame" x="75" y="127" width="94" height="29"/>
                                                 <color key="tintColor" red="0.3411764706" green="0.3411764706" blue="0.41568627450000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <connections>
@@ -764,9 +763,9 @@
                         <outlet property="cambiarButton" destination="IJC-OA-ZVu" id="5Ss-t5-7GL"/>
                         <outlet property="cancelarButton" destination="U8n-SZ-Qn8" id="1oW-aV-NpO"/>
                         <outlet property="fechaText" destination="7c5-vn-BpT" id="cSh-dH-nnN"/>
-                        <outlet property="horasLuzStepper" destination="jZm-si-hOI" id="cOG-xF-wCA"/>
+                        <outlet property="horasLuzStepper" destination="YDW-Bz-NRe" id="tAf-fd-Uud"/>
                         <outlet property="horasLuzText" destination="Mvq-JT-npf" id="aWz-z6-Hi5"/>
-                        <outlet property="horasOscuridadStepper" destination="1l1-vk-BxG" id="ygg-Y3-FBg"/>
+                        <outlet property="horasOscuridadStepper" destination="Obu-4X-xf8" id="SXc-h8-cny"/>
                         <outlet property="horasOscuridadText" destination="0hv-j6-FLr" id="ZcM-VC-U9L"/>
                         <outlet property="iluminacionTable" destination="Iyj-Am-LR0" id="8af-3m-Ch2"/>
                         <outlet property="widthView" destination="nxT-4Q-rSM" id="8X0-P9-X39"/>

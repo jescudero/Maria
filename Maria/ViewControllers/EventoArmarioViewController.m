@@ -50,12 +50,19 @@
     self.horasLuz = [self.armario.fotoPeriodo.horasLuz integerValue];
     self.horasOscuridad = [self.armario.fotoPeriodo.horasOscuridad integerValue];
     
+    self.horasLuzStepper.maximumValue = 24;
+    self.horasLuzStepper.minimumValue = 1;
     self.horasLuzStepper.value = self.horasLuz;
+    self.horasLuzStepper.stepValue = 1;
+    
+    self.horasOscuridadStepper.maximumValue = 24;
+    self.horasOscuridadStepper.minimumValue = 1;
     self.horasOscuridadStepper.value = self.horasOscuridad;
+    self.horasOscuridadStepper.stepValue = 1;
+
+    self.horasLuzText.text = [NSString stringWithFormat:@"%d", self.horasLuz];
     
-    self.horasLuzText.text = [NSString stringWithFormat:@"%d", (int)self.horasLuzStepper.value];
-    
-    self.horasOscuridadText.text = [NSString stringWithFormat:@"%d", (int)self.horasOscuridadStepper.value];
+    self.horasOscuridadText.text = [NSString stringWithFormat:@"%d", self.horasOscuridad];
     
     [self.iluminacionTable reloadData];
     
