@@ -57,7 +57,7 @@
     self.errorLabel.text = self.text;
 
     [UIView animateWithDuration:0.5 animations:^{
-        self.view.frameY = 60;
+        self.view.frameY = 0;
     }];
     
     [NSTimer scheduledTimerWithTimeInterval:3.0

@@ -157,7 +157,7 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    LogTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LogCell" forIndexPath:indexPath];
+    LogTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LogTVCell" forIndexPath:indexPath];
     
 
     if ([self.eventos[indexPath.row] isKindOfClass:[EventoArmario class]])

@@ -86,7 +86,7 @@
 
 - (IBAction)selectFotoPeriodoTapped:(id)sender {
     
-    self.overlayView = [[UIView alloc]initWithFrame:self.view.frame];
+    self.overlayView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
     self.overlayView.backgroundColor = [UIColor blackColor];
     self.overlayView.alpha = 0.5;
     [self.view addSubview:self.overlayView];
@@ -102,7 +102,7 @@
 
 - (IBAction)selectTipoLuzTapped:(id)sender {
     
-    self.overlayView = [[UIView alloc]initWithFrame:self.view.frame];
+    self.overlayView =  [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
     self.overlayView.backgroundColor = [UIColor blackColor];
     self.overlayView.alpha = 0.5;
     [self.view addSubview:self.overlayView];

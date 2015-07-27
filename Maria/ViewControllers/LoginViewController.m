@@ -9,7 +9,7 @@
 #import "LoginViewController.h"
 #import <CoreData/CoreData.h>
 #import "Usuario.h"
-
+#import "AppDelegate.h"
 
 @interface LoginViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *emailText;
@@ -26,6 +26,8 @@
     
 }
 
+
+
 - (void) viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -41,12 +43,14 @@
                                                object:nil];
     
     
-    
-    if ([Usuario isLoggedIn])
-        [self performSegueWithIdentifier:@"login" sender:self];
-    
+     
 }
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    [self.emailText resignFirstResponder];
+    [self.passwordText resignFirstResponder];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -65,6 +69,7 @@
 
 - (IBAction)login:(id)sender {
     
+    [self resignFirstResponder];
  
     Usuario *usuario = [Usuario find:@"(email = %@) AND (password = %@)", self.emailText.text, self.passwordText.text];
     
@@ -73,7 +78,10 @@
         [Usuario login];
         [usuario saveDataToDefault];
         
-        [self performSegueWithIdentifier:@"login" sender:self];
+        
+        AppDelegate *app = [[UIApplication sharedApplication] delegate];
+        app.window.rootViewController = [self.view.window.rootViewController.storyboard   instantiateViewControllerWithIdentifier:@"navigationVC"];
+        
     }
     else
     {
@@ -94,14 +102,14 @@
 -(void)keyboardWillShow {
     // Animate the current view out of the way
     [UIView animateWithDuration:0.3f animations:^ {
-        self.view.frame = CGRectMake(0, -80, 320, self.view.frame.size.height);
+        self.view.frame = CGRectMake(0, -80, self.view.frame.size.width, self.view.frame.size.height);
     }];
 }
 
 -(void)keyboardWillHide {
     // Animate the current view back to its original position
     [UIView animateWithDuration:0.3f animations:^ {
-        self.view.frame = CGRectMake(0, 0, 320, self.view.frame.size.height);
+        self.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
     }];
 }
 @end

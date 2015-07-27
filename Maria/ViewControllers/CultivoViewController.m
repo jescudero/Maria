@@ -29,7 +29,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *calendarButton;
 @property (weak, nonatomic) IBOutlet UITableView *armariosTable;
 
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableWidth;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableHeight;
 
 @property (nonatomic) CGFloat yPosition;
 
@@ -45,8 +45,6 @@
     [super viewDidLoad];
 
     self.title = @"Nuevo Cultivo";
-    
-    self.tableWidth.constant = self.view.frameWidth-20;
     
     [[self.notasText layer] setBorderColor:[[UIColor grayColor] CGColor]];
     [[self.notasText layer] setBorderWidth:1];
@@ -64,7 +62,7 @@
 
     
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(keyboardWillShow)
+                                             selector:@selector(keyboardWillShow:)
                                                  name:UIKeyboardWillShowNotification
                                                object:nil];
     
@@ -81,6 +79,9 @@
     
     self.errorView = [[UIStoryboard storyboardWithName:@"Help" bundle:nil]instantiateViewControllerWithIdentifier:@"ErrorVC"];
     [self addChildViewController:self.errorView];
+    
+    self.tableHeight.constant = 44*self.cultivo.armarios.count;
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -214,6 +215,9 @@
     
     [self.cultivo addArmariosObject:armario];
     
+   
+    self.tableHeight.constant = 44*self.cultivo.armarios.count;
+    
     [self.armariosTable reloadData];
     
 }
@@ -252,17 +256,24 @@
     return true;
 }
 
--(void)keyboardWillShow {
+-(void)keyboardWillShow:(NSNotification *)aNotification  {
+    
+    NSDictionary *keyboardInfo = aNotification.userInfo;
+    
+    NSValue* keyboardFrameBegin = [keyboardInfo valueForKey:UIKeyboardFrameEndUserInfoKey];
+    CGRect keyboardFrame = [keyboardFrameBegin CGRectValue];
+    
     // Animate the current view out of the way
+  
     [UIView animateWithDuration:0.3f animations:^ {
-        self.view.frame = CGRectMake(0, -self.yPosition, 320, self.view.frame.size.height);
+        self.view.frame = CGRectMake(0, keyboardFrame.size.height *-1, self.view.frame.size.width, self.view.frame.size.height);
     }];
 }
 
 -(void)keyboardWillHide {
     // Animate the current view back to its original position
     [UIView animateWithDuration:0.3f animations:^ {
-        self.view.frame = CGRectMake(0, 0, 320, self.view.frame.size.height);
+        self.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
     }];
 }
 

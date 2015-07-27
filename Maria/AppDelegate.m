@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "Usuario.h"
 
 @interface AppDelegate ()
 
@@ -28,12 +29,20 @@
     
     [[UITextView appearance] setTintColor:[UIColor blackColor]];
     
+    /*
     [[UIBarButtonItem appearance]
      setBackButtonTitlePositionAdjustment:UIOffsetMake(-1000, -1000)
      forBarMetrics:UIBarMetricsDefault];
+    */
     
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
 
+    
+    if ([Usuario isLoggedIn])
+    {
+        self.window.rootViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"navigationVC"];
+        
+    }
     return YES;
 }
 
